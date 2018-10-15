@@ -1,0 +1,45 @@
+/*
+Printing Service Website
+Built with Java
+Copyright 2018 PTITers
+*/
+/* 
+    Created on : Sep 17, 2018, 9:46:59 AM
+    Author     : giangvdm
+*/
+a {
+  text-decoration: none;
+}
+a:hover, a:visited {
+  color: #222;
+}
+
+/* 
+    HEADER 
+*/
+/* 
+    NAVIGATION 
+*/
+.navigation__list {
+  list-style-type: none;
+}
+.navigation__list__item {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid black;
+}
+.navigation__list__item:hover {
+  background-color: #555;
+}
+.navigation__list__item:hover a {
+  color: #fff;
+}
+
+/* 
+    SECTION 
+*/
+/* 
+    FOOTER 
+*/
+
+/*# sourceMappingURL=main.css.map */

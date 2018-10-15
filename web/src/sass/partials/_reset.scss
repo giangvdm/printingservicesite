@@ -1,0 +1,7 @@
+a {
+    text-decoration: none;
+
+    &:hover, &:visited {
+        color: $color-text;
+    }
+}
