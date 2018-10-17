@@ -1,0 +1,11 @@
+#order-form {
+    box-shadow: 2px 10px 20px 5px $color-gray;
+}
+
+.form {
+    padding: 20px;
+
+    &__label-container {
+        text-align: right;
+    }
+}

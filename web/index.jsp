@@ -37,27 +37,27 @@
         <div class="container">
             <ul class="navigation__list">
                 <li class="navigation__list__item active">
-                    <a href="#">Trang chủ</a>
+                    <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
                 </li>
                 <li class="navigation__list__item">
-                    <a href="#">Giới thiệu</a>
+                    <a href="#"><i class="fas fa-address-card"></i> Giới thiệu</a>
                 </li>
                 <li class="navigation__list__item">
-                    <a href="#">Báo giá</a>
+                    <a href="#"><i class="fas fa-dollar-sign"></i> Báo giá</a>
                 </li>
                 <li class="navigation__list__item">
-                    <a href="#">Đặt hàng</a>
+                    <a href="#"><i class="fas fa-receipt"></i> Đặt hàng</a>
                 </li>
                 <li class="navigation__list__item">
-                    <a href="#">Liên hệ</a>
+                    <a href="#"><i class="fas fa-phone"></i> Liên hệ</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <section id="order-form">
+    <section class="section" id="">
         <div class="container">
-            <h2>Trang chủ</h2>
+            <h2 class="section__title">Trang chủ</h2>
             <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, amet maxime, quo accusamus, aut
                 necessitatibus incidunt ut odio possimus magni architecto nostrum cum dignissimos cupiditate. Aliquam
                 voluptas quam delectus optio!</div>
