@@ -7,6 +7,11 @@ Copyright 2018 PTITers
     Created on : Sep 17, 2018, 9:46:59 AM
     Author     : giangvdm
 */
+/* Larger than mobile */
+/* Larger than phablet */
+/* Larger than tablet */
+/* Larger than desktop */
+/* Larger than Desktop HD */
 a {
   text-decoration: none;
 }
@@ -14,24 +19,51 @@ a:hover, a:visited {
   color: #222;
 }
 
+ul {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+* {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+html, body {
+  height: 100%;
+}
+
 /* 
     HEADER 
 */
+.header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.header__logo {
+  width: 50px;
+  height: auto;
+}
+.header__site-name {
+  display: inline-block !important;
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+
 /* 
     NAVIGATION 
 */
 .navigation__list {
   list-style-type: none;
+  border-bottom: 1px solid #555;
 }
 .navigation__list__item {
   display: inline-block;
   padding: 10px 20px;
-  border: 1px solid black;
 }
-.navigation__list__item:hover {
+.navigation__list__item:hover, .navigation__list__item.active {
   background-color: #555;
 }
-.navigation__list__item:hover a {
+.navigation__list__item:hover a, .navigation__list__item.active a {
   color: #fff;
 }
 
@@ -41,5 +73,48 @@ a:hover, a:visited {
 /* 
     FOOTER 
 */
+.footer {
+  background-color: #555;
+  color: #fff;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+}
+.footer__social-media {
+  text-align: right;
+}
+.footer__copyright {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-media__link-wrapper {
+  display: flex;
+  flex-flow: row-reverse;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.social-media__link {
+  display: inline-block;
+  text-align: center;
+  font-size: 3rem;
+  color: #fff !important;
+  border-radius: 50%;
+  min-width: 50px;
+  height: auto;
+  border: 1px solid #fff;
+}
+
+#facebook-link {
+  background-color: #365899;
+}
+
+#twitter-link {
+  background-color: #006dbf;
+}
+
+#youtube-link {
+  background-color: #e62117;
+}
 
 /*# sourceMappingURL=main.css.map */

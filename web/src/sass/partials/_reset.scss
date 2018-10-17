@@ -2,6 +2,11 @@ a {
     text-decoration: none;
 
     &:hover, &:visited {
-        color: $color-text;
+        color: $color-dark-gray;
     }
+}
+
+ul {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
