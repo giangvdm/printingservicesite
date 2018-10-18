@@ -35,21 +35,21 @@
 
     <nav class="navigation" id="navigation">
         <div class="container">
-            <ul class="navigation__list">
-                <li class="navigation__list__item">
-                    <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
+            <ul class="navigation__nav-list">
+                <li class="nav-list__item">
+                    <a href="#"><i class="fas fa-home nav-list__icon"></i><span class="nav-list__text"> Trang chủ</span></a>
                 </li>
-                <li class="navigation__list__item">
-                    <a href="#"><i class="fas fa-address-card"></i> Giới thiệu</a>
+                <li class="nav-list__item">
+                    <a href="#"><i class="fas fa-address-card nav-list__icon"></i><span class="nav-list__text"> Giới thiệu</span></a>
                 </li>
-                <li class="navigation__list__item">
-                    <a href="#"><i class="fas fa-dollar-sign"></i> Báo giá</a>
+                <li class="nav-list__item">
+                    <a href="#"><i class="fas fa-dollar-sign nav-list__icon"></i><span class="nav-list__text"> Báo giá</span></a>
                 </li>
-                <li class="navigation__list__item active">
-                    <a href="#"><i class="fas fa-receipt"></i> Đặt hàng</a>
+                <li class="nav-list__item active">
+                    <a href="#"><i class="fas fa-receipt nav-list__icon"></i><span class="nav-list__text"> Đặt hàng</span></a>
                 </li>
-                <li class="navigation__list__item">
-                    <a href="#"><i class="fas fa-phone"></i> Liên hệ</a>
+                <li class="nav-list__item">
+                    <a href="#"><i class="fas fa-phone nav-list__icon"></i><span class="nav-list__text"> Liên hệ</span></a>
                 </li>
             </ul>
         </div>
@@ -59,74 +59,148 @@
         <div class="container">
             <h2 class="section__title">Đặt in/photo</h2>
             <form action="#" class="form" id="order-form">
-                <div class="row">
-                    <div class="five columns form__label-container">
-                        <label for="number-of-copy">Số bản</label>
+                <fieldset id="press-info">
+                    <legend>Thông tin bản in/photo</legend>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label required" for="number-of-pages"><i class="far fa-question-circle"></i>
+                                Tổng số trang</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="number" min="1" value="1" id="number-of-pages" required>
+                        </div>
                     </div>
-                    <div class="seven columns">
-                        <input type="number" min="1" value="1" id="number-of-copy">
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label required" for="number-of-copy">Số bản</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="number" min="1" value="1" id="number-of-copy" required>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="five columns form__label-container">
-                        <label for="paper-size">Khổ giấy</label>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label required" for="number-of-side">Số mặt in</label>
+                        </div>
+                        <div class="seven columns">
+                            <select name="number-of-side" id="number-of-side" required>
+                                <option value="1-side">1 mặt</option>
+                                <option value="2-sides">2 mặt</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="seven columns">
-                        <select name="paper-size" id="paper-size">
-                            <option value="a0">A0</option>
-                            <option value="a1">A1</option>
-                            <option value="a2">A2</option>
-                            <option value="a3">A3</option>
-                            <option value="a4">A4</option>
-                            <option value="a5">A5</option>
-                        </select>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label required" for="paper-size">Khổ giấy</label>
+                        </div>
+                        <div class="seven columns">
+                            <select name="paper-size" id="paper-size" required>
+                                <option value="a0">A0</option>
+                                <option value="a1">A1</option>
+                                <option value="a2">A2</option>
+                                <option value="a3">A3</option>
+                                <option value="a4">A4</option>
+                                <option value="a5">A5</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="five columns form__label-container">
-                        <label for="number-of-pages">Số trang</label>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label required" for="paper">Chất liệu giấy ruột</label>
+                        </div>
+                        <div class="seven columns">
+                            <select name="paper" id="paper" required>
+                                <option value="bb60">Bãi bằng 60</option>
+                                <option value="bb70">Bãi bằng 70</option>
+                                <option value="offset60">Offset 60</option>
+                                <option value="offset70">Offset 70</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="seven columns">
-                        <input type="number" min="1" value="1" id="number-of-pages">
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label" for="bookbinding">Đóng quyển</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="checkbox" value="yes" id="bookbinding">
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="five columns form__label-container">
-                        <label for="">Đóng quyển</label>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label" for="bookbinding-method">Quy cách</label>
+                        </div>
+                        <div class="seven columns">
+                            <select name="bookbinding-method" id="bookbinding-method" required>
+                                <option value="spring">Gáy xoắn</option>
+                                <option value="sewn">Gáy khâu</option>
+                                <option value="taped">Phay keo</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="seven columns">
-                        <select name="" id=""></select>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label" for="cover">Chất liệu bìa</label>
+                        </div>
+                        <div class="seven columns">
+                            <select name="cover" id="cover" required>
+                                <option value="couches150">Couches 150</option>
+                                <option value="couches200">Couches 200</option>
+                                <option value="couches250">Couches 250</option>
+                                <option value="couches300">Couches 300</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="five columns form__label-container">
-                        <label for="">Quy cách</label>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label" for="extra-requirement">Yêu cầu khác</label>
+                        </div>
+                        <div class="seven columns">
+                            <textarea name="extra-requirement" id="extra-requirement" cols="30" rows="15"></textarea>
+                        </div>
                     </div>
-                    <div class="seven columns">
-                        <select name="" id=""></select>
+                </fieldset>
+                <fieldset id="customer-info">
+                    <legend>Thông tin khách hàng</legend>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label required" for="customer-name">Họ và tên</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="text" id="customer-name" name="customer-name" required>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="five columns form__label-container">
-                        <label for="">Chất liệu bìa</label>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label required" for="customer-tel">Số điện thoại</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="tel" id="customer-tel" name="customer-tel" required>
+                        </div>
                     </div>
-                    <div class="seven columns">
-                        <select name="" id=""></select>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label required" for="customer-email">Email</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="email" id="customer-email" name="customer-email" required>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="five columns form__label-container">
-                        <label for="">Chất liệu ruột</label>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label" for="customer-address">Địa chỉ</label>
+                        </div>
+                        <div class="seven columns">
+                            <textarea name="customer-address" id="customer-address" cols="30" rows="10"></textarea>
+                        </div>
                     </div>
-                    <div class="seven columns">
-                        <select name="" id=""></select>
+                </fieldset>
+                <div class="row form__line-wrapper">
+                    <div class="six columns form__button-container">
+                        <input type="reset" value="Điền lại" id="reset-button">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="six columns">
-                        <input type="submit" value="Đặt hàng">
+                    <div class="six columns form__button-container">
+                        <input type="submit" value="Đặt hàng" id="submit-button">
                     </div>
-                    <div class="six columns"></div>
                 </div>
             </form>
         </div>

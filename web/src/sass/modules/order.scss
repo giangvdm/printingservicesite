@@ -4,8 +4,51 @@
 
 .form {
     padding: 20px;
+    margin-bottom: 40px;
+
+    &__line-wrapper {
+        min-height: 55px;
+
+        // custom validation css
+        input:not([type="submit"]) {
+
+            &[value=""] {
+                background-color: initial;
+            }
+
+            &:valid {
+                // content: ' &#x2714;';
+                // color: $color-green;
+                background-color: $color-light-green;
+            }
+
+            &:not([value=""]):invalid {
+                background-color: $color-pink;
+            }
+        }
+    }
 
     &__label-container {
         text-align: right;
     }
+
+    &__label {
+        &.required::after {
+            content: ' *';
+            color: $color-red;
+        }
+    }
+
+    &__button-container {
+        text-align: center;
+    }
+}
+
+#reset-button {
+
+}
+
+#submit-button {
+    background-color: $color-blue;
+    color: #fff;
 }

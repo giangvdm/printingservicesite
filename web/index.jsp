@@ -35,21 +35,21 @@
 
     <nav class="navigation" id="navigation">
         <div class="container">
-            <ul class="navigation__list">
-                <li class="navigation__list__item active">
-                    <a href="#"><i class="fas fa-home"></i> Trang chủ</a>
+            <ul class="navigation__nav-list">
+                <li class="nav-list__item active">
+                    <a href="#"><i class="fas fa-home nav-list__icon"></i><span class="nav-list__text"> Trang chủ</span></a>
                 </li>
-                <li class="navigation__list__item">
-                    <a href="#"><i class="fas fa-address-card"></i> Giới thiệu</a>
+                <li class="nav-list__item">
+                    <a href="#"><i class="fas fa-address-card nav-list__icon"></i><span class="nav-list__text"> Giới thiệu</span></a>
                 </li>
-                <li class="navigation__list__item">
-                    <a href="#"><i class="fas fa-dollar-sign"></i> Báo giá</a>
+                <li class="nav-list__item">
+                    <a href="#"><i class="fas fa-dollar-sign nav-list__icon"></i><span class="nav-list__text"> Báo giá</span></a>
                 </li>
-                <li class="navigation__list__item">
-                    <a href="#"><i class="fas fa-receipt"></i> Đặt hàng</a>
+                <li class="nav-list__item">
+                    <a href="#"><i class="fas fa-receipt nav-list__icon"></i><span class="nav-list__text"> Đặt hàng</span></a>
                 </li>
-                <li class="navigation__list__item">
-                    <a href="#"><i class="fas fa-phone"></i> Liên hệ</a>
+                <li class="nav-list__item">
+                    <a href="#"><i class="fas fa-phone nav-list__icon"></i><span class="nav-list__text"> Liên hệ</span></a>
                 </li>
             </ul>
         </div>

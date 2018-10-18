@@ -12,6 +12,14 @@ Copyright 2018 PTITers
 /* Larger than tablet */
 /* Larger than desktop */
 /* Larger than Desktop HD */
+* {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+html, body {
+  height: 100%;
+}
+
 a {
   text-decoration: none;
 }
@@ -24,12 +32,17 @@ ul {
   margin-bottom: 2rem;
 }
 
-* {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+fieldset {
+  border-width: 1px;
 }
 
-html, body {
-  height: 100%;
+input:disabled, select:disabled {
+  color: #555;
+  text-decoration: line-through;
+}
+
+textarea {
+  resize: none;
 }
 
 /* 
@@ -52,19 +65,36 @@ html, body {
 /* 
     NAVIGATION 
 */
-.navigation__list {
+.navigation__nav-list {
   list-style-type: none;
   border-bottom: 1px solid #555;
 }
-.navigation__list__item {
+
+.nav-list__item {
   display: inline-block;
   padding: 10px 20px;
 }
-.navigation__list__item:hover, .navigation__list__item.active {
+.nav-list__item:hover, .nav-list__item.active {
   background-color: #555;
 }
-.navigation__list__item:hover a, .navigation__list__item.active a {
+.nav-list__item:hover a, .nav-list__item.active a {
   color: #fff;
+}
+.nav-list__icon {
+  font-size: 3rem;
+}
+@media (min-width: 550px) {
+  .nav-list__icon {
+    font-size: 1.5rem;
+  }
+}
+.nav-list__text {
+  display: none;
+}
+@media (min-width: 550px) {
+  .nav-list__text {
+    display: inline;
+  }
 }
 
 /* 
@@ -123,9 +153,34 @@ html, body {
 
 .form {
   padding: 20px;
+  margin-bottom: 40px;
+}
+.form__line-wrapper {
+  min-height: 55px;
+}
+.form__line-wrapper input:not([type=submit])[value=""] {
+  background-color: initial;
+}
+.form__line-wrapper input:not([type=submit]):valid {
+  background-color: #ccffcc;
+}
+.form__line-wrapper input:not([type=submit]):not([value=""]):invalid {
+  background-color: #ff9999;
 }
 .form__label-container {
   text-align: right;
+}
+.form__label.required::after {
+  content: " *";
+  color: #ff3333;
+}
+.form__button-container {
+  text-align: center;
+}
+
+#submit-button {
+  background-color: #1EAEDB;
+  color: #fff;
 }
 
 /*# sourceMappingURL=main.css.map */

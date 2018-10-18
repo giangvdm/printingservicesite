@@ -21,10 +21,12 @@
 /* 
     NAVIGATION 
 */
-.navigation__list {
+.navigation__nav-list {
     list-style-type: none;
     border-bottom: 1px solid $color-gray;
+}
 
+.nav-list {
     &__item {
         display: inline-block;
         padding: 10px 20px;
@@ -35,6 +37,19 @@
             a {
                 color:   #fff;
             }
+        }
+    }
+
+    &__icon {
+        font-size: 3rem;
+        @include phablet {
+            font-size: 1.5rem;
+        }
+    }
+    &__text {
+        display: none;
+        @include phablet {
+            display: inline;
         }
     }
 }

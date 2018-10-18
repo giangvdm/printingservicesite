@@ -1,4 +1,3 @@
-
 * {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -7,15 +6,28 @@ html, body {
     height: 100%;
 }
 
-// body {
-//     display: flex;
-//     flex-direction: column;
-// }
+a {
+    text-decoration: none;
 
-// .section {
-//     flex: 1 0 auto;
-// }
+    &:hover, &:visited {
+        color: $color-dark-gray;
+    }
+}
 
-// .footer {
-//     flex-shrink: 0;
-// }
+ul {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+fieldset {
+    border-width: 1px; // override skeleton.css
+}
+
+input:disabled, select:disabled {
+    color: $color-gray;
+    text-decoration: line-through;
+}
+
+textarea {
+    resize: none;
+}
