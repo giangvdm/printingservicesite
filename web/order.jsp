@@ -18,8 +18,7 @@
     <!-- Load skeleton.css -->
     <link rel="stylesheet" href="src/lib/skeleton.css">
     <!-- Load fontawesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="src/lib/fontawesome/all.css">
     <!-- Load custom css -->
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
 </head>
@@ -28,8 +27,10 @@
     <header class="header" id="header">
         <!-- -->
         <div class="container">
-            <img src="assets/icons/printer-logo.png" alt="printer logo" class="header__logo">
-            <h1 class="header__site-name">Ao Sen đệ nhất photo</h1>
+            <a href="index.jsp">
+                <img src="assets/icons/printer-logo.png" alt="printer logo" class="header__logo">
+                <h1 class="header__site-name">Ao Sen đệ nhất photo</h1>
+            </a>
         </div>
     </header>
 
@@ -37,19 +38,24 @@
         <div class="container">
             <ul class="navigation__nav-list">
                 <li class="nav-list__item">
-                    <a href="#"><i class="fas fa-home nav-list__icon"></i><span class="nav-list__text"> Trang chủ</span></a>
+                    <a href="index.jsp"><i class="fas fa-home nav-list__icon"></i><span class="nav-list__text"> Trang
+                            chủ</span></a>
                 </li>
                 <li class="nav-list__item">
-                    <a href="#"><i class="fas fa-address-card nav-list__icon"></i><span class="nav-list__text"> Giới thiệu</span></a>
+                    <a href="about.jsp"><i class="fas fa-address-card nav-list__icon"></i><span class="nav-list__text">
+                            Giới thiệu</span></a>
                 </li>
                 <li class="nav-list__item">
-                    <a href="#"><i class="fas fa-dollar-sign nav-list__icon"></i><span class="nav-list__text"> Báo giá</span></a>
+                    <a href="pricing.jsp"><i class="fas fa-dollar-sign nav-list__icon"></i><span class="nav-list__text">
+                            Báo giá</span></a>
                 </li>
                 <li class="nav-list__item active">
-                    <a href="#"><i class="fas fa-receipt nav-list__icon"></i><span class="nav-list__text"> Đặt hàng</span></a>
+                    <a href="order.jsp"><i class="fas fa-receipt nav-list__icon"></i><span class="nav-list__text"> Đặt
+                            hàng</span></a>
                 </li>
                 <li class="nav-list__item">
-                    <a href="#"><i class="fas fa-phone nav-list__icon"></i><span class="nav-list__text"> Liên hệ</span></a>
+                    <a href="contact.jsp"><i class="fas fa-phone nav-list__icon"></i><span class="nav-list__text"> Liên
+                            hệ</span></a>
                 </li>
             </ul>
         </div>

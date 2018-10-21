@@ -29,7 +29,9 @@
     }
 
     &__label-container {
-        text-align: right;
+        @include phablet {
+            text-align: right;
+        }
     }
 
     &__label {
