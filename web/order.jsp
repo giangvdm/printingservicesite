@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : Oct 15, 2018, 12:16:14 PM
-    Author     : vumin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -24,43 +18,13 @@
 </head>
 
 <body>
-    <header class="header" id="header">
-        <!-- -->
-        <div class="container">
-            <a href="index.jsp">
-                <img src="assets/icons/printer-logo.png" alt="printer logo" class="header__logo">
-                <h1 class="header__site-name">Ao Sen đệ nhất photo</h1>
-            </a>
-        </div>
-    </header>
+    <!-- HEADER -->
+    <%@ include file="src/includes/header.jsp" %>
 
-    <nav class="navigation" id="navigation">
-        <div class="container">
-            <ul class="navigation__nav-list">
-                <li class="nav-list__item">
-                    <a href="index.jsp"><i class="fas fa-home nav-list__icon"></i><span class="nav-list__text"> Trang
-                            chủ</span></a>
-                </li>
-                <li class="nav-list__item">
-                    <a href="about.jsp"><i class="fas fa-address-card nav-list__icon"></i><span class="nav-list__text">
-                            Giới thiệu</span></a>
-                </li>
-                <li class="nav-list__item">
-                    <a href="pricing.jsp"><i class="fas fa-dollar-sign nav-list__icon"></i><span class="nav-list__text">
-                            Báo giá</span></a>
-                </li>
-                <li class="nav-list__item active">
-                    <a href="order.jsp"><i class="fas fa-receipt nav-list__icon"></i><span class="nav-list__text"> Đặt
-                            hàng</span></a>
-                </li>
-                <li class="nav-list__item">
-                    <a href="contact.jsp"><i class="fas fa-phone nav-list__icon"></i><span class="nav-list__text"> Liên
-                            hệ</span></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <!-- NAVIGATION -->
+    <%@ include file="src/includes/nav.jsp" %>
 
+    <!-- CONTENT -->
     <section class="section">
         <div class="container">
             <h2 class="section__title">Đặt in/photo</h2>
@@ -212,31 +176,8 @@
         </div>
     </section>
 
-    <footer class="footer" id="footer">
-        <div class="container u-full-width">
-            <div class="row">
-                <div class="six columns footer__site-info">
-                    <div>Công ty In ấn Ao Sen đệ nhất photo</div>
-                    <div>Địa chỉ: Ngõ xxx Ao Sen, Hà Đông, Hà Nội</div>
-                    <div>Điện thoại: 0123456789</div>
-                </div>
-                <div class="six columns footer__social-media">
-                    <div>Kết nối với chúng tôi</div>
-                    <div class="social-media__link-wrapper">
-                        <a href="https://facebook.com" class="social-media__link" id="facebook-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com" class="social-media__link" id="twitter-link"><i class="fab fa-twitter"></i></a>
-                        <a href="https://youtube.com" class="social-media__link" id="youtube-link"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="twelve columns footer__copyright">
-                    <div>Copyright &copy; 2018</div>
-                    <div>Thiết kế bởi công ty Phần mềm ABC</div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- FOOTER -->
+    <%@ include file="src/includes/footer.jsp" %>
 
     <script src="src/js/main.js"></script>
 </body>

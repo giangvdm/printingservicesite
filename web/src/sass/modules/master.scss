@@ -38,9 +38,18 @@
 /* 
     NAVIGATION 
 */
-.navigation__nav-list {
-    list-style-type: none;
-    border-bottom: 1px solid $color-gray;
+.navigation {
+
+    // Overwrite skeleton.css
+    .container {
+        max-width: 100% !important;
+        padding: 0 10px;
+    }
+
+    &__nav-list {
+        list-style-type: none;
+        border-bottom: 1px solid $color-gray;
+    }
 }
 
 .nav-list {
@@ -53,6 +62,15 @@
             
             a {
                 color:   #fff;
+            }
+        }
+
+        &:last-child {
+            float: none;
+
+            @include desktop {
+                float: right;
+                clear: both;
             }
         }
     }

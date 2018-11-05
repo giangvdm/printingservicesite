@@ -8,6 +8,7 @@ html, body {
 
 a {
     text-decoration: none;
+    color: $color-dark-gray;
 
     &:hover, &:visited {
         color: $color-dark-gray;
@@ -31,4 +32,9 @@ input:disabled, select:disabled {
 
 textarea {
     resize: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
 }

@@ -22,6 +22,7 @@ html, body {
 
 a {
   text-decoration: none;
+  color: #222;
 }
 a:hover, a:visited {
   color: #222;
@@ -44,6 +45,11 @@ input:disabled, select:disabled {
 
 textarea {
   resize: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
 
 /* 
@@ -96,6 +102,10 @@ textarea {
 /* 
     NAVIGATION 
 */
+.navigation .container {
+  max-width: 100% !important;
+  padding: 0 10px;
+}
 .navigation__nav-list {
   list-style-type: none;
   border-bottom: 1px solid #555;
@@ -110,6 +120,15 @@ textarea {
 }
 .nav-list__item:hover a, .nav-list__item.active a {
   color: #fff;
+}
+.nav-list__item:last-child {
+  float: none;
+}
+@media (min-width: 1000px) {
+  .nav-list__item:last-child {
+    float: right;
+    clear: both;
+  }
 }
 .nav-list__icon {
   font-size: 3rem;
