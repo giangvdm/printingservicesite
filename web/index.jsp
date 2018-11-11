@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
 </head>
 
-<body>
+<body data-page-name="home">
     <%-- HEADER --%>
     <%@ include file="src/includes/header.jsp" %>
 

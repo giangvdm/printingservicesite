@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
 </head>
 
-<body>
+<body data-page-name="order">
     <!-- HEADER -->
     <%@ include file="src/includes/header.jsp" %>
 
@@ -33,11 +33,19 @@
                     <legend>Thông tin bản in/photo</legend>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
+                            <label class="form__label" for="file-upload">Tải lên file cần in</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="file" accept=".txt,.doc,.docx,.odt,.pdf" multiple="true" id="file-upload" name="file-upload" required>
+                        </div>
+                    </div>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
                             <label class="form__label required" for="number-of-pages"><i class="far fa-question-circle"></i>
                                 Tổng số trang</label>
                         </div>
                         <div class="seven columns">
-                            <input type="number" min="1" value="1" id="number-of-pages" required>
+                            <input type="number" min="1" value="1" id="number-of-pages" name="number-of-pages" required>
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
@@ -128,6 +136,14 @@
                             <textarea name="extra-requirement" id="extra-requirement" cols="30" rows="15"></textarea>
                         </div>
                     </div>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label" for="total">Thành tiền (tạm tính)</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="number" id="total" name="total" disabled>
+                        </div>
+                    </div>
                 </fieldset>
                 <fieldset id="customer-info">
                     <legend>Thông tin khách hàng</legend>
@@ -180,6 +196,7 @@
     <%@ include file="src/includes/footer.jsp" %>
 
     <script src="src/js/main.js"></script>
+    <script src="src/js/order-form.js"></script>
 </body>
 
 </html>

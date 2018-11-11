@@ -1,28 +1,16 @@
-var formController = {
-    bookBindingCheckbox: document.getElementById("bookbinding"),
-    bookBindingMethodSelect: document.getElementById("bookbinding-method"),
-    coverSelect: document.getElementById("cover"),
-    
-    bookBindingToggleInput() {
-        if (!this.bookBindingCheckbox.checked) {
-            this.bookBindingMethodSelect.disabled = true;
-            this.coverSelect.disabled = true;
+var navController = {
+    pageName: document.querySelector("body").dataset.pageName,
+    navItems: document.getElementsByClassName("nav-list__item"),
+    setActiveNavItem() {
+        numberOfNavItems = this.navItems.length; // use this in For loop to improve performance (JS engine)
+        for (var i = 0; i < numberOfNavItems; i++) {
+            if (this.navItems[i].dataset.itemName === this.pageName) {
+                this.navItems[i].classList.add("active");
+                // optional break
+                // break;
+            }
         }
-        else {
-            this.bookBindingMethodSelect.disabled = false;
-            this.coverSelect.disabled = false;
-        }
-    },
-
-    initForm() {
-        this.bookBindingToggleInput();
-        this.bookBindingCheckbox.addEventListener("change", function() {
-            formController.bookBindingToggleInput();
-        });
-    },
-    
-    
+    }
 }
 
-formController.initForm();
-
+navController.setActiveNavItem();

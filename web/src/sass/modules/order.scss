@@ -35,6 +35,7 @@
     }
 
     &__label {
+
         &.required::after {
             content: ' *';
             color: $color-red;
