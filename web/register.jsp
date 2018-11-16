@@ -26,7 +26,7 @@
     <section class="section">
         <div class="container">
             <h2 class="section__title">Đăng ký</h2>
-            <form action="#" class="form" id="login-form">
+            <form action="RegisterServlet" method="POST" class="form" id="login-form">
                 <fieldset id="account-info">
                     <legend>Thông tin tài khoản</legend>
                     <div class="row form__line-wrapper">

@@ -26,7 +26,7 @@
     <section class="section">
         <div class="container">
             <h2 class="section__title">Đăng nhập</h2>
-            <form action="#" class="form" id="login-form">
+            <form action="LoginServlet" method="POST" class="form" id="login-form">
                 <fieldset>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
