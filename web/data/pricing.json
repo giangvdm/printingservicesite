@@ -1,0 +1,27 @@
+{
+    "paperSize": {
+        "a0": 5,
+        "a1": 4,
+        "a2": 3,
+        "a3": 2,
+        "a4": 1.5,
+        "a5": 1
+    },
+    "paperQuality": {
+        "bb60": 1000,
+        "bb70": 2000,
+        "offset60": 3000,
+        "offset70": 4000
+    },
+    "bookBindingMethod": {
+        "spring": 5000,
+        "sewn": 3000,
+        "taped": 2000
+    },
+    "coverQuality": {
+        "couches150": 1000,
+        "couches200": 2000,
+        "couches250": 3000,
+        "couches300": 4000
+    }
+}

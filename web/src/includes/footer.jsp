@@ -25,7 +25,7 @@
         <div class="row">
             <div class="twelve columns footer__copyright">
                 <div>Copyright &copy; 2018</div>
-                <div>Thiết kế và phát triển bởi công ty Phần mềm ABC</div>
+                <div><small>Thiết kế và phát triển bởi công ty Phần mềm ABC</small></div>
             </div>
         </div>
     </div>

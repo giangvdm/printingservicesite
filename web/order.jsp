@@ -1,3 +1,7 @@
+<!-- <?php 
+header("Access-Control-Allow-Origin: *");
+?> -->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -50,10 +54,10 @@
                     </div>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label required" for="number-of-copy">Số bản</label>
+                            <label class="form__label required" for="number-of-copies">Số bản</label>
                         </div>
                         <div class="seven columns">
-                            <input type="number" min="1" value="1" id="number-of-copy" required>
+                            <input type="number" min="1" value="1" id="number-of-copies" required>
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
@@ -62,8 +66,8 @@
                         </div>
                         <div class="seven columns">
                             <select name="number-of-side" id="number-of-side" required>
-                                <option value="1-side">1 mặt</option>
-                                <option value="2-sides">2 mặt</option>
+                                <option value="1">1 mặt</option>
+                                <option value="2">2 mặt</option>
                             </select>
                         </div>
                     </div>
@@ -84,10 +88,10 @@
                     </div>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label required" for="paper">Chất liệu giấy ruột</label>
+                            <label class="form__label required" for="paper-quality">Chất liệu giấy ruột</label>
                         </div>
                         <div class="seven columns">
-                            <select name="paper" id="paper" required>
+                            <select name="paper" id="paper-quality" required>
                                 <option value="bb60">Bãi bằng 60</option>
                                 <option value="bb70">Bãi bằng 70</option>
                                 <option value="offset60">Offset 60</option>
@@ -100,7 +104,7 @@
                             <label class="form__label" for="bookbinding">Đóng quyển</label>
                         </div>
                         <div class="seven columns">
-                            <input type="checkbox" value="yes" id="bookbinding">
+                            <input type="checkbox" value="no" id="bookbinding">
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
@@ -117,10 +121,10 @@
                     </div>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label" for="cover">Chất liệu bìa</label>
+                            <label class="form__label" for="cover-quality">Chất liệu bìa</label>
                         </div>
                         <div class="seven columns">
-                            <select name="cover" id="cover" required>
+                            <select name="cover" id="cover-quality" required>
                                 <option value="couches150">Couches 150</option>
                                 <option value="couches200">Couches 200</option>
                                 <option value="couches250">Couches 250</option>
@@ -136,12 +140,13 @@
                             <textarea name="extra-requirement" id="extra-requirement" cols="30" rows="15"></textarea>
                         </div>
                     </div>
+                    <br>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
                             <label class="form__label" for="total">Thành tiền (tạm tính)</label>
                         </div>
                         <div class="seven columns">
-                            <input type="number" id="total" name="total" disabled>
+                            <input type="number" id="total" name="total" readonly>
                         </div>
                     </div>
                 </fieldset>
@@ -192,9 +197,12 @@
         </div>
     </section>
 
+    <!-- <iframe src="https://docs.google.com/viewer?srcid=0B5afyiSNjCsdVTZHSEozb29MUW9DX0JXWlRpUnV3VGZBbXZR&pid=explorer&efh=false&a=v&chrome=false&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe> -->
+
     <!-- FOOTER -->
     <%@ include file="src/includes/footer.jsp" %>
 
+    <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
     <script src="src/js/order-form.js"></script>
 </body>
