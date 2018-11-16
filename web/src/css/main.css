@@ -52,6 +52,10 @@ img {
   height: auto;
 }
 
+section {
+  margin-bottom: 30px;
+}
+
 /* 
     HEADER 
 */
@@ -253,6 +257,33 @@ img {
 #submit-button {
   background-color: #1EAEDB;
   color: #fff;
+}
+
+.contact__left-col {
+  padding-right: 15px;
+  border-right: 1px solid #555;
+}
+.contact__right-col {
+  margin-left: 15px !important;
+  text-align: right;
+}
+
+/* 
+Google Map
+*/
+.mapouter {
+  text-align: right;
+  height: 300px;
+  width: 300px;
+  float: right;
+  clear: both;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 300px;
+  width: 300px;
 }
 
 /*# sourceMappingURL=main.css.map */
