@@ -21,8 +21,8 @@ public class LoginTest {
         
 //        String user = "hungdn";
 //        String password = "ez4fnatic";
-        
-        if(UserDAO.validate(username, password)){
+        UserDAO ud = new UserDAO();
+        if(ud.validate(username, password)){
             System.out.println("Hello " + username);
         }
         else{

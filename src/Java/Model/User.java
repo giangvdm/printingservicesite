@@ -15,6 +15,31 @@ public class User {
     String userName;
     String userPassword;
     String email;
+    String address;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public User(String fullname, String userName, String userPassword, String email, String address) {
+        this.fullname = fullname;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.email = email;
+        this.address = address;
+    }
+    
+    public User(String fullname, String userName, String userPassword, String email) {
+        this.fullname = fullname;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.email = email;
+    }
+
 
     public User(int id, String fullname, String userName, String userPassword, String email) {
         this.id = id;

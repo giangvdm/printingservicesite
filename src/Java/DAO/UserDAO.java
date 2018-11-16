@@ -50,14 +50,15 @@ public class UserDAO {
     }
     
     public static void addUser(User user){
-        String query = "insert into [dbo].[User](id, fullname, userName, userPassword, email) values(?,?,?,?,?)";
+        String query = "INSERT INTO [dbo].[User](fullname, userName, userPassword, email, address) VALUES(?,?,?,?,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(query);
-            ps.setInt(1, user.getId());
-            ps.setString(2, user.getFullname());
-            ps.setString(3, user.getUserName());
-            ps.setString(4, user.getUserPassword());
-            ps.setString(5, user.getEmail());
+
+            ps.setString(1, user.getFullname());
+            ps.setString(2, user.getUserName());
+            ps.setString(3, user.getUserPassword());
+            ps.setString(4, user.getEmail());
+            ps.setString(5, user.getAddress());
             
             ps.executeUpdate();
         } catch (SQLException ex) {
