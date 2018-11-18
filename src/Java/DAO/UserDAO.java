@@ -33,7 +33,7 @@ public class UserDAO {
         }
     }
     
-    public static boolean validate(String name,String pass){
+    public static boolean validate(String name, String pass){
         boolean status = false;  
         try{           
             PreparedStatement ps = conn.prepareStatement("select * from [dbo].[User] where userName=? and userPassword=?");  

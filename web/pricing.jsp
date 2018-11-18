@@ -31,6 +31,28 @@
     <section class="section" id="">
         <div class="container">
             <h2 class="section__title">Báo giá</h2>
+
+            <table id="pricing-table">
+                <tr>
+                    <th>Danh mục</th>
+                    <th>Tên</th>
+                    <th>Đơn vị</th>
+                    <th>Giá</th>
+                    <th>Ghi chú</th>
+                </tr>
+                <tr>
+                    <td rowspan="4">Khổ giấy</td>
+                    <td>A4</td>
+                    <td rowspan="4">Tờ</td>
+                    <td>1000đ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>A3</td>
+                    <td>2000đ</td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
     </section>
 

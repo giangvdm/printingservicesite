@@ -37,7 +37,7 @@ header("Access-Control-Allow-Origin: *");
                     <legend>Thông tin bản in/photo</legend>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label" for="file-upload">Tải lên file cần in</label>
+                            <label class="form__label required" for="file-upload">Tải lên file cần in</label>
                         </div>
                         <div class="seven columns">
                             <input type="file" accept=".txt,.doc,.docx,.odt,.pdf" multiple="true" id="file-upload" name="file-upload" required>

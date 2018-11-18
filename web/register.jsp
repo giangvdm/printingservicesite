@@ -70,7 +70,7 @@
                             <label class="form__label required" for="email">Email</label>
                         </div>
                         <div class="seven columns">
-                            <input type="text" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required>
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
