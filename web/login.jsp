@@ -18,10 +18,10 @@
 
 <body data-page-name="account">
     <!-- HEADER -->
-    <%@ include file="src/includes/header.jsp" %>
+    <%@ include file="includes/header.jsp" %>
 
     <!-- NAVIGATION -->
-    <%@ include file="src/includes/nav.jsp" %>
+    <%@ include file="includes/nav.jsp" %>
 
     <section class="section">
         <div class="container">
@@ -54,9 +54,11 @@
                     </div>
                 </fieldset>
                 <div class="row form__line-wrapper">
-                    <div class="twelve columns form__button-container">
-                        <input type="reset" value="Điền lại" id="reset-button">
+                    <div class="six columns form__button-container">
                         <input type="submit" value="Đăng nhập" id="submit-button">
+                    </div>
+                    <div class="six columns form__button-container">
+                        <input type="reset" value="Điền lại" id="reset-button">
                     </div>
                 </div>
                 <div class="twelve columns custom__text--info" id="link-to-register">
@@ -67,7 +69,7 @@
     </section>
 
     <!-- FOOTER -->
-    <%@ include file="src/includes/footer.jsp" %>
+    <%@ include file="includes/footer.jsp" %>
 
     <script src="src/js/main.js"></script>
 </body>

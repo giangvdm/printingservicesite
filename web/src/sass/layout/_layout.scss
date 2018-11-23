@@ -1,0 +1,13 @@
+.layout {
+
+    &__left-col {
+        padding-right: 15px;
+        border-right: 1px solid $color-gray;
+    }
+
+    &__right-col {
+        margin-left: 15px !important;
+        text-align: right;
+    }
+    
+}

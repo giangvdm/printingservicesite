@@ -1,0 +1,35 @@
+html, body {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+fieldset {
+    padding: 20px;
+    border-width: 1px; // override skeleton.css
+}
+
+input, textarea {
+    max-width: 100%;
+    margin: 0 !important;
+}
+
+textarea {
+    resize: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+section {
+    margin-bottom: 30px;
+}

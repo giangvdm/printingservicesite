@@ -1,31 +1,21 @@
 /*
-Printing Service Website
-Built with Java
-Copyright 2018 PTITers
+ * This project uses SMACSS principles in writing styling sheets
+ *
 */
-/* 
-    Created on : Sep 17, 2018, 9:46:59 AM
-    Author     : giangvdm
+/*
+ * Base rules
 */
 /* Larger than mobile */
 /* Larger than phablet */
 /* Larger than tablet */
 /* Larger than desktop */
 /* Larger than Desktop HD */
-* {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
 html, body {
   height: 100%;
 }
 
 a {
   text-decoration: none;
-  color: #222;
-}
-a:hover, a:visited {
-  color: #222;
 }
 
 ul {
@@ -38,9 +28,9 @@ fieldset {
   border-width: 1px;
 }
 
-input:disabled, select:disabled {
-  color: #555;
-  text-decoration: line-through;
+input, textarea {
+  max-width: 100%;
+  margin: 0 !important;
 }
 
 textarea {
@@ -56,8 +46,20 @@ section {
   margin-bottom: 30px;
 }
 
-/* 
-    HEADER 
+/*
+ * Layout rules
+*/
+.layout__left-col {
+  padding-right: 15px;
+  border-right: 1px solid #555;
+}
+.layout__right-col {
+  margin-left: 15px !important;
+  text-align: right;
+}
+
+/*
+ * Module rules
 */
 .header {
   margin-top: 10px;
@@ -103,9 +105,6 @@ section {
     left: 0;
   }
 }
-/* 
-    NAVIGATION 
-*/
 .navigation .container {
   max-width: 100% !important;
   padding: 0 10px;
@@ -151,12 +150,6 @@ section {
   }
 }
 
-/* 
-    SECTION 
-*/
-/* 
-    FOOTER 
-*/
 .footer {
   background-color: #555;
   color: #fff;
@@ -230,7 +223,7 @@ section {
   margin-bottom: 40px;
 }
 .form__line-wrapper {
-  min-height: 55px;
+  margin-bottom: 15px;
 }
 .form__line-wrapper input:not([type=submit])[value=""] {
   background-color: initial;
@@ -259,15 +252,6 @@ section {
   color: #fff;
 }
 
-.contact__left-col {
-  padding-right: 15px;
-  border-right: 1px solid #555;
-}
-.contact__right-col {
-  margin-left: 15px !important;
-  text-align: right;
-}
-
 /* 
 Google Map
 */
@@ -284,6 +268,36 @@ Google Map
   background: none !important;
   height: 300px;
   width: 300px;
+}
+
+/*
+ * State rules
+*/
+/*
+ * Theme rules
+*/
+* {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+a {
+  color: #222;
+}
+a:hover, a:visited {
+  color: #222;
+}
+
+input:disabled, select:disabled {
+  color: #555;
+  text-decoration: line-through;
+}
+
+.theme__input__validity {
+  display: inline-block;
+  text-align: right;
+}
+.theme__tooltip-icon:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

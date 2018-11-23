@@ -22,10 +22,10 @@
 
 <body data-page-name="contact">
     <%-- HEADER --%>
-    <%@ include file="src/includes/header.jsp" %>
+    <%@ include file="/includes/header.jsp" %>
 
     <%-- NAVIGATION --%>
-    <%@ include file="src/includes/nav.jsp" %>
+    <%@ include file="/includes/nav.jsp" %>
 
     <%-- CONTENT --%>
     <section class="section" id="">
@@ -33,7 +33,7 @@
             <h2 class="section__title">Liên hệ</h2>
 
             <div class="row">
-                <div class="six columns contact__left-col">
+                <div class="six columns layout__left-col">
                     <h4>Hãy để lại thông tin, chúng tôi sẽ tư vấn cho bạn những dịch vụ tốt nhất</h4>
                     <form action="#" id="contact-form">
                         <fieldset>
@@ -80,8 +80,8 @@
                         </fieldset>
                     </form>
                 </div>
-                <div class="six columns contact__right-col">
-                    <h4>hoặc hãy đến tham quan xưởng in của chúng tôi</h4>
+                <div class="six columns layout__right-col">
+                    <h4>...hoặc hãy đến tham quan xưởng in của chúng tôi</h4>
                     <div class="mapouter">
                         <div class="gmap_canvas"><iframe width="300" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=ao%20sen&t=&z=13&ie=UTF8&iwloc=&output=embed"
                                 frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
@@ -92,7 +92,7 @@
     </section>
 
     <!-- FOOTER -->
-    <%@ include file="src/includes/footer.jsp" %>
+    <%@ include file="/includes/footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/lib/owlcarousel/owl.carousel.min.js"></script>

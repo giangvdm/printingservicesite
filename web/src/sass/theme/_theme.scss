@@ -1,0 +1,32 @@
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a {
+    color: $color-dark-gray;
+
+    &:hover, &:visited {
+        color: $color-dark-gray;
+    }
+}
+
+input:disabled, select:disabled {
+    color: $color-gray;
+    text-decoration: line-through;
+}
+
+.theme {
+
+    &__input {
+        &__validity {
+            display: inline-block;
+            text-align: right;
+        }
+    }
+
+    &__tooltip-icon {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

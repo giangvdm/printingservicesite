@@ -1,0 +1,32 @@
+.header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    &__logo {
+        width: 50px;
+        height: auto;
+
+        &:hover {
+            position: relative;
+            animation: travel;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            animation-direction: normal;
+        }
+    }
+
+    &__site-name {
+        display: inline-block !important;
+        margin-left: 10px;
+        margin-bottom: 0;
+    }
+}
+
+@keyframes travel {
+    0% {top: 0; left: 0}
+    25% {top: 0; left: 900px;}
+    50% {top: 900px; left: 900px;}
+    75% {top: 900px; left: 0;}
+    100% {top: 0; left: 0;}
+}

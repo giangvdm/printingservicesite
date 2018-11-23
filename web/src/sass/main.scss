@@ -1,21 +1,39 @@
 /*
-Printing Service Website
-Built with Java
-Copyright 2018 PTITers
-*/
-/* 
-    Created on : Sep 17, 2018, 9:46:59 AM
-    Author     : giangvdm
+ * This project uses SMACSS principles in writing styling sheets
+ *
 */
 
-@import 'partials/variables';
-@import 'partials/media-queries';
-@import 'partials/mixins';
-@import 'partials/base';
-@import 'partials/common';
+/*
+ * Base rules
+*/
+@import 'base/variables';
+@import 'base/media-queries';
+@import 'base/mixins';
+@import 'base/base';
 
-@import 'modules/master.scss';
-@import 'modules/login.scss';
-@import 'modules/home.scss';
-@import 'modules/order.scss';
-@import 'modules/contact.scss';
+/*
+ * Layout rules
+*/
+@import 'layout/layout';
+
+/*
+ * Module rules
+*/
+@import 'module/header';
+@import 'module/nav';
+@import 'module/section';
+@import 'module/footer';
+// Add more module rules below
+@import 'module/social-media';
+@import 'module/form';
+@import 'module/gmap';
+
+/*
+ * State rules
+*/
+@import 'state/state';
+
+/*
+ * Theme rules
+*/
+@import 'theme/theme';

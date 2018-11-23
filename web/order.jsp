@@ -23,10 +23,10 @@ header("Access-Control-Allow-Origin: *");
 
 <body data-page-name="order">
     <!-- HEADER -->
-    <%@ include file="src/includes/header.jsp" %>
+    <%@ include file="/includes/header.jsp" %>
 
     <!-- NAVIGATION -->
-    <%@ include file="src/includes/nav.jsp" %>
+    <%@ include file="/includes/nav.jsp" %>
 
     <!-- CONTENT -->
     <section class="section">
@@ -40,13 +40,14 @@ header("Access-Control-Allow-Origin: *");
                             <label class="form__label required" for="file-upload">Tải lên file cần in</label>
                         </div>
                         <div class="seven columns">
-                            <input type="file" accept=".txt,.doc,.docx,.odt,.pdf" multiple="true" id="file-upload" name="file-upload" required>
+                            <input type="file" accept=".txt,.doc,.docx,.odt,.pdf" multiple="true" id="file-upload" name="file-upload"
+                                required>
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label required" for="number-of-pages"><i class="far fa-question-circle"></i>
-                                Tổng số trang</label>
+                            <label class="form__label required" for="number-of-pages"><i class="far fa-question-circle theme__tooltip-icon"></i>
+                            &nbsp;Tổng số trang</label>
                         </div>
                         <div class="seven columns">
                             <input type="number" min="1" value="1" id="number-of-pages" name="number-of-pages" required>
@@ -134,10 +135,11 @@ header("Access-Control-Allow-Origin: *");
                     </div>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label" for="extra-requirement">Yêu cầu khác</label>
+                            <label class="form__label" for="extra-requirement"><i class="far fa-question-circle theme__tooltip-icon"></i>
+                                &nbsp;Yêu cầu khác</label>
                         </div>
                         <div class="seven columns">
-                            <textarea name="extra-requirement" id="extra-requirement" cols="30" rows="15"></textarea>
+                            <textarea name="extra-requirement" id="extra-requirement" rows="15"></textarea>
                         </div>
                     </div>
                     <br>
@@ -181,16 +183,16 @@ header("Access-Control-Allow-Origin: *");
                             <label class="form__label" for="customer-address">Địa chỉ</label>
                         </div>
                         <div class="seven columns">
-                            <textarea name="customer-address" id="customer-address" cols="30" rows="10"></textarea>
+                            <textarea name="customer-address" id="customer-address" rows="10"></textarea>
                         </div>
                     </div>
                 </fieldset>
                 <div class="row form__line-wrapper">
                     <div class="six columns form__button-container">
-                        <input type="reset" value="Điền lại" id="reset-button">
+                        <input type="submit" value="Đặt hàng" id="submit-button">
                     </div>
                     <div class="six columns form__button-container">
-                        <input type="submit" value="Đặt hàng" id="submit-button">
+                        <input type="reset" value="Điền lại" id="reset-button">
                     </div>
                 </div>
             </form>
@@ -200,7 +202,7 @@ header("Access-Control-Allow-Origin: *");
     <!-- <iframe src="https://docs.google.com/viewer?srcid=0B5afyiSNjCsdVTZHSEozb29MUW9DX0JXWlRpUnV3VGZBbXZR&pid=explorer&efh=false&a=v&chrome=false&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe> -->
 
     <!-- FOOTER -->
-    <%@ include file="src/includes/footer.jsp" %>
+    <%@ include file="/includes/footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>

@@ -22,10 +22,10 @@
 
 <body data-page-name="pricing">
     <%-- HEADER --%>
-    <%@ include file="src/includes/header.jsp" %>
+    <%@ include file="/includes/header.jsp" %>
 
     <%-- NAVIGATION --%>
-    <%@ include file="src/includes/nav.jsp" %>
+    <%@ include file="/includes/nav.jsp" %>
 
     <%-- CONTENT --%>
     <section class="section" id="">
@@ -57,7 +57,7 @@
     </section>
 
     <!-- FOOTER -->
-    <%@ include file="src/includes/footer.jsp" %>
+    <%@ include file="/includes/footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/lib/owlcarousel/owl.carousel.min.js"></script>
