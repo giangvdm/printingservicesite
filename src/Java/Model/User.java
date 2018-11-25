@@ -16,6 +16,7 @@ public class User {
     String userPassword;
     String email;
     String address;
+    public boolean isValid;
 
     public String getAddress() {
         return address;
@@ -88,5 +89,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
+   
 }

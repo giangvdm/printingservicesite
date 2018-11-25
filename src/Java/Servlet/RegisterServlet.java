@@ -42,10 +42,9 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         
-        User tempUser = new User(fullname, username, password, email);
+        User tempUser = new User(fullname, username, password, email, address);
         
-        UserDAO ud = new UserDAO();
-        ud.addUser(tempUser);
+        UserDAO.addUser(tempUser);
                 
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
