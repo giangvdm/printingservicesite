@@ -1,0 +1,51 @@
+.horizontal-card {
+
+    &__container {
+        margin: 2rem auto 4rem;
+        padding: 2rem 3rem;
+        box-shadow: $box-shadow-standard;
+
+        &::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    }
+    
+    &__customer-avt-holder {
+        width: 100px;
+        height: auto;
+        margin: 0 auto;
+        
+        @include phablet {
+            float: left;
+
+        }
+    }
+
+    &__customer-holder {
+        margin-bottom: 1rem;
+    }
+    
+    &__content-holder {
+        vertical-align: top;
+    
+        @include phablet {
+            float: left;
+            width: calc(100% - 100px - 2rem); // whole card width - avatar width - content padding
+            padding-left: 2rem;
+        }
+    }
+
+    &__customer-name {
+        text-align: center;
+
+        @include phablet {
+            text-align: unset;
+        }
+    }
+
+    &__content {
+        text-align: justify;
+    }
+}

@@ -1,0 +1,29 @@
+.card-row {
+    &__card-item {
+        text-align: center;
+        padding: 0 15px;
+        margin: 0 !important;
+        min-height: 250px;
+
+        &:not(:last-child) {
+            border-right: 1px dotted $color-gray;
+        }
+    }
+}
+
+.card-item {
+    &__logo {
+        font-size: 5rem;
+    }
+
+    &__heading {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    &__description {
+        text-align: justify;
+    }
+}

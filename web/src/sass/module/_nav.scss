@@ -16,14 +16,6 @@
     &__item {
         display: inline-block;
         padding: 10px 20px;
-        
-        &:hover, &.active {
-            background-color: $color-gray;
-            
-            a {
-                color:   #fff;
-            }
-        }
 
         &:last-child {
             float: none;

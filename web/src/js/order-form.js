@@ -56,7 +56,15 @@ var formController = {
         // DONE
 
         return total;
-    }
+    },
+
+    // getFileSize() {
+    //     $('#file-upload').on('change', function() {
+    //         alert(this.file[0].size);
+    //     });
+    // }
 }
 
 formController.initForm();
+
+// formController.getFileSize();

@@ -9,7 +9,7 @@
     <div class="container u-full-width">
         <div class="row">
             <div class="six columns footer__site-info">
-                <div>Công ty In ấn Ao Sen đệ nhất photo</div>
+                <div>Công ty In ấn Ao Sen Đệ nhất</div>
                 <div>Địa chỉ: Ngõ xxx Ao Sen, Hà Đông, Hà Nội</div>
                 <div>Điện thoại: 0123456789</div>
             </div>

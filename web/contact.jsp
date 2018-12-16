@@ -25,12 +25,12 @@
     <%@ include file="/includes/header.jsp" %>
 
     <%-- NAVIGATION --%>
-    <%@ include file="/includes/nav.jsp" %>
+    <jsp:include page="/includes/nav.jsp" />
 
     <%-- CONTENT --%>
     <section class="section" id="">
         <div class="container">
-            <h2 class="section__title">Liên hệ</h2>
+            <h2 class="section__main-title">Liên hệ</h2>
 
             <div class="row">
                 <div class="six columns layout__left-col">
@@ -71,10 +71,10 @@
                             </div>
                             <div class="row form__line-wrapper">
                                 <div class="six columns form__button-container">
-                                    <input type="reset" value="Điền lại" id="reset-button">
+                                    <input type="submit" value="Gửi" id="submit-button" class="form__button form__button--submit">
                                 </div>
                                 <div class="six columns form__button-container">
-                                    <input type="submit" value="Gửi" id="submit-button">
+                                    <input type="reset" value="Điền lại" id="reset-button" class="form__button form__button--reset">
                                 </div>
                             </div>
                         </fieldset>
@@ -95,7 +95,6 @@
     <%@ include file="/includes/footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
-    <script src="src/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="src/js/main.js"></script>
 </body>
 

@@ -10,6 +10,10 @@ a {
     }
 }
 
+input[type='submit'], input[type='reset'] {
+    min-width: 120px;
+}
+
 input:disabled, select:disabled {
     color: $color-gray;
     text-decoration: line-through;
@@ -17,6 +21,7 @@ input:disabled, select:disabled {
 
 .theme {
 
+    // Input
     &__input {
         &__validity {
             display: inline-block;
@@ -24,9 +29,40 @@ input:disabled, select:disabled {
         }
     }
 
+    // Tooltip
     &__tooltip-icon {
         &:hover {
             cursor: pointer;
         }
     }
+
+    // Text
+    &__text {
+
+        &--strong {
+            font-weight: bold;
+            font-size: 1.75rem;
+        }
+
+        &--italic {
+            font-weight: 500;
+            font-size: 1.75rem;
+            font-style: italic;
+        }
+
+        &--info {
+            font-weight: bold;
+            color: $color-blue;
+        }
+
+        &--success {
+            font-weight: bold;
+            color: $color-green;
+        }
+    }
+
+}
+
+#order-form {
+    box-shadow: $box-shadow-standard;
 }

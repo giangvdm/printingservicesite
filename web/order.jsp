@@ -26,12 +26,12 @@ header("Access-Control-Allow-Origin: *");
     <%@ include file="/includes/header.jsp" %>
 
     <!-- NAVIGATION -->
-    <%@ include file="/includes/nav.jsp" %>
+    <jsp:include page="/includes/nav.jsp" />
 
     <!-- CONTENT -->
     <section class="section">
         <div class="container">
-            <h2 class="section__title">Đặt in/photo</h2>
+            <h2 class="section__main-title">Đặt in/photo</h2>
             <form action="#" class="form" id="order-form">
                 <fieldset id="press-info">
                     <legend>Thông tin bản in/photo</legend>
@@ -136,7 +136,9 @@ header("Access-Control-Allow-Origin: *");
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
                             <label class="form__label" for="extra-requirement"><i class="far fa-question-circle theme__tooltip-icon"></i>
-                                &nbsp;Yêu cầu khác</label>
+                                &nbsp;Yêu cầu khác
+                                <span>Some tooltip</span>
+                            </label>
                         </div>
                         <div class="seven columns">
                             <textarea name="extra-requirement" id="extra-requirement" rows="15"></textarea>
@@ -189,10 +191,10 @@ header("Access-Control-Allow-Origin: *");
                 </fieldset>
                 <div class="row form__line-wrapper">
                     <div class="six columns form__button-container">
-                        <input type="submit" value="Đặt hàng" id="submit-button">
+                        <input class="form__button form__button--submit" type="submit" value="Đặt hàng" id="submit-button">
                     </div>
                     <div class="six columns form__button-container">
-                        <input type="reset" value="Điền lại" id="reset-button">
+                        <input class="form__button form__button--reset" type="reset" value="Điền lại" id="reset-button">
                     </div>
                 </div>
             </form>

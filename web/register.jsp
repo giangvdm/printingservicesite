@@ -21,11 +21,16 @@
     <%@ include file="includes/header.jsp" %>
 
     <!-- NAVIGATION -->
-    <%@ include file="includes/nav.jsp" %>
+    <jsp:include page="/includes/nav.jsp" />
 
     <section class="section">
         <div class="container">
-            <h2 class="section__title">Đăng ký</h2>
+            <h2 class="section__main-title">Đăng ký</h2>
+
+            <div class="twelve columns theme__text--info">
+                Đã tài khoản? <a href="login.jsp">Bấm vào đây để đăng nhập</a>
+            </div>
+
             <form action="RegisterServlet" method="POST" class="form" id="login-form">
                 <fieldset id="account-info">
                     <legend>Thông tin tài khoản</legend>
@@ -87,14 +92,11 @@
                 </fieldset>
                 <div class="row form__line-wrapper">
                     <div class="six columns form__button-container">
-                        <input type="submit" value="Đăng ký" id="submit-button">
+                        <input class="form__button form__button--submit" type="submit" value="Đăng ký" id="submit-button">
                     </div>
                     <div class="six columns form__button-container">
-                        <input type="reset" value="Điền lại" id="reset-button">
+                        <input class="form__button form__button--reset" type="reset" value="Điền lại" id="reset-button">
                     </div>
-                </div>
-                <div class="twelve columns">
-                    Đã tài khoản? <a href="login.jsp">Bấm vào đây để đăng nhập</a>
                 </div>
             </form>
         </div>

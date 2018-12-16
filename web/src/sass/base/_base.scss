@@ -2,6 +2,10 @@ html, body {
     height: 100%;
 }
 
+h1, h2 {
+    font-weight: bold;
+}
+
 a {
     text-decoration: none;
 }
@@ -14,11 +18,14 @@ ul {
 fieldset {
     padding: 20px;
     border-width: 1px; // override skeleton.css
+    min-width: 0;
+    // max-width: 100%; //this line doesn't seem to work, min-width = 0 is enough
 }
 
 input, textarea {
     max-width: 100%;
-    margin: 0 !important;
+    margin: 0;
+    background-color: inherit;
 }
 
 textarea {
@@ -30,6 +37,6 @@ img {
     height: auto;
 }
 
-section {
-    margin-bottom: 30px;
+p {
+    margin: 0;
 }

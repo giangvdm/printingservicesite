@@ -1,10 +1,7 @@
-#order-form {
-    box-shadow: 2px 10px 20px 5px $color-gray;
-}
-
 .form {
     padding: 20px;
-    margin-bottom: 40px;
+    margin-top: 15px;
+    margin-bottom: 30px;
 
     &__line-wrapper {
         margin-bottom: 15px;
@@ -37,7 +34,8 @@
     &__label {
 
         &.required::after {
-            content: ' *';
+            margin-left: 5px;
+            content: '*';
             color: $color-red;
         }
     }
@@ -45,13 +43,25 @@
     &__button-container {
         text-align: center;
     }
-}
 
-#reset-button {
+    &__button {
+        width: 100%;
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
 
-}
+        @include phablet {
+            width: auto !important;
+            margin-bottom: 0;
+            letter-spacing: 0;
+        }
 
-#submit-button {
-    background-color: $color-blue;
-    color: #fff;
+        &--reset {
+            //
+        }
+
+        &--submit {
+            background-color: $color-blue !important;
+            color: #fff !important;
+        }
+    }
 }
