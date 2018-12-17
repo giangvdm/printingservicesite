@@ -31,6 +31,17 @@
     <section class="section" id="">
         <div class="container">
             <h2 class="section__title">Giới thiệu</h2>
+
+            <h4>Lịch sử công ty</h4>
+
+            <h4>Tầm nhìn, sứ mệnh</h4>
+
+            <h4>Hệ thống nhà xưởng</h4>
+
+            <h4>Đội ngũ nhân viên</h4>
+
+            <h4>Các sản phẩm, dự án đã thực hiện</h4>
+
         </div>
     </section>
 

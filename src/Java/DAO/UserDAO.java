@@ -49,7 +49,7 @@ public class UserDAO {
         return status;  
     }
     
-    public static boolean validate(String name,String pass){
+    public static boolean validate(String name, String pass){
         boolean status = false;  
         try{
             conn = ConnectionManager.getConnection();
