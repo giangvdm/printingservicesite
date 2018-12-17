@@ -9,6 +9,9 @@ import DAO.UserDAO;
 import Model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import static java.nio.charset.StandardCharsets.ISO_8859_1;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,18 +37,20 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String fullname = request.getParameter("fullname");
         String email = request.getParameter("email");
-        String address = request.getParameter("address");
+        String address = request.getParameter("customer-address");
+        String phoneNumber = request.getParameter("phonenumber");
         
-        User tempUser = new User(fullname, username, password, email);
+        User tempUser = new User(fullname, username, password, email, address, phoneNumber);
         
-        UserDAO ud = new UserDAO();
-        ud.addUser(tempUser);
+        UserDAO.addUser(tempUser);
                 
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);

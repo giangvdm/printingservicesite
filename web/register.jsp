@@ -17,6 +17,10 @@
 </head>
 
 <body data-page-name="account">
+    <%request.setCharacterEncoding("UTF-8");%>
+
+    request encoding: <%= request.getCharacterEncoding() %>
+    response encoding: <%= response.getCharacterEncoding() %>
     <!-- HEADER -->
     <%@ include file="src/includes/header.jsp" %>
 
@@ -35,6 +39,7 @@
                         </div>
                         <div class="seven columns">
                             <input type="text" id="username" name="username" required>
+                            <div style="display: inline-block; text-align: right" id="status"></div>
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
@@ -75,6 +80,14 @@
                     </div>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
+                            <label class="form__label required" for="phonenumber">Số điện thoại</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="text" id="phonenumber" name="phonenumber" required>
+                        </div>
+                    </div>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
                             <label class="form__label" for="customer-address">Địa chỉ</label>
                         </div>
                         <div class="seven columns">
@@ -99,6 +112,33 @@
     <%@ include file="src/includes/footer.jsp" %>
 
     <script src="src/js/main.js"></script>
+    <script src="src/lib/jquery-3.3.1.min.js"></script>
+    <script src="src/js/main.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#username").change(function(){
+                var username = $(this).val();
+                if(username.length > 3){
+                    console.log("Preparing...");
+                    $.ajax({
+                        method: "POST",
+                        url: "CheckUser",
+                        data: "username=" + username,
+                        success: function(msg){
+                            $(document).ajaxComplete(function(event, request, settings){
+                                $("#status").html(msg);
+                                console.log(msg);
+                            });
+                        }
+                    });
+                }
+                else{
+                    $("#status").html("Username must be at least 4 characters");
+                }
+            });
+        });
+        
+    </script>    
 </body>
 
 </html>

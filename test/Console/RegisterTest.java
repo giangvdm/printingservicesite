@@ -5,8 +5,10 @@
  */
 package Console;
 
+import DAO.ConnectionManager;
 import DAO.UserDAO;
 import Model.User;
+import java.sql.PreparedStatement;
 import java.util.Scanner;
 
 /**
@@ -25,10 +27,9 @@ public class RegisterTest {
 //        String fullname = input.nextLine();
 //        System.out.println("Enter email: ");
 //        String email = input.nextLine();
-//        
-        User user = new User("Nguyen Van B", "abcde", "bnguyen", "RushB@gmail.com");
-        UserDAO ud = new UserDAO();
-        ud.addUser(user);
-                                
+//      
+        User user = new User("Nguyễn Mạnh Hùng", "powerbear", "powerbear", "RushB@gmail.com", "23 Tran phu", "0974345256");
+        UserDAO.addUser(user);
+
     }
 }
