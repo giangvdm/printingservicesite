@@ -42,16 +42,16 @@ public class LoginServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {          
             if(UserDAO.validate(username, password)){
                 HttpSession session = request.getSession();
-                session.setAttribute("username", username);
+                session.setAttribute("currentUser", UserDAO.getUserByName(username));
+                session.setAttribute("loggedIn", true);
                 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("order.jsp");
-                dispatcher.forward(request, response);
+                response.sendRedirect(request.getContextPath() + "/order.jsp");
             }else{
                 out.println("username and password are incorrect");
             }
         }
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

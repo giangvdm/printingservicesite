@@ -16,7 +16,23 @@ public class User {
     String userPassword;
     String email;
     String address;
+    String phoneNumber;
+    String userType;
+
     public boolean isValid;
+
+    public User(int id, String username, String fullname, String email, String address, String phoneNumber) {
+        this.id = id;
+        this.userName = username;
+        this.fullname = fullname;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public User() {
+        
+    }
 
     public String getAddress() {
         return address;
@@ -26,24 +42,16 @@ public class User {
         this.address = address;
     }
 
-    public User(String fullname, String userName, String userPassword, String email, String address) {
+    public User(String fullname, String userName, String userPassword, String email, String address, String phoneNumber) {
         this.fullname = fullname;
         this.userName = userName;
         this.userPassword = userPassword;
         this.email = email;
         this.address = address;
+        this.phoneNumber = phoneNumber;
     }
     
     public User(String fullname, String userName, String userPassword, String email) {
-        this.fullname = fullname;
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.email = email;
-    }
-
-
-    public User(int id, String fullname, String userName, String userPassword, String email) {
-        this.id = id;
         this.fullname = fullname;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -89,5 +97,12 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-   
+    
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

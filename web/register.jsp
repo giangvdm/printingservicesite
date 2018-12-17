@@ -17,6 +17,10 @@
 </head>
 
 <body data-page-name="account">
+    <%request.setCharacterEncoding("UTF-8");%>
+
+    request encoding: <%= request.getCharacterEncoding() %>
+    response encoding: <%= response.getCharacterEncoding() %>
     <!-- HEADER -->
     <%@ include file="src/includes/header.jsp" %>
 
@@ -72,6 +76,14 @@
                         </div>
                         <div class="seven columns">
                             <input type="text" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label required" for="phonenumber">Số điện thoại</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="text" id="phonenumber" name="phonenumber" required>
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
