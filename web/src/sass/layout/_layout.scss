@@ -1,0 +1,19 @@
+.layout {
+
+    &__left-col {
+        
+        @include tablet {
+            padding-right: 15px;
+            border-right: 1px solid $color-gray;
+        }
+    }
+
+    &__right-col {
+        
+        @include tablet {
+            margin-left: 15px !important;
+            text-align: right;
+        }
+    }
+    
+}

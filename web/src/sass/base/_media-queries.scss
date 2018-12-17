@@ -1,0 +1,34 @@
+/* Larger than mobile */
+@mixin mobile {
+    @media (min-width: 400px) {
+        @content;
+    }
+}
+
+/* Larger than phablet */
+@mixin phablet {
+    @media (min-width: 550px) {
+        @content;
+    }
+}
+
+/* Larger than tablet */
+@mixin tablet {
+    @media (min-width: 750px) {
+        @content;
+    }
+}
+
+/* Larger than desktop */
+@mixin desktop {
+    @media (min-width: 1000px) {
+        @content;
+    }
+}
+
+/* Larger than Desktop HD */
+@mixin hd-desktop {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}

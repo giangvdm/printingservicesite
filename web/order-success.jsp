@@ -4,7 +4,7 @@
 <html>
 
 <head>
-    <title>Báo giá - Công ty In ấn Ao Sen đệ nhất photo</title>
+    <title>Đặt hàng thành công - Công ty In ấn Ao Sen đệ nhất photo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Load normalize.css -->
@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
 </head>
 
-<body data-page-name="pricing">
+<body data-page-name="order-success">
     <%-- HEADER --%>
     <%@ include file="/includes/header.jsp" %>
 
@@ -27,29 +27,13 @@
     <%-- CONTENT --%>
     <section class="section" id="">
         <div class="container">
-            <h2 class="section__main-title">Báo giá</h2>
+            <h2 class="section__main-title">Đặt hàng thành công</h2>
 
-            <table id="pricing-table">
-                <tr>
-                    <th>Danh mục</th>
-                    <th>Tên</th>
-                    <th>Đơn vị</th>
-                    <th>Giá</th>
-                    <th>Ghi chú</th>
-                </tr>
-                <tr>
-                    <td rowspan="4">Khổ giấy</td>
-                    <td>A4</td>
-                    <td rowspan="4">Tờ</td>
-                    <td>1000đ</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>A3</td>
-                    <td>2000đ</td>
-                    <td></td>
-                </tr>
-            </table>
+            <div class="theme__text--success">Đơn hàng của quý khách đã được đặt thành công và chờ xử lý! <br /> Chúng tôi sẽ liên hệ với quý khách trong vòng 24h.</div>
+
+            <br />
+
+            <button class="">Bấm vào đây để quay về ...</button>
         </div>
     </section>
 
