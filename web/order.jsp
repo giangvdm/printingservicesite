@@ -2,7 +2,8 @@
 header("Access-Control-Allow-Origin: *");
 ?> -->
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" language="java" import="Model.User" session="true"%>
+<jsp:useBean id="user" class="Model.User" scope="session" />
 <!DOCTYPE html>
 
 <html>
@@ -40,8 +41,7 @@ header("Access-Control-Allow-Origin: *");
                             <label class="form__label required" for="file-upload">Tải lên file cần in</label>
                         </div>
                         <div class="seven columns">
-                            <input type="file" accept=".txt,.doc,.docx,.odt,.pdf" multiple="true" id="file-upload" name="file-upload"
-                                required>
+                            <input type="file" accept=".txt,.doc,.docx,.odt,.pdf" multiple="true" id="file-upload" name="file-upload" required>
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
@@ -154,6 +154,8 @@ header("Access-Control-Allow-Origin: *");
                         </div>
                     </div>
                 </fieldset>
+                <!--Customer's info goes here-->
+                
                 <fieldset id="customer-info">
                     <legend>Thông tin khách hàng</legend>
                     <div class="row form__line-wrapper">
@@ -161,7 +163,7 @@ header("Access-Control-Allow-Origin: *");
                             <label class="form__label required" for="customer-name">Họ và tên</label>
                         </div>
                         <div class="seven columns">
-                            <input type="text" id="customer-name" name="customer-name" required>
+                            <input type="text" id="customer-name" name="customer-name" required value="${sessionScope.currentUser.getFullname()}">
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
@@ -169,7 +171,7 @@ header("Access-Control-Allow-Origin: *");
                             <label class="form__label required" for="customer-tel">Số điện thoại</label>
                         </div>
                         <div class="seven columns">
-                            <input type="tel" id="customer-tel" name="customer-tel" required>
+                            <input type="tel" id="customer-tel" name="customer-tel" required value="${sessionScope.currentUser.getPhoneNumber()}">
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
@@ -177,7 +179,7 @@ header("Access-Control-Allow-Origin: *");
                             <label class="form__label required" for="customer-email">Email</label>
                         </div>
                         <div class="seven columns">
-                            <input type="email" id="customer-email" name="customer-email" required>
+                            <input type="email" id="customer-email" name="customer-email" required value="${sessionScope.currentUser.getEmail()}">
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
@@ -185,10 +187,11 @@ header("Access-Control-Allow-Origin: *");
                             <label class="form__label" for="customer-address">Địa chỉ</label>
                         </div>
                         <div class="seven columns">
-                            <textarea name="customer-address" id="customer-address" rows="10"></textarea>
+                            <textarea name="customer-address" id="customer-address" value="${sessionScope.currentUser.getAddress()}" cols="30" rows="10"></textarea>
                         </div>
                     </div>
                 </fieldset>
+                
                 <div class="row form__line-wrapper">
                     <div class="six columns form__button-container">
                         <input class="form__button form__button--submit" type="submit" value="Đặt hàng" id="submit-button">
@@ -210,5 +213,6 @@ header("Access-Control-Allow-Origin: *");
     <script src="src/js/main.js"></script>
     <script src="src/js/order-form.js"></script>
 </body>
+
 
 </html>
