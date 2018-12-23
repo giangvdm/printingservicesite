@@ -52,12 +52,12 @@ input:disabled, select:disabled {
 
         &--info {
             font-weight: bold;
-            color: $color-blue;
+            color: $color-blue !important;
         }
 
         &--success {
             font-weight: bold;
-            color: $color-green;
+            color: $color-green !important;
         }
     }
 

@@ -1,10 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-    <title>Đặt hàng thành công - Công ty In ấn Ao Sen đệ nhất photo</title>
+    <title>Tài khoản - Công ty In ấn Ao Sen đệ nhất photo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Load normalize.css -->
@@ -17,27 +16,23 @@
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
 </head>
 
-<body data-page-name="order-success">
-    <%-- HEADER --%>
-    <%@ include file="/includes/header.jsp" %>
+<body data-page-name="account">
+    <!-- HEADER -->
+    <%@ include file="includes/header.jsp" %>
 
-    <%-- NAVIGATION --%>
+    <!-- NAVIGATION -->
     <jsp:include page="/includes/nav.jsp" />
 
-    <%-- CONTENT --%>
-    <main class="main-content container" id="main-content">
-        <h2 class="main-content__title">Đặt hàng thành công</h2>
+    <main class="main-content" id="main-content">
+        <div class="container">
+            <h2 class="main-content__title">Tài khoản</h2>
 
-        <div class="theme__text--success">Đơn hàng của quý khách đã được đặt thành công và chờ xử lý! <br /> Chúng tôi
-            sẽ liên hệ với quý khách trong vòng 24h.</div>
-
-        <br />
-
-        <button class="">Bấm vào đây để quay về ...</button>
+            
+        </div>
     </main>
 
     <!-- FOOTER -->
-    <%@ include file="/includes/footer.jsp" %>
+    <%@ include file="includes/footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>

@@ -28,12 +28,12 @@
     <jsp:include page="/includes/nav.jsp" />
 
     <%-- CONTENT --%>
-    <section class="section" id="">
-        <div class="container">
-            <h2 class="section__main-title">Liên hệ</h2>
+    <main class="main-content container" id="main-content">
+        <h2 class="main-content__title">Liên hệ</h2>
 
-            <div class="row">
-                <div class="six columns layout__left-col">
+        <div class="row">
+            <div class="six columns layout__left-col">
+                <section class="section">
                     <h4>Hãy để lại thông tin, chúng tôi sẽ tư vấn cho bạn những dịch vụ tốt nhất</h4>
                     <form action="#" id="contact-form">
                         <fieldset>
@@ -79,17 +79,19 @@
                             </div>
                         </fieldset>
                     </form>
-                </div>
-                <div class="six columns layout__right-col">
+                </section>
+            </div>
+            <div class="six columns layout__right-col">
+                <section class="section">
                     <h4>...hoặc hãy đến tham quan xưởng in của chúng tôi</h4>
                     <div class="mapouter">
                         <div class="gmap_canvas"><iframe width="300" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=ao%20sen&t=&z=13&ie=UTF8&iwloc=&output=embed"
                                 frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- FOOTER -->
     <%@ include file="/includes/footer.jsp" %>
