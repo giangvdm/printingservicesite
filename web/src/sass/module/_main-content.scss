@@ -1,13 +1,18 @@
-.section {
+.main-content {
 
+    min-height: 65%;
     margin-bottom: 30px;
 
-    &__main-title {
+    &__title {
         margin-bottom: 15px;
     }
 
     &__sub-title {
         margin-bottom: 15px;
         font-style: italic;
+    }
+
+    .section {
+        margin-bottom: 6rem;
     }
 }

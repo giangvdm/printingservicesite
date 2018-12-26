@@ -1,12 +1,21 @@
 .card-row {
     &__card-item {
         text-align: center;
-        padding: 0 15px;
+        padding: 30px 15px;
         margin: 0 !important;
-        min-height: 250px;
-
+        
         &:not(:last-child) {
-            border-right: 1px dotted $color-gray;
+            border-bottom: 1px dotted $color-gray;
+        }
+        
+        @include phablet {
+            min-height: 250px;
+            padding: 0 15px;
+
+            &:not(:last-child) {
+                border-bottom: none;
+                border-right: 1px dotted $color-gray;
+            }
         }
     }
 }
