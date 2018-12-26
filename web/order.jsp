@@ -29,7 +29,7 @@
     <main class="main-content container" id="main-content">
         <h2 class="main-content__title">Đặt in/photo</h2>
         
-        <form action="#" class="form" id="order-form">
+        <form action="#" method="POST" class="form" id="order-form">
             <fieldset id="press-info">
                 <legend>Thông tin bản in/photo</legend>
                 <div class="row form__line-wrapper">
@@ -43,8 +43,7 @@
                 </div>
                 <div class="row form__line-wrapper">
                     <div class="five columns form__label-container">
-                        <label class="form__label required" for="number-of-pages"><i class="far fa-question-circle theme__tooltip-icon"></i>
-                            &nbsp;Tổng số trang</label>
+                        <label class="form__label required" for="number-of-pages">Tổng số trang</label>
                     </div>
                     <div class="seven columns">
                         <input type="number" min="1" value="1" id="number-of-pages" name="number-of-pages" required>
@@ -132,9 +131,9 @@
                 </div>
                 <div class="row form__line-wrapper">
                     <div class="five columns form__label-container">
-                        <label class="form__label" for="extra-requirement"><i class="far fa-question-circle theme__tooltip-icon"></i>
+                        <label class="form__label" for="extra-requirement" id="css-extraRequirementTooltip"><i class="far fa-question-circle theme__tooltip-icon"></i>
                             &nbsp;Yêu cầu khác
-                            <span>Some tooltip</span>
+                            <span class="tooltip__text">Some tooltipSome tooltipSome tooltipSome tooltipSome tooltip</span>
                         </label>
                     </div>
                     <div class="seven columns">
@@ -192,7 +191,7 @@
 
             <div class="row form__line-wrapper">
                 <div class="six columns form__button-container">
-                    <input class="form__button form__button--submit" type="submit" value="Đặt hàng" id="submit-button">
+                    <input class="form__button form__button--submit" type="submit" name="order" value="Đặt hàng" id="submit-button">
                 </div>
                 <div class="six columns form__button-container">
                     <input class="form__button form__button--reset" type="reset" value="Điền lại" id="reset-button">

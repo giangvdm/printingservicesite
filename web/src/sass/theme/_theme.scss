@@ -31,9 +31,15 @@ input:disabled, select:disabled {
 
     // Tooltip
     &__tooltip-icon {
+        display: none;
+
         &:hover {
             cursor: pointer;
         }
+
+        @include phablet {
+            display: inline-block;
+        }   
     }
 
     // Text
@@ -65,4 +71,39 @@ input:disabled, select:disabled {
 
 #order-form {
     box-shadow: $box-shadow-standard;
+}
+
+#css-extraRequirementTooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip__text {
+    font-style: italic;
+    display: block;
+    font-weight: 400;
+    color: $color-blue;
+
+    @include phablet {
+        visibility: hidden;
+        color: #fff;
+        background-color: $color-dark-gray;
+        width: 200px;
+        text-align: center;
+        border-radius: 4px;
+        padding: 1rem;
+
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: -5px;
+        right: 105%; 
+    }
+
+}
+
+#css-extraRequirementTooltip:hover .tooltip__text {
+    @include phablet {
+        visibility: visible;
+    }
 }

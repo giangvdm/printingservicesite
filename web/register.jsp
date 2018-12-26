@@ -41,8 +41,7 @@
                     </div>
                     <div class="seven columns">
                         <input type="text" id="username" name="username" required>
-                        <!-- please consider id="username-validity" for below div elem -->
-                        <div class="theme__input__validity" style="display: inline-block; text-align: right" id="status"></div>
+                        <div class="theme__input__validity" id="js-usernameValidityDisplay"></div>
                     </div>
                 </div>
                 <div class="row form__line-wrapper">
@@ -55,10 +54,11 @@
                 </div>
                 <div class="row form__line-wrapper">
                     <div class="five columns form__label-container">
-                        <label class="form__label required" for="repeat-password">Nhập lại mật khẩu</label>
+                        <label class="form__label required" for="password-repeat">Nhập lại mật khẩu</label>
                     </div>
                     <div class="seven columns">
-                        <input type="password" id="repeat-password" name="repeat-password" required>
+                        <input type="password" id="password-repeat" name="password-repeat" required>
+                        <div class="theme__input__validity" id="js-passwordRepeatValidityDisplay"></div>
                     </div>
                 </div>
             </fieldset>
@@ -114,29 +114,8 @@
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#username").change(function () {
-                var username = $(this).val();
-                if (username.length > 3) {
-                    console.log("Preparing...");
-                    $.ajax({
-                        method: "POST",
-                        url: "CheckUser",
-                        data: "username=" + username,
-                        success: function (msg) {
-                            $(document).ajaxComplete(function (event, request, settings) {
-                                $("#status").html(msg);
-                                console.log(msg);
-                            });
-                        }
-                    });
-                } else {
-                    $("#status").html("Username must be at least 4 characters");
-                }
-            });
-        });
-    </script>
+    <script src="src/js/universal-form.js"></script>
+    <script src="src/js/register.js"></script>
 </body>
 
 </html>

@@ -35,7 +35,7 @@
             <div class="six columns layout__left-col">
                 <section class="section">
                     <h4>Hãy để lại thông tin, chúng tôi sẽ tư vấn cho bạn những dịch vụ tốt nhất</h4>
-                    <form action="#" id="contact-form">
+                    <form action="#" method="POST" id="contact-form">
                         <fieldset>
                             <div class="row form__line-wrapper">
                                 <div class="four columns form__label-container">
@@ -71,7 +71,7 @@
                             </div>
                             <div class="row form__line-wrapper">
                                 <div class="six columns form__button-container">
-                                    <input type="submit" value="Gửi" id="submit-button" class="form__button form__button--submit">
+                                    <input type="submit" value="Gửi" id="submit-button" name="send-contact-inform" class="form__button form__button--submit">
                                 </div>
                                 <div class="six columns form__button-container">
                                     <input type="reset" value="Điền lại" id="reset-button" class="form__button form__button--reset">
