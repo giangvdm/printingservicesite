@@ -13,6 +13,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -61,14 +68,24 @@ public class UploadServlet extends HttpServlet {
         return null;
     }
     
-    private void writeToDB(Connection conn, String fileName, InputStream is, String description) throws SQLException {
+    private void writeToDB(Connection conn, String fileName, InputStream is, String description, String username, String userPhone, String userMail) throws SQLException{
  
-        String sql = "INSERT INTO [dbo].[Order](filename,filedata,description) " + " VALUES (?,?,?) ";
+        String sql = "INSERT INTO [dbo].[Order](filename,filedata,description,date,cus_name,cus_tel,cus_mail) " + " VALUES (?,?,?,?,?,?,?) ";
         PreparedStatement pstm = conn.prepareStatement(sql);
- 
+        
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMDD HH:MM:SS");
+        String time = sdf.format(cal.getTime());
+        Timestamp timestamp = new Timestamp(cal.getTimeInMillis());
+
+        
         pstm.setString(1, fileName);
         pstm.setBlob(2, is);
         pstm.setString(3, description);
+        pstm.setTimestamp(4, timestamp);
+        pstm.setString(5, username);
+        pstm.setString(6, userPhone);
+        pstm.setString(7, userMail);
         pstm.executeUpdate();
     }
 
@@ -82,6 +99,10 @@ public class UploadServlet extends HttpServlet {
             conn = ConnectionManager.getConnection();     
             conn.setAutoCommit(false);
             
+            String name = request.getParameter("customer-name");
+            String phone = request.getParameter("customer-tel");
+            String mail = request.getParameter("customer-email");
+            
             String description = request.getParameter("extra-requirement");
  
             // Part list (multi files).
@@ -91,7 +112,7 @@ public class UploadServlet extends HttpServlet {
                     // File data
                     InputStream is = part.getInputStream();
                     // Write to file
-                    this.writeToDB(conn, fileName, is, description);
+                    this.writeToDB(conn, fileName, is, description, name, phone, mail);
                 }
             }
             conn.commit();
