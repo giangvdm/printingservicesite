@@ -20,10 +20,10 @@
     <%request.setCharacterEncoding("UTF-8");%>
 
     <!-- HEADER -->
-    <%@ include file="includes/header.jsp" %>
+    <%@ include file="includes/customer-header.jsp" %>
 
     <!-- NAVIGATION -->
-    <jsp:include page="/includes/nav.jsp" />
+    <jsp:include page="/includes/customer-nav.jsp" />
 
     <main class="main-content container" id="main-content">
         <h2 class="main-content__title">Đăng ký</h2>
@@ -32,7 +32,7 @@
             Đã tài khoản? <a href="login.jsp" class="theme__text--info">Bấm vào đây để đăng nhập</a>
         </div>
 
-        <form action="RegisterServlet" method="POST" class="form" id="login-form">
+        <form action="RegisterServlet" method="POST" class="form" id="register-form">
             <fieldset id="account-info">
                 <legend>Thông tin tài khoản</legend>
                 <div class="row form__line-wrapper">
@@ -110,7 +110,7 @@
     </main>
 
     <!-- FOOTER -->
-    <%@ include file="includes/footer.jsp" %>
+    <%@ include file="includes/customer-footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>

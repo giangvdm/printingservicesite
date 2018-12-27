@@ -1,0 +1,41 @@
+/*
+ * This project uses SMACSS principles in writing styling sheets
+ *
+*/
+
+/*
+ * Base rules
+*/
+@import 'base/variables';
+@import 'base/media-queries';
+@import 'base/mixins';
+@import 'base/base';
+
+/*
+ * Layout rules
+*/
+@import 'layout/layout';
+
+/*
+ * Module rules
+*/
+@import 'module/header';
+@import 'module/nav';
+@import 'module/main-content';
+@import 'module/footer';
+// ADD MORE MODULE RULES BELOW
+@import 'module/form';
+@import 'module/article';
+@import 'module/dialog';
+@import 'module/crud';
+@import 'module/info-card';
+
+/*
+ * State rules
+*/
+@import 'state/state';
+
+/*
+ * Theme rules
+*/
+@import 'theme/theme';
