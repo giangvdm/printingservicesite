@@ -85,6 +85,8 @@ public class UserDAO {
     }
     
     public static void updateUserInfo(User user){
+        //Update user's fullname email address
+        
         String query = "UPDATE [dbo].[User] SET fullname=?, email=?, address=? WHERE id=?";
         try {
             conn = ConnectionManager.getConnection();

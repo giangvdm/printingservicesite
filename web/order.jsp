@@ -33,7 +33,7 @@ header("Access-Control-Allow-Origin: *");
     <section class="section">
         <div class="container">
             <h2 class="section__main-title">Đặt in/photo</h2>
-            <form action="#" class="form" id="order-form">
+            <form method="POST" action="UploadServlet" enctype="multipart/form-data" class="form" id="order-form">
                 <fieldset id="press-info">
                     <legend>Thông tin bản in/photo</legend>
                     <div class="row form__line-wrapper">
