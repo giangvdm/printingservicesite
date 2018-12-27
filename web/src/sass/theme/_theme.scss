@@ -50,6 +50,10 @@ input:disabled, select:disabled {
             font-size: 1.75rem;
         }
 
+        &--bold {
+            font-weight: bold;
+        }
+
         &--italic {
             font-weight: 500;
             font-size: 1.75rem;
@@ -67,6 +71,13 @@ input:disabled, select:disabled {
         }
     }
 
+}
+
+#logout-button {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: #fff;
+    background-color: $color-red;
 }
 
 #order-form {

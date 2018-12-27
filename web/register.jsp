@@ -32,7 +32,7 @@
             Đã tài khoản? <a href="login.jsp" class="theme__text--info">Bấm vào đây để đăng nhập</a>
         </div>
 
-        <form action="RegisterServlet" method="POST" class="form" id="login-form">
+        <form action="RegisterServlet" method="POST" class="form" id="register-form">
             <fieldset id="account-info">
                 <legend>Thông tin tài khoản</legend>
                 <div class="row form__line-wrapper">

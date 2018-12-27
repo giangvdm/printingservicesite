@@ -81,6 +81,7 @@
     <%@ include file="includes/admin-footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
+    <script src="src/js/main.js"></script>
 
 </body>
 

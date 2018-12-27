@@ -166,7 +166,11 @@ p {
   font-style: italic;
 }
 .main-content .section {
-  margin-bottom: 6rem;
+  padding-bottom: 2rem;
+  margin-bottom: 4rem;
+}
+.main-content .section:not(:last-child) {
+  border-bottom: 1px solid #C0C0C0;
 }
 
 .footer {
@@ -476,6 +480,30 @@ Google Map
   margin-left: 20px;
 }
 
+.crud-table th {
+  text-align: center;
+}
+
+.action__button {
+  font-size: 1.5rem;
+  padding: 0 15px;
+}
+.action__button--view {
+  color: #555;
+}
+.action__button--accept, .action__button--done {
+  color: #00CC00;
+}
+.action__button--add, .action__button--edit, .action__button--pending {
+  color: #1EAEDB;
+}
+.action__button--delete, .action__button--reject, .action__button--cancel {
+  color: #ff3333;
+}
+.action__button--not-done {
+  color: #ff9999;
+}
+
 /*
  * State rules
 */
@@ -540,6 +568,13 @@ input:disabled, select:disabled {
 .theme__text--success {
   font-weight: bold;
   color: #00CC00 !important;
+}
+
+#logout-button {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: #fff;
+  background-color: #ff3333;
 }
 
 #order-form {

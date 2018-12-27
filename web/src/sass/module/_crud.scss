@@ -13,14 +13,17 @@
         &--view {
             color: $color-gray;
         }
-        &--accept {
+        &--accept, &--done {
             color: $color-green;
         }
-        &--edit, &--pending {
+        &--add, &--edit, &--pending {
             color: $color-blue;
         }
-        &--delete, &--reject {
+        &--delete, &--reject, &--cancel {
             color: $color-red;
+        }
+        &--not-done {
+            color: $color-pink;
         }
     }
 }

@@ -1,0 +1,12 @@
+.info-card {
+    padding: 2rem;
+    box-shadow: $box-shadow-standard;
+
+    &__line-wrapper {
+        margin-bottom: 1rem;
+    }
+
+    &__label {
+        text-align: right;
+    }
+}

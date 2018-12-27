@@ -29,7 +29,7 @@
     <main class="main-content container" id="main-content">
         <h2 class="main-content__title">Đặt in/photo</h2>
         
-        <form action="#" method="POST" class="form" id="order-form">
+        <form method="POST" action="UploadServlet" enctype="multipart/form-data" class="form" id="order-form">
             <fieldset id="press-info">
                 <legend>Thông tin bản in/photo</legend>
                 <div class="row form__line-wrapper">
