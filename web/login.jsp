@@ -30,15 +30,24 @@
             Chưa có tài khoản? <a href="register.jsp" class="theme__text--info">Bấm vào đây để đăng ký</a>
         </div>
 
-        <div class="row">
-            <div class="dialog__container">
-                <div class="dialog__dismiss-button js-dialogDismissButton">
-                    <i class="fas fa-times"></i>
-                </div>
-                <div class="dialog__content">
-                    <p>Sai tên tài khoản hoặc mật khẩu! Vui lòng thử lại!</p>
-                </div>
-            </div>
+        <div class="row">           
+            <%
+                if("true".equalsIgnoreCase((String)request.getAttribute("error"))){
+            %>
+                <div class="message_div">
+                    <div class="dialog__container">
+                        <div class="dialog__dismiss-button js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Tên đăng nhập hoặc mật khẩu không chính xác</p>
+                        </div>
+                    </div>  
+               </div>
+            <%  
+               }    
+            %> 
+        
         </div>
 
         <form action="LoginServlet" method="POST" class="form" id="login-form">

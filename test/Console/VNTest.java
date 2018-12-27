@@ -5,9 +5,10 @@
  */
 package Console;
 
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
+import DAO.UserDAO;
+import Model.User;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
@@ -15,8 +16,11 @@ import java.nio.charset.StandardCharsets;
  */
 public class VNTest {
     public static void main(String[] args) {
-        String name = "V? ?? Minh Giang";
-        byte[] byteBuff = name.getBytes(StandardCharsets.UTF_8);
-        System.out.println(name);
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMDD HH:MM:SS");
+        String time = sdf.format(cal.getTime());
+        
+        System.out.println(time);
+        
     }
 }

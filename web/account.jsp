@@ -16,6 +16,11 @@
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
 </head>
 
+  <%
+    if (session.getAttribute("loggedIn") == null) {
+        response.sendRedirect("login.jsp");
+    }
+ %>
 <body data-page-name="account">
     <!-- HEADER -->
     <%@ include file="includes/customer-header.jsp" %>
