@@ -5,7 +5,7 @@ var navController = {
         numberOfNavItems = this.navItems.length; // use this in For loop to improve performance (JS engine)
         for (var i = 0; i < numberOfNavItems; i++) {
             if (this.navItems[i].dataset.itemName === this.pageName) {
-                this.navItems[i].classList.add("active");
+                this.navItems[i].classList.add("isActive");
                 // optional break
                 // break;
             }
@@ -14,3 +14,16 @@ var navController = {
 }
 
 navController.setActiveNavItem();
+
+var dialogController = {
+    dialogDismissButtons: $('.js-dialogDismissButton'),
+    initDialog() {
+        for (var i = 0; i < this.dialogDismissButtons.length; i++) {
+            $(this.dialogDismissButtons[i]).on("click", function() {
+                $(this).parent().fadeOut();
+            });
+        }
+    }
+}
+
+dialogController.initDialog();

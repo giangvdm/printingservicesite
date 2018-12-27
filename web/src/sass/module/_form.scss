@@ -1,0 +1,67 @@
+.form {
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+
+    &__line-wrapper {
+        margin-bottom: 15px;
+
+        // custom validation css
+        input:not([type="submit"]) {
+
+            &[value=""] {
+                background-color: initial;
+            }
+
+            &:valid {
+                // content: ' &#x2714;';
+                // color: $color-green;
+                background-color: $color-light-green;
+            }
+
+            &:not([value=""]):invalid {
+                background-color: $color-pink;
+            }
+        }
+    }
+
+    &__label-container {
+        @include phablet {
+            text-align: right;
+        }
+    }
+
+    &__label {
+
+        &.required::after {
+            margin-left: 5px;
+            content: '*';
+            color: $color-red;
+        }
+    }
+
+    &__button-container {
+        text-align: center;
+    }
+
+    &__button {
+        width: 100%;
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
+
+        @include phablet {
+            width: auto !important;
+            margin-bottom: 0;
+            letter-spacing: 0;
+        }
+
+        &--reset {
+            //
+        }
+
+        &--submit {
+            background-color: $color-blue !important;
+            color: #fff !important;
+        }
+    }
+}

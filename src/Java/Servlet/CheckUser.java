@@ -34,10 +34,10 @@ public class CheckUser extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String username = request.getParameter("username");
             if(UserDAO.isUsernameTaken(username)){
-                out.println("Tên đăng nhập đã tồn tại");
+                out.println("invalid");
             }
             else{
-                out.println("Tên đăng nhập khả dụng");
+                out.println("valid");
             }
         }
     }

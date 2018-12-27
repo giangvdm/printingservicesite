@@ -1,0 +1,26 @@
+.footer {
+    background-color: $color-gray;
+    color: #fff;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+
+    &__site-info {
+        text-align: center;
+        @include phablet {
+            text-align: left;
+        }
+    }
+
+    &__social-media {
+        text-align: center;
+        @include phablet {
+            text-align: right;
+        }
+    }
+
+    &__copyright {
+        text-align: center;
+        margin-top: 20px;
+    }
+}

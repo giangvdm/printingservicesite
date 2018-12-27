@@ -21,7 +21,6 @@
         response.sendRedirect("login.jsp");
     }
  %>
-
 <body data-page-name="account">
     <!-- HEADER -->
     <%@ include file="includes/header.jsp" %>

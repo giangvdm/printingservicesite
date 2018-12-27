@@ -1,0 +1,38 @@
+.card-row {
+    &__card-item {
+        text-align: center;
+        padding: 30px 15px;
+        margin: 0 !important;
+        
+        &:not(:last-child) {
+            border-bottom: 1px dotted $color-gray;
+        }
+        
+        @include phablet {
+            min-height: 250px;
+            padding: 0 15px;
+
+            &:not(:last-child) {
+                border-bottom: none;
+                border-right: 1px dotted $color-gray;
+            }
+        }
+    }
+}
+
+.card-item {
+    &__logo {
+        font-size: 5rem;
+    }
+
+    &__heading {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    &__description {
+        text-align: justify;
+    }
+}

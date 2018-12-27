@@ -1,0 +1,11 @@
+.nav-list {
+    &__item {
+        &:hover, &.isActive {
+            background-color: $color-gray;
+            
+            a {
+                color:   #fff;
+            }
+        }
+    }
+}

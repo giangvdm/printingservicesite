@@ -1,0 +1,109 @@
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a {
+    color: $color-dark-gray;
+
+    &:hover, &:visited {
+        color: $color-dark-gray;
+    }
+}
+
+input[type='submit'], input[type='reset'] {
+    min-width: 120px;
+}
+
+input:disabled, select:disabled {
+    color: $color-gray;
+    text-decoration: line-through;
+}
+
+.theme {
+
+    // Input
+    &__input {
+        &__validity {
+            display: inline-block;
+            text-align: right;
+        }
+    }
+
+    // Tooltip
+    &__tooltip-icon {
+        display: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include phablet {
+            display: inline-block;
+        }   
+    }
+
+    // Text
+    &__text {
+
+        &--strong {
+            font-weight: bold;
+            font-size: 1.75rem;
+        }
+
+        &--italic {
+            font-weight: 500;
+            font-size: 1.75rem;
+            font-style: italic;
+        }
+
+        &--info {
+            font-weight: bold;
+            color: $color-blue !important;
+        }
+
+        &--success {
+            font-weight: bold;
+            color: $color-green !important;
+        }
+    }
+
+}
+
+#order-form {
+    box-shadow: $box-shadow-standard;
+}
+
+#css-extraRequirementTooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip__text {
+    font-style: italic;
+    display: block;
+    font-weight: 400;
+    color: $color-blue;
+
+    @include phablet {
+        visibility: hidden;
+        color: #fff;
+        background-color: $color-dark-gray;
+        width: 200px;
+        text-align: center;
+        border-radius: 4px;
+        padding: 1rem;
+
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: -5px;
+        right: 105%; 
+    }
+
+}
+
+#css-extraRequirementTooltip:hover .tooltip__text {
+    @include phablet {
+        visibility: visible;
+    }
+}

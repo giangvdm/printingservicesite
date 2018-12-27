@@ -13,26 +13,23 @@
     <link rel="stylesheet" href="src/lib/skeleton.css">
     <!-- Load fontawesome -->
     <link rel="stylesheet" href="src/lib/fontawesome/all.css">
-    <!-- Load Owl Carousel theme -->
-    <link rel="stylesheet" href="src/lib/owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="src/lib/owlcarousel/owl.theme.default.min.css">
     <!-- Load custom css -->
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
 </head>
 
 <body data-page-name="pricing">
     <%-- HEADER --%>
-    <%@ include file="src/includes/header.jsp" %>
+    <%@ include file="/includes/header.jsp" %>
 
     <%-- NAVIGATION --%>
-    <%@ include file="src/includes/nav.jsp" %>
+    <jsp:include page="/includes/nav.jsp" />
 
     <%-- CONTENT --%>
-    <section class="section" id="">
-        <div class="container">
-            <h2 class="section__title">Báo giá</h2>
+    <main class="main-content container" id="main-content">
+        <h2 class="main-content__title">Báo giá</h2>
 
-            <table id="pricing-table">
+        <table id="pricing-table">
+            <thead>
                 <tr>
                     <th>Danh mục</th>
                     <th>Tên</th>
@@ -40,6 +37,8 @@
                     <th>Giá</th>
                     <th>Ghi chú</th>
                 </tr>
+            </thead>
+            <tbody>
                 <tr>
                     <td rowspan="4">Khổ giấy</td>
                     <td>A4</td>
@@ -52,15 +51,14 @@
                     <td>2000đ</td>
                     <td></td>
                 </tr>
-            </table>
-        </div>
-    </section>
+            </tbody>
+        </table>
+    </main>
 
     <!-- FOOTER -->
-    <%@ include file="src/includes/footer.jsp" %>
+    <%@ include file="/includes/footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
-    <script src="src/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="src/js/main.js"></script>
 </body>
 

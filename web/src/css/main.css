@@ -1,31 +1,25 @@
 /*
-Printing Service Website
-Built with Java
-Copyright 2018 PTITers
+ * This project uses SMACSS principles in writing styling sheets
+ *
 */
-/* 
-    Created on : Sep 17, 2018, 9:46:59 AM
-    Author     : giangvdm
+/*
+ * Base rules
 */
 /* Larger than mobile */
 /* Larger than phablet */
 /* Larger than tablet */
 /* Larger than desktop */
 /* Larger than Desktop HD */
-* {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
 html, body {
   height: 100%;
 }
 
+h1, h2 {
+  font-weight: bold;
+}
+
 a {
   text-decoration: none;
-  color: #222;
-}
-a:hover, a:visited {
-  color: #222;
 }
 
 ul {
@@ -36,11 +30,13 @@ ul {
 fieldset {
   padding: 20px;
   border-width: 1px;
+  min-width: 0;
 }
 
-input:disabled, select:disabled {
-  color: #555;
-  text-decoration: line-through;
+input, textarea {
+  max-width: 100%;
+  margin: 0;
+  background-color: inherit;
 }
 
 textarea {
@@ -52,12 +48,28 @@ img {
   height: auto;
 }
 
-section {
-  margin-bottom: 30px;
+p {
+  margin: 0;
 }
 
-/* 
-    HEADER 
+/*
+ * Layout rules
+*/
+@media (min-width: 750px) {
+  .layout__left-col {
+    padding-right: 15px;
+    border-right: 1px solid #555;
+  }
+}
+@media (min-width: 750px) {
+  .layout__right-col {
+    margin-left: 15px !important;
+    text-align: right;
+  }
+}
+
+/*
+ * Module rules
 */
 .header {
   margin-top: 10px;
@@ -103,9 +115,6 @@ section {
     left: 0;
   }
 }
-/* 
-    NAVIGATION 
-*/
 .navigation .container {
   max-width: 100% !important;
   padding: 0 10px;
@@ -118,12 +127,6 @@ section {
 .nav-list__item {
   display: inline-block;
   padding: 10px 20px;
-}
-.nav-list__item:hover, .nav-list__item.active {
-  background-color: #555;
-}
-.nav-list__item:hover a, .nav-list__item.active a {
-  color: #fff;
 }
 .nav-list__item:last-child {
   float: none;
@@ -151,12 +154,21 @@ section {
   }
 }
 
-/* 
-    SECTION 
-*/
-/* 
-    FOOTER 
-*/
+.main-content {
+  min-height: 65%;
+  margin-bottom: 30px;
+}
+.main-content__title {
+  margin-bottom: 15px;
+}
+.main-content__sub-title {
+  margin-bottom: 15px;
+  font-style: italic;
+}
+.main-content .section {
+  margin-bottom: 6rem;
+}
+
 .footer {
   background-color: #555;
   color: #fff;
@@ -221,16 +233,13 @@ section {
   background-color: #e62117;
 }
 
-#order-form {
-  box-shadow: 2px 10px 20px 5px #555;
-}
-
 .form {
-  padding: 20px;
-  margin-bottom: 40px;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 .form__line-wrapper {
-  min-height: 55px;
+  margin-bottom: 15px;
 }
 .form__line-wrapper input:not([type=submit])[value=""] {
   background-color: initial;
@@ -247,25 +256,28 @@ section {
   }
 }
 .form__label.required::after {
-  content: " *";
+  margin-left: 5px;
+  content: "*";
   color: #ff3333;
 }
 .form__button-container {
   text-align: center;
 }
-
-#submit-button {
-  background-color: #1EAEDB;
-  color: #fff;
+.form__button {
+  width: 100%;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
 }
-
-.contact__left-col {
-  padding-right: 15px;
-  border-right: 1px solid #555;
+@media (min-width: 550px) {
+  .form__button {
+    width: auto !important;
+    margin-bottom: 0;
+    letter-spacing: 0;
+  }
 }
-.contact__right-col {
-  margin-left: 15px !important;
-  text-align: right;
+.form__button--submit {
+  background-color: #1EAEDB !important;
+  color: #fff !important;
 }
 
 /* 
@@ -273,17 +285,299 @@ Google Map
 */
 .mapouter {
   text-align: right;
-  height: 300px;
   width: 300px;
-  float: right;
-  clear: both;
+  height: 300px;
+  float: none;
+}
+@media (min-width: 550px) {
+  .mapouter {
+    float: right;
+    clear: both;
+  }
 }
 
 .gmap_canvas {
   overflow: hidden;
   background: none !important;
-  height: 300px;
   width: 300px;
+  height: 300px;
+}
+
+.article {
+  margin-bottom: 30px;
+}
+.article__title {
+  margin-bottom: 10px;
+  border-left: 5px solid #222;
+  padding-left: 15px;
+  line-height: 1.25;
+}
+@media (min-width: 750px) {
+  .article__content {
+    padding-left: 30px;
+  }
+}
+
+.content__item {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.content__figure {
+  margin: 10px 0 20px;
+}
+
+.figure__image {
+  width: 100%;
+  height: auto;
+}
+.figure__caption {
+  text-align: center;
+  opacity: 0.8;
+}
+
+.card-row__card-item {
+  text-align: center;
+  padding: 30px 15px;
+  margin: 0 !important;
+}
+.card-row__card-item:not(:last-child) {
+  border-bottom: 1px dotted #555;
+}
+@media (min-width: 550px) {
+  .card-row__card-item {
+    min-height: 250px;
+    padding: 0 15px;
+  }
+  .card-row__card-item:not(:last-child) {
+    border-bottom: none;
+    border-right: 1px dotted #555;
+  }
+}
+
+.card-item__logo {
+  font-size: 5rem;
+}
+.card-item__heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.card-item__description {
+  text-align: justify;
+}
+
+.image-grid__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 5px;
+  grid-auto-rows: 150px;
+  grid-auto-flow: dense;
+}
+.image-grid__container div {
+  display: flex;
+}
+.image-grid__container div img {
+  object-fit: cover;
+}
+
+.vertical {
+  grid-row: span 2;
+}
+
+.horizontal {
+  grid-column: span 2;
+}
+
+.big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.horizontal-card__container {
+  margin: 2rem auto 4rem;
+  padding: 2rem 3rem;
+  box-shadow: 2px 10px 20px 5px #555;
+}
+.horizontal-card__container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.horizontal-card__customer-avt-holder {
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+}
+@media (min-width: 550px) {
+  .horizontal-card__customer-avt-holder {
+    float: left;
+  }
+}
+.horizontal-card__customer-holder {
+  margin-bottom: 1rem;
+}
+.horizontal-card__content-holder {
+  vertical-align: top;
+}
+@media (min-width: 550px) {
+  .horizontal-card__content-holder {
+    float: left;
+    width: calc(100% - 100px - 2rem);
+    padding-left: 2rem;
+  }
+}
+.horizontal-card__customer-name {
+  text-align: center;
+}
+@media (min-width: 550px) {
+  .horizontal-card__customer-name {
+    text-align: unset;
+  }
+}
+.horizontal-card__content {
+  text-align: justify;
+}
+
+.dialog__container {
+  width: 100%;
+  background-color: #ff9999;
+  border-right: 1px solid #C0C0C0;
+  border-bottom: 1px solid #C0C0C0;
+  box-sizing: border-box;
+}
+@media (min-width: 550px) {
+  .dialog__container {
+    width: 80%;
+    margin-left: 15px;
+  }
+}
+@media (min-width: 750px) {
+  .dialog__container {
+    width: 50%;
+  }
+}
+.dialog__dismiss-button {
+  display: inline-block;
+  padding: 10px calc((44px - 10.3167px) / 2);
+  color: #fff;
+  background-color: #ff3333;
+}
+.dialog__dismiss-button:hover {
+  cursor: pointer;
+}
+.dialog__content {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+/*
+ * State rules
+*/
+.nav-list__item:hover, .nav-list__item.isActive {
+  background-color: #555;
+}
+.nav-list__item:hover a, .nav-list__item.isActive a {
+  color: #fff;
+}
+
+/*
+ * Theme rules
+*/
+* {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+a {
+  color: #222;
+}
+a:hover, a:visited {
+  color: #222;
+}
+
+input[type=submit], input[type=reset] {
+  min-width: 120px;
+}
+
+input:disabled, select:disabled {
+  color: #555;
+  text-decoration: line-through;
+}
+
+.theme__input__validity {
+  display: inline-block;
+  text-align: right;
+}
+.theme__tooltip-icon {
+  display: none;
+}
+.theme__tooltip-icon:hover {
+  cursor: pointer;
+}
+@media (min-width: 550px) {
+  .theme__tooltip-icon {
+    display: inline-block;
+  }
+}
+.theme__text--strong {
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+.theme__text--italic {
+  font-weight: 500;
+  font-size: 1.75rem;
+  font-style: italic;
+}
+.theme__text--info {
+  font-weight: bold;
+  color: #1EAEDB !important;
+}
+.theme__text--success {
+  font-weight: bold;
+  color: #00CC00 !important;
+}
+
+#order-form {
+  box-shadow: 2px 10px 20px 5px #555;
+}
+
+#css-extraRequirementTooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip__text {
+  font-style: italic;
+  display: block;
+  font-weight: 400;
+  color: #1EAEDB;
+}
+@media (min-width: 550px) {
+  .tooltip__text {
+    visibility: hidden;
+    color: #fff;
+    background-color: #222;
+    width: 200px;
+    text-align: center;
+    border-radius: 4px;
+    padding: 1rem;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 105%;
+  }
+}
+
+@media (min-width: 550px) {
+  #css-extraRequirementTooltip:hover .tooltip__text {
+    visibility: visible;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

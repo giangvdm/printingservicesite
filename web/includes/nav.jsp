@@ -28,6 +28,7 @@
                     <a href="contact.jsp"><i class="fas fa-phone nav-list__icon"></i><span class="nav-list__text"> Liên
                             hệ</span></a>
                 </li>
+
                 <%
                     if(session.getAttribute("loggedIn") == null){
                 %>
