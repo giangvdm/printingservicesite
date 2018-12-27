@@ -1,0 +1,26 @@
+.crud-table {
+    th {
+        text-align: center;
+    }
+}
+
+.action {
+    &__button {
+        font-size: 1.5rem;
+        padding: 0 15px;
+
+        // variations
+        &--view {
+            color: $color-gray;
+        }
+        &--accept {
+            color: $color-green;
+        }
+        &--edit, &--pending {
+            color: $color-blue;
+        }
+        &--delete, &--reject {
+            color: $color-red;
+        }
+    }
+}

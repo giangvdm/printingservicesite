@@ -20,10 +20,10 @@
 
 <body data-page-name="order">
     <!-- HEADER -->
-    <%@ include file="/includes/header.jsp" %>
+    <%@ include file="/includes/customer-header.jsp" %>
 
     <!-- NAVIGATION -->
-    <jsp:include page="/includes/nav.jsp" />
+    <jsp:include page="/includes/customer-nav.jsp" />
 
     <!-- CONTENT -->
     <main class="main-content container" id="main-content">
@@ -200,10 +200,8 @@
         </form>
     </main>
 
-    <!-- <iframe src="https://docs.google.com/viewer?srcid=0B5afyiSNjCsdVTZHSEozb29MUW9DX0JXWlRpUnV3VGZBbXZR&pid=explorer&efh=false&a=v&chrome=false&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe> -->
-
     <!-- FOOTER -->
-    <%@ include file="/includes/footer.jsp" %>
+    <%@ include file="/includes/customer-footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
