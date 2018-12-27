@@ -1,4 +1,4 @@
-var formController = {
+var OrderFormController = {
     form: $('#order-form'),
     bookBindingCheckbox: $('#bookbinding'),
     paperSizeInput: $('#paper-size'),
@@ -23,7 +23,7 @@ var formController = {
     initForm() {
         this.bookBindingToggleInput();
         this.bookBindingCheckbox.on("change", function () {
-            formController.bookBindingToggleInput();
+            orderFormController.bookBindingToggleInput();
         });
 
         var _self = this;
@@ -65,6 +65,6 @@ var formController = {
     // }
 }
 
-formController.initForm();
+OrderFormController.initForm();
 
-// formController.getFileSize();
+// orderFormController.getFileSize();

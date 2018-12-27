@@ -25,11 +25,11 @@
     <jsp:include page="/includes/nav.jsp" />
 
     <%-- CONTENT --%>
-    <section class="section" id="">
-        <div class="container">
-            <h2 class="section__main-title">Báo giá</h2>
+    <main class="main-content container" id="main-content">
+        <h2 class="main-content__title">Báo giá</h2>
 
-            <table id="pricing-table">
+        <table id="pricing-table">
+            <thead>
                 <tr>
                     <th>Danh mục</th>
                     <th>Tên</th>
@@ -37,6 +37,8 @@
                     <th>Giá</th>
                     <th>Ghi chú</th>
                 </tr>
+            </thead>
+            <tbody>
                 <tr>
                     <td rowspan="4">Khổ giấy</td>
                     <td>A4</td>
@@ -49,9 +51,9 @@
                     <td>2000đ</td>
                     <td></td>
                 </tr>
-            </table>
-        </div>
-    </section>
+            </tbody>
+        </table>
+    </main>
 
     <!-- FOOTER -->
     <%@ include file="/includes/footer.jsp" %>

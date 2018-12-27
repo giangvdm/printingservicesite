@@ -1,0 +1,35 @@
+.dialog {
+
+    &__container {
+        width: 100%;
+        background-color: $color-pink;
+        border-right: $border-standard;
+        border-bottom: $border-standard;
+        box-sizing: border-box;
+        
+        @include phablet {
+            width: 80%;
+            margin-left: 15px;
+        }
+
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+    &__dismiss-button {
+        display: inline-block;
+        padding: 10px calc((44px - 10.3167px) / 2);
+        color: #fff;
+        background-color: $color-red;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__content {
+        display: inline-block;
+        margin-left: 20px;
+    }
+}
