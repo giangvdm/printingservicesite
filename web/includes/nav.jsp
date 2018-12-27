@@ -28,13 +28,27 @@
                     <a href="contact.jsp"><i class="fas fa-phone nav-list__icon"></i><span class="nav-list__text"> Liên
                             hệ</span></a>
                 </li>
+
+                <%
+                    if(session.getAttribute("loggedIn") == null){
+                %>
                 <li data-item-name="account" class="nav-list__item">
                     <a href="login.jsp"><i class="fas fa-user nav-list__icon"></i><span class="nav-list__text"> Tài
                             khoản</span></a>
-                </li>
-                <li data-item-name="account" class="nav-list__item">
-                    <a href="account.jsp"><i class="fas fa-user nav-list__icon"></i><span class="nav-list__text"> Xin chào <span class="session__username">người dùng</span></span></a>
-                </li>
+                </li>              
+                <%  
+                   }    
+                %>
+
+                <%
+                    if(session.getAttribute("loggedIn") != null){
+                %>
+                    <li data-item-name="account" class="nav-list__item">
+                       <a href="account.jsp"><i class="fas fa-user nav-list__icon"></i><span class="nav-list__text">${sessionScope.currentUser.getUserName()}</span></a>
+                    </li>                
+                <%  
+                   }    
+                %>
             </ul>
         </div>
     </nav>

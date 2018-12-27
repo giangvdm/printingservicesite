@@ -119,6 +119,7 @@ public class UploadServlet extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(UploadServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        response.sendRedirect(request.getContextPath() + "/order-success.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
