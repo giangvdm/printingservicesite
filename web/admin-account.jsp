@@ -29,6 +29,25 @@
         <section class="section" id="change-password">
             <h3 class="main-content__sub-title">Tổng hợp Tài khoản Quản trị viên</h3>
 
+            <div class="row">
+                <%
+                    if ("success".equalsIgnoreCase((String)request.getAttribute("status"))){
+                %>
+                <div class="message_div">
+                    <div class="dialog__container dialog__container--success">
+                        <div class="dialog__dismiss-button dialog__dismiss-button--success js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Cập nhật thông tin cá nhân thành công!</p>
+                        </div>
+                    </div>
+                </div>
+                <%  
+                    }    
+                %>
+            </div>
+
             <table class="crud-table" id="all-customers">
                 <thead>
                     <tr>

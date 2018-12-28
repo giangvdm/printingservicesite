@@ -54,13 +54,13 @@ public class LoginServlet extends HttpServlet {
         else { // admin login
             if(AdminDAO.verify(username, password)){
                 HttpSession session = request.getSession();
-                session.setAttribute("currentUser", AdminDAO.getAdminByUsername(username));
+                session.setAttribute("currentAdmin", AdminDAO.getAdminByUsername(username));
                 session.setAttribute("loggedIn", true);
                 response.sendRedirect(request.getContextPath() + "/admin.jsp");
             }
             else {
                 request.setAttribute("error", "true");
-                request.getRequestDispatcher("/admin.jsp").forward(request, response);               
+                request.getRequestDispatcher("/admin.jsp").forward(request, response);
             }
         }
     }

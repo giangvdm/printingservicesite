@@ -29,7 +29,8 @@
         <section class="section">
             <h2 class="main-content__title">Chỉnh sửa tài khoản quản trị viên</h2>
 
-            <form action="" method="POST" class="form" id="add-new-customer-form">
+            <form action="EditAdmin" method="POST" class="form" id="add-new-customer-form">
+                <input type="hidden" name="id" value="${sessionScope.currentAdmin.getId()}">
                 <fieldset id="account-info">
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
@@ -37,24 +38,15 @@
                         </div>
                         <div class="seven columns">
                             <input type="text" id="username" name="username" required>
-                            <div class="theme__input__validity" id="js-usernameValidityDisplay"></div>
+                            <div class="theme__input__validity" id="js-usernameValidityDisplay" value="${sessionScope.currentAdmin.getUsername()}"></div>
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label required" for="password">Mật khẩu</label>
+                            <label class="form__label" for="password">Mật khẩu</label>
                         </div>
                         <div class="seven columns">
-                            <input type="password" id="password" name="password" required>
-                        </div>
-                    </div>
-                    <div class="row form__line-wrapper">
-                        <div class="five columns form__label-container">
-                            <label class="form__label required" for="password-repeat">Nhập lại mật khẩu</label>
-                        </div>
-                        <div class="seven columns">
-                            <input type="password" id="password-repeat" name="password-repeat" required>
-                            <div class="theme__input__validity" id="js-passwordRepeatValidityDisplay"></div>
+                            <input type="password" id="password" name="password">
                         </div>
                     </div>
                 </fieldset>
@@ -75,7 +67,6 @@
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
-    <script src="src/js/universal-form.js"></script>
 
 </body>
 

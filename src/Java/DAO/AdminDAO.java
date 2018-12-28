@@ -1,6 +1,7 @@
 package DAO;
 
 import Model.Admin;
+import Model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -49,6 +50,22 @@ public class AdminDAO {
         return status;
     }
     
+    public static void editAdminInfo(Admin admin){
+        
+        String query = "UPDATE [dbo].[Admin] SET username=?, password=? WHERE id=?";
+        try {
+            conn = ConnectionManager.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, admin.getUsername());
+            ps.setString(2, admin.getPassword());
+            ps.setInt(3, admin.getId());
+            
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public static Admin getAdminByUsername(String username) {
         Admin admin = new Admin();
         
@@ -59,11 +76,31 @@ public class AdminDAO {
             ResultSet result = ps.executeQuery();
             
             while(result.next()){
-                admin.setPassword(result.getString("password"));
+                admin.setUsername(username);
             }
             
         } catch (SQLException ex) {
             Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return admin;
+    }
+    
+    public static Admin getAdminById(int id){
+        Admin admin = new Admin();
+
+        try {
+            conn = ConnectionManager.getConnection();  
+            PreparedStatement ps = conn.prepareStatement("select * from [dbo].[Admin] where id=?");
+            ps.setInt(1, id);
+            ResultSet result = ps.executeQuery();
+            
+            while(result.next()){
+                admin.setId(result.getInt("id"));
+                admin.setUsername(result.getString("username"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return admin;
     }

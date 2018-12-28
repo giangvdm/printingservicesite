@@ -85,16 +85,31 @@ public class UserDAO {
     }
     
     public static void updateUserInfo(User user){
-        //Update user's fullname email address
         
-        String query = "UPDATE [dbo].[User] SET fullname=?, email=?, address=? WHERE id=?";
+        String query = "UPDATE [dbo].[User] SET fullname=?, email=?, phoneNumber=?, address=? WHERE id=?";
         try {
             conn = ConnectionManager.getConnection();
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, user.getFullname());
             ps.setString(2, user.getEmail());
-            ps.setString(3, user.getAddress());
-            ps.setInt(4, user.getId());
+            ps.setString(3, user.getPhoneNumber());
+            ps.setString(4, user.getAddress());
+            ps.setInt(5, user.getId());
+            
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void changePassword(User user) {
+        String query = "UPDATE [dbo].[User] SET userPassword=? WHERE id=?";
+        
+        try {
+            conn = ConnectionManager.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, user.getUserPassword());
+            ps.setInt(2, user.getId());
             
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -112,17 +127,59 @@ public class UserDAO {
             ResultSet result = ps.executeQuery();
             
             while(result.next()){
+                user.setId(result.getInt("id"));
                 user.setFullname(result.getString("fullname"));
                 user.setEmail(result.getString("email"));
                 user.setAddress(result.getString("address"));
                 user.setPhoneNumber(result.getString("phoneNumber"));
             }
-
             
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return user;
+    }
+    
+    public static User getUserById(int id){
+        User user = new User();
+
+        try {
+            conn = ConnectionManager.getConnection();  
+            PreparedStatement ps = conn.prepareStatement("select * from [dbo].[User] where id=?");
+            ps.setInt(1, id);
+            ResultSet result = ps.executeQuery();
+            
+            while(result.next()){
+                user.setId(result.getInt("id"));
+                user.setFullname(result.getString("fullname"));
+                user.setEmail(result.getString("email"));
+                user.setAddress(result.getString("address"));
+                user.setPhoneNumber(result.getString("phoneNumber"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return user;
+    }
+    
+    public static String getUserPasswordById(int id){
+        User user = new User();
+
+        try {
+            conn = ConnectionManager.getConnection();  
+            PreparedStatement ps = conn.prepareStatement("select userPassword from [dbo].[User] where id=?");
+            ps.setInt(1, id);
+            ResultSet result = ps.executeQuery();
+            
+            while(result.next()){
+                user.setUserPassword(result.getString("userPassword"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return user.getUserPassword();
     }
     
     public static ArrayList<User> getAllUser(){

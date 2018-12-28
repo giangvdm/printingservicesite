@@ -183,8 +183,7 @@
                         <label class="form__label" for="customer-address">Địa chỉ</label>
                     </div>
                     <div class="seven columns">
-                        <textarea name="customer-address" id="customer-address" value="${sessionScope.currentUser.getAddress()}"
-                            cols="30" rows="10"></textarea>
+                        <textarea name="customer-address" id="customer-address" cols="30" rows="10">${sessionScope.currentUser.getAddress()}</textarea>
                     </div>
                 </div>
             </fieldset>
