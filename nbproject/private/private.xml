@@ -3,18 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Model/User.java</file>
             <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/register.jsp</file>
+            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/admin.jsp</file>
             <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/includes/nav.jsp</file>
             <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Model/Request.java</file>
             <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/login.jsp</file>
             <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/order.jsp</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Servlet/CharsetFilter.java</file>
+            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Model/Order.java</file>
+            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Servlet/UserServlet.java</file>
             <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/account.jsp</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/test/Console/LoginTest.java</file>
+            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/includes/header.jsp</file>
+            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/DAO/UserDAO.java</file>
+            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/viewUser.jsp</file>
             <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Servlet/RegisterServlet.java</file>
+            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/DAO/OrderDAO.java</file>
             <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Servlet/UploadServlet.java</file>
             <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Servlet/CheckUser.java</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Servlet/LoginServlet.java</file>
+            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/test/Console/GetUserTest.java</file>
         </group>
     </open-files>
 </project-private>
