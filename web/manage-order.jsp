@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/admin-main.css">
 </head>
 
-<body data-page-name="manage-customer">
+<body data-page-name="manage-order">
     <%-- HEADER --%>
     <%@ include file="includes/admin-header.jsp" %>
 
