@@ -159,7 +159,10 @@
         </section>
 
         <section class="section">
-            <button class="button" id="logout-button">Đăng xuất</button>
+            <form action="LogoutServlet" method="POST" id="logout-form">
+                <input type="hidden" name="user-type" value="customer">
+                <button type="submit" class="button" id="logout-button">Đăng xuất</button>
+            </form>
         </section>
     </main>
 

@@ -51,6 +51,7 @@
         </div>
 
         <form action="LoginServlet" method="POST" class="form" id="login-form">
+            <input type="hidden" name="user-type" value="customer">
             <fieldset>
                 <div class="row form__line-wrapper">
                     <div class="five columns form__label-container">

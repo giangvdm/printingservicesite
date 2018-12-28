@@ -5,6 +5,7 @@
  */
 package Servlet;
 
+import DAO.AdminDAO;
 import DAO.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,11 +34,23 @@ public class CheckUser extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String username = request.getParameter("username");
-            if(UserDAO.isUsernameTaken(username)){
-                out.println("invalid");
+            String userType = request.getParameter("user-type");
+            
+            if (userType.equals("customer")) {
+                if(UserDAO.isUsernameTaken(username)){
+                    out.println("invalid");
+                }
+                else{
+                    out.println("valid");
+                }
             }
-            else{
-                out.println("valid");
+            else {
+                if(AdminDAO.isUsernameTaken(username)){
+                    out.println("invalid");
+                }
+                else {
+                    out.println("valid");
+                }
             }
         }
     }

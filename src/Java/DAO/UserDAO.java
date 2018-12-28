@@ -34,19 +34,19 @@ public class UserDAO {
 //    }
     
     public static boolean isUsernameTaken(String username){
-        boolean status = false;  
+        boolean status = false; 
         try{
             conn = ConnectionManager.getConnection();
             PreparedStatement ps = conn.prepareStatement("select * from [dbo].[User] where userName=?");  
             ps.setString(1,username);  
 
             ResultSet result = ps.executeQuery();  
-            status = result.next();  
+            status = result.next();
 
         }catch(SQLException e){
             System.out.println(e);
         }  
-        return status;  
+        return status;
     }
     
     public static boolean validate(String name, String pass){

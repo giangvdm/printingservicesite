@@ -59,7 +59,8 @@
         <section class="section" id="">
             <h3 class="main-content__sub-title">Tạo Tài khoản Quản trị viên</h3>
 
-            <form action="RegisterServlet" method="POST" class="form" id="add-new-admin-form">
+            <form action="CreateNewAdmin" method="POST" class="form" id="create-new-admin-form">
+                <input type="hidden" id="user-type" name="user-type" value="admin">
                 <fieldset>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
@@ -101,7 +102,10 @@
         </section>
 
         <section class="section">
-            <button class="button" id="logout-button">Đăng xuất</button>
+            <form action="LogoutServlet" method="POST" id="logout-form">
+                <input type="hidden" name="user-type" value="admin">
+                <button type="submit" class="button" id="logout-button">Đăng xuất</button>
+            </form>
         </section>
     </main>
 
@@ -111,6 +115,7 @@
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
     <script src="src/js/universal-form.js"></script>
+    <script src="src/js/register.js"></script>
 </body>
 
 </html>

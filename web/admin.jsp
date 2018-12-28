@@ -18,12 +18,37 @@
 </head>
 
 <body data-page-name="home">
-    <%-- LOGIN FORM --%>
+    <!-- Not logged in -->
+    <%
+        if(session.getAttribute("loggedIn") == null) {
+    %>
     <main class="main-content container">
+        <%-- LOGIN FORM --%>
         <section class="section">
             <h1 class="main-content__title">Đăng nhập Quản trị viên</h1>
 
-            <form action="" method="POST" class="form" id="login-form">
+            <div class="row">
+                <%
+                    if("true".equalsIgnoreCase((String)request.getAttribute("error"))){
+                %>
+                <div class="message_div">
+                    <div class="dialog__container">
+                        <div class="dialog__dismiss-button js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Tên đăng nhập hoặc mật khẩu không chính xác</p>
+                        </div>
+                    </div>
+                </div>
+                <%  
+                    }    
+                %>
+
+            </div>
+
+            <form action="LoginServlet" method="POST" class="form" id="login-form">
+                <input type="hidden" name="user-type" value="admin">
                 <fieldset>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
@@ -60,8 +85,16 @@
                 </div>
             </form>
         </section>
-    </main>
 
+    </main>
+    <%
+        }
+    %>
+
+    <!-- User logged in -->
+    <%
+        if(session.getAttribute("loggedIn") != null) {
+    %>
 
     <%-- HEADER --%>
     <%@ include file="includes/admin-header.jsp" %>
@@ -70,15 +103,17 @@
     <jsp:include page="/includes/admin-nav.jsp" />
 
     <%-- CONTENT --%>
-
-    <!-- <main class="main-content container" id="main-content">
+    <main class="main-content container" id="main-content">
         <h2 class="main-content__title">Bảng điều khiển</h2>
 
         
-    </main> -->
+    </main>
 
     <!-- FOOTER -->
     <%@ include file="includes/admin-footer.jsp" %>
+    <%
+        }
+    %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
