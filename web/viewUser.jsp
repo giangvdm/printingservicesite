@@ -12,6 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h2>Hello There</h2>
+        <form action="UserServlet?action=viewList" method="POST">
+
+            <input type="submit" value="Submit" name="viewList">                 
+       </form>
     </body>
 </html>
