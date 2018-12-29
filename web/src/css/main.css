@@ -514,6 +514,23 @@ Google Map
   color: #ff9999;
 }
 
+.pricing-table {
+  margin: 0 auto;
+}
+.pricing-table th {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.pricing-table th, .pricing-table td {
+  text-align: center;
+}
+.pricing-table__label {
+  font-weight: bold;
+}
+.pricing-table__unit {
+  font-style: italic;
+}
+
 /*
  * State rules
 */
@@ -581,6 +598,9 @@ input:disabled, select:disabled {
 .theme__text--success {
   font-weight: bold;
   color: #00CC00 !important;
+}
+.theme__not-first--cell {
+  padding-left: 15px !important;
 }
 
 #logout-button {

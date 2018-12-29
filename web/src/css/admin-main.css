@@ -425,6 +425,9 @@ input:disabled, select:disabled {
   font-weight: bold;
   color: #00CC00 !important;
 }
+.theme__not-first--cell {
+  padding-left: 15px !important;
+}
 
 #logout-button {
   font-size: 1.5rem;

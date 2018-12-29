@@ -71,6 +71,13 @@ input:disabled, select:disabled {
         }
     }
 
+    // Table
+    // these classes are mostly for overriding skeleton.css
+    &__not-first {
+        &--cell {
+            padding-left: 15px !important;
+        }
+    }
 }
 
 #logout-button {
