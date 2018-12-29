@@ -68,9 +68,9 @@ public class UploadServlet extends HttpServlet {
         return null;
     }
     
-    private void writeToDB(Connection conn, String fileName, InputStream is, String description, String username, String userPhone, String userMail) throws SQLException{
+    private void writeToDB(Connection conn, String fileName, InputStream is, String description, String username, String userPhone, String userMail, int price) throws SQLException{
  
-        String sql = "INSERT INTO [dbo].[Order](filename,filedata,description,date,cus_name,cus_tel,cus_mail,status) " + " VALUES (?,?,?,?,?,?,?,?) ";
+        String sql = "INSERT INTO [dbo].[Order](filename,filedata,description,date,cus_name,cus_tel,cus_mail,status,total) " + " VALUES (?,?,?,?,?,?,?,?,?) ";
         PreparedStatement pstm = conn.prepareStatement(sql);
         
         Calendar cal = Calendar.getInstance();
@@ -87,6 +87,7 @@ public class UploadServlet extends HttpServlet {
         pstm.setString(6, userPhone);
         pstm.setString(7, userMail);
         pstm.setString(8, "pending");
+        pstm.setInt(9, price);
         pstm.executeUpdate();
     }
 
@@ -104,7 +105,27 @@ public class UploadServlet extends HttpServlet {
             String phone = request.getParameter("customer-tel");
             String mail = request.getParameter("customer-email");
             
-            String description = request.getParameter("extra-requirement");
+//            String pageNum = request.getParameter("number-of-pages");
+//            String copiesNum = request.getParameter("number-of-copies");
+//            String sideNum = request.getParameter("number-of-side");
+//            String paperSize = request.getParameter("paper-size");
+//            String paperQuality = request.getParameter("paper-quality");
+//            String bind = request.getParameter("bookbinding");
+//            String bindMethod = request.getParameter("bookbinding-method");
+//            String coverQuality = request.getParameter("cover-quality");
+//            String extra = request.getParameter("extra-requirement");
+            int price = Integer.parseInt(request.getParameter("total"));
+            
+            String description = "number-of-pages:" + request.getParameter("number-of-pages") + 
+                    ";number-of-copies:" + request.getParameter("number-of-copies") +
+                    ";number-of-side:" + request.getParameter("number-of-side") +
+                    ";paper-size:" + request.getParameter("paper-size") +
+                    ";paper-quality:" + request.getParameter("paper-quality") +
+                    ";bookbinding:" + request.getParameter("bookbinding") +
+                    ";bookbinding-method:" + request.getParameter("bookbinding-method") +
+                    ";cover-quality:" + request.getParameter("cover-quality") +
+                    ";extra-requirement:" + request.getParameter("extra-requirement");
+            
  
             // Part list (multi files).
             for (Part part : request.getParts()) {
@@ -113,7 +134,7 @@ public class UploadServlet extends HttpServlet {
                     // File data
                     InputStream is = part.getInputStream();
                     // Write to file
-                    this.writeToDB(conn, fileName, is, description, name, phone, mail);
+                    this.writeToDB(conn, fileName, is, description, name, phone, mail, price);
                 }
             }
             conn.commit();

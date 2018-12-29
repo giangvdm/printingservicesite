@@ -5,13 +5,8 @@
  */
 package Servlet;
 
-import DAO.UserDAO;
-import Model.User;
-import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,13 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Khanh
  */
-public class CustomerCRUDServlet extends HttpServlet {
+public class OrderCRUDServlet extends HttpServlet {
 
-    public String getJSONList(){
-        ArrayList<User> userList = UserDAO.getAllUser();
-        return new Gson().toJson(userList);
-    }
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,17 +30,7 @@ public class CustomerCRUDServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try {
-            String action = request.getParameter("action");
-            if (action.equals("edit")) {
-                User tmpUser = UserDAO.adminGetUserById(Integer.parseInt(request.getParameter("id")));
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/edit-customer.jsp");
-                request.setAttribute("customer", tmpUser);
-                dispatcher.forward(request, response);
-            }
-        }
-        catch (IOException ex) {}
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -18,14 +18,16 @@ public class Order {
     String description;
     String status;
     Timestamp date;
-
-    public Order(int id, String filename, String username, String description, String status, Timestamp date) {
+    int total;
+    
+    public Order(int id, String filename, String username, String description, String status, Timestamp date, int total) {
         this.id = id;
         this.filename = filename;
         this.username = username;
         this.description = description;
         this.status = status;
         this.date = date;
+        this.total = total;
     }
 
     public int getId() {
@@ -74,6 +76,14 @@ public class Order {
 
     public void setDate(Timestamp date) {
         this.date = date;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
     
 }

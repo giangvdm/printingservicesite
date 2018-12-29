@@ -6,7 +6,9 @@
 package Servlet;
 
 import DAO.AdminDAO;
+import DAO.OrderDAO;
 import DAO.UserDAO;
+import Model.Order;
 import Model.User;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,7 +49,10 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("currentUser", UserDAO.getUserByName(username));
                 session.setAttribute("loggedIn", true);
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+                ArrayList<Order> orderList = OrderDAO.SelectOrderByName(UserDAO.getUserByName(username).getFullname());
+                session.setAttribute("orderList", orderList);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/admin.jsp");
+                dispatcher.forward(request, response);
             }
             else {
                 request.setAttribute("action", "login");
