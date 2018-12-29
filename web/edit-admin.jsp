@@ -30,15 +30,16 @@
             <h2 class="main-content__title">Chỉnh sửa tài khoản quản trị viên</h2>
 
             <form action="EditAdmin" method="POST" class="form" id="add-new-customer-form">
-                <input type="hidden" name="id" value="${sessionScope.currentAdmin.getId()}">
+                <input type="hidden" name="id" value="${requestScope.admin.getId()}">
+                <input type="hidden" id="user-type" name="user-type" value="admin">
                 <fieldset id="account-info">
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
                             <label class="form__label required" for="username">Tên tài khoản</label>
                         </div>
                         <div class="seven columns">
-                            <input type="text" id="username" name="username" required>
-                            <div class="theme__input__validity" id="js-usernameValidityDisplay" value="${sessionScope.currentAdmin.getUsername()}"></div>
+                            <input type="text" id="username" name="username" value="${requestScope.admin.getUsername()}" required>
+                            <div class="theme__input__validity" id="js-usernameValidityDisplay"></div>
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
@@ -46,7 +47,7 @@
                             <label class="form__label" for="password">Mật khẩu</label>
                         </div>
                         <div class="seven columns">
-                            <input type="password" id="password" name="password">
+                            <input type="password" id="password" name="password" value="${requestScope.admin.getPassword()}">
                         </div>
                     </div>
                 </fieldset>
@@ -67,6 +68,7 @@
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
+    <script src="src/js/register.js"></script>
 
 </body>
 

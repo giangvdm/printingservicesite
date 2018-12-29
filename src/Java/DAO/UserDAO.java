@@ -40,7 +40,7 @@ public class UserDAO {
             PreparedStatement ps = conn.prepareStatement("select * from [dbo].[User] where userName=?");  
             ps.setString(1,username);  
 
-            ResultSet result = ps.executeQuery();  
+            ResultSet result = ps.executeQuery();
             status = result.next();
 
         }catch(SQLException e){
@@ -250,5 +250,18 @@ public class UserDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return userList;
+    }
+    
+    public static void deleteUser(User user){
+        String query = "DELETE FROM [dbo].[User] WHERE id=?";
+        try {         
+            conn = ConnectionManager.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, user.getId());
+            
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

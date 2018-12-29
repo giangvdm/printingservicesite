@@ -1,16 +1,14 @@
+package Servlet;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlet;
 
-import DAO.UserDAO;
-import Model.User;
-import com.google.gson.Gson;
+import DAO.AdminDAO;
+import Model.Admin;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,15 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Khanh
+ * @author vumin
  */
-public class CustomerCRUDServlet extends HttpServlet {
+public class AdminCRUDServlet extends HttpServlet {
 
-    public String getJSONList(){
-        ArrayList<User> userList = UserDAO.getAllUser();
-        return new Gson().toJson(userList);
-    }
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,22 +36,21 @@ public class CustomerCRUDServlet extends HttpServlet {
         try {
             String action = request.getParameter("action");
             if (action.equals("edit")) {
-                User tmpUser = UserDAO.adminGetUserById(Integer.parseInt(request.getParameter("id")));
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/edit-customer.jsp");
-                request.setAttribute("customer", tmpUser);
+                Admin tmpAdmin = AdminDAO.getAdminById(Integer.parseInt(request.getParameter("id")));
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/edit-admin.jsp");
+                request.setAttribute("admin", tmpAdmin);
                 dispatcher.forward(request, response);
             }
             else if (action.equals("delete")) {
-                User tmpUser = UserDAO.adminGetUserById(Integer.parseInt(request.getParameter("id")));
-                UserDAO.deleteUser(tmpUser);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/manage-customer.jsp");
-                request.setAttribute("action", "delete-customer");
+                Admin tmpAdmin = AdminDAO.getAdminById(Integer.parseInt(request.getParameter("id")));
+                AdminDAO.deleteAdmin(tmpAdmin);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-account.jsp");
+                request.setAttribute("action", "delete-admin");
                 request.setAttribute("status", "success");
                 dispatcher.forward(request, response);
             }
         }
         catch (IOException ex) {}
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,11 +1,11 @@
 package DAO;
 
 import Model.Admin;
-import Model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -112,12 +112,46 @@ public class AdminDAO {
             PreparedStatement ps = conn.prepareStatement("select * from [dbo].[Admin] where username=?");  
             ps.setString(1, username);  
 
-            ResultSet result = ps.executeQuery();  
-            status = result.next();  
-
-        }catch(SQLException e){
+            ResultSet result = ps.executeQuery();
+            status = result.next();
+            
+        } catch(SQLException e) {
             System.out.println(e);
         }  
         return status;  
+    }
+    
+    public static ArrayList<Admin> getAllAdmin(){
+        ArrayList<Admin> userList = new ArrayList<>();
+        String query = "SELECT * FROM [dbo].[Admin]";
+        conn = ConnectionManager.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet result = ps.executeQuery();  
+            while(result.next()){
+                int id = result.getInt("id");              
+                String username = result.getString("username");
+                String password = result.getString("password");
+                
+                Admin admin = new Admin(id, username, password);
+                userList.add(admin);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return userList;
+    }
+    
+    public static void deleteAdmin(Admin admin){
+        String query = "DELETE FROM [dbo].[Admin] WHERE id=?";
+        try {         
+            conn = ConnectionManager.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, admin.getId());
+            
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -120,6 +120,7 @@
                 <thead>
                     <tr>
                         <th>STT</th>
+                        <th>Tên đăng nhập</th>
                         <th>Họ và tên</th>
                         <th>Email</th>
                         <th>Số điện thoại</th>
@@ -140,6 +141,9 @@
                             <%=customer.getId()%>
                         </td>
                         <td>
+                            <%=customer.getUserName()%>
+                        </td>
+                        <td>
                             <%=customer.getFullname()%>
                         </td>
                         <td>
@@ -153,13 +157,6 @@
                         </td>
                         <td>
                             <form class="action-form" action="CustomerCRUDServlet" method="GET">
-                                <input type="hidden" name="action" value="view">
-                                <input type="hidden" name="id" value="<%=customer.getId()%>">
-                                <button type="submit" class="action__button action__button--view">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </form>
-                            <form class="action-form" action="CustomerCRUDServlet" method="GET">
                                 <input type="hidden" name="action" value="edit">
                                 <input type="hidden" name="id" value="<%=customer.getId()%>">
                                 <button type="submit" class="action__button action__button--edit">
@@ -169,7 +166,7 @@
                             <form class="action-form" action="CustomerCRUDServlet" method="GET">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<%=customer.getId()%>">
-                                <button type="submit" class="action__button action__button--delete">
+                                <button type="submit" class="action__button action__button--delete" onclick="return confirm('Bạn có chắc muốn xóa bản ghi này?')">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                             </form>

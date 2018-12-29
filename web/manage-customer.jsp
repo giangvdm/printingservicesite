@@ -63,7 +63,7 @@
 
         <section class="section">
             <h3 class="main-content__sub-title">Thống kê tài khoản khách hàng</h3>
-            
+
             <div class="row">
                 <%
                     if ("edit-customer".equalsIgnoreCase((String)request.getAttribute("action")) && "success".equalsIgnoreCase((String)request.getAttribute("status"))) {
@@ -100,69 +100,66 @@
             </div>
 
             <table class="crud-table" id="all-customers">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Họ và tên</th>
-                            <th>Email</th>
-                            <th>Số điện thoại</th>
-                            <th>Địa chỉ</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-    
-                        <% 
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Họ và tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% 
                             for (int i = 0; i < userList.size(); i++) {
                             User customer = new User();
                             customer = userList.get(i);
                         %>
-    
-                        <tr>
-                            <td>
-                                <%=customer.getId()%>
-                            </td>
-                            <td>
-                                <%=customer.getFullname()%>
-                            </td>
-                            <td>
-                                <%=customer.getEmail()%>
-                            </td>
-                            <td>
-                                <%=customer.getPhoneNumber()%>
-                            </td>
-                            <td>
-                                <%=customer.getAddress()%>
-                            </td>
-                            <td>
-                                <form class="action-form" action="CustomerCRUDServlet" method="GET">
-                                    <input type="hidden" name="action" value="view">
-                                    <input type="hidden" name="id" value="<%=customer.getId()%>">
-                                    <button type="submit" class="action__button action__button--view">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                </form>
-                                <form class="action-form" action="CustomerCRUDServlet" method="GET">
-                                    <input type="hidden" name="action" value="edit">
-                                    <input type="hidden" name="id" value="<%=customer.getId()%>">
-                                    <button type="submit" class="action__button action__button--edit">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                </form>
-                                <form class="action-form" action="CustomerCRUDServlet" method="GET">
-                                    <input type="hidden" name="action" value="delete">
-                                    <input type="hidden" name="id" value="<%=customer.getId()%>">
-                                    <button type="submit" class="action__button action__button--delete">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <%
+
+                    <tr>
+                        <td>
+                            <%=customer.getId()%>
+                        </td>
+                        <td>
+                            <%=customer.getUserName()%>
+                        </td>
+                        <td>
+                            <%=customer.getFullname()%>
+                        </td>
+                        <td>
+                            <%=customer.getEmail()%>
+                        </td>
+                        <td>
+                            <%=customer.getPhoneNumber()%>
+                        </td>
+                        <td>
+                            <%=customer.getAddress()%>
+                        </td>
+                        <td>
+                            <form class="action-form" action="CustomerCRUDServlet" method="GET">
+                                <input type="hidden" name="action" value="edit">
+                                <input type="hidden" name="id" value="<%=customer.getId()%>">
+                                <button type="submit" class="action__button action__button--edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </form>
+                            <form class="action-form" action="CustomerCRUDServlet" method="GET">
+                                <input type="hidden" name="action" value="delete">
+                                <input type="hidden" name="id" value="<%=customer.getId()%>">
+                                <button type="submit" class="action__button action__button--delete" onclick="return confirm('Bạn có chắc muốn xóa bản ghi này?')">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <%
                           };
                       %>
-                    </tbody>
-                </table>
+                </tbody>
+            </table>
         </section>
     </main>
 
@@ -173,5 +170,5 @@
     <script src="src/js/main.js"></script>
 
 </body>
-  
+
 </html>
