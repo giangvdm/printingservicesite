@@ -26,7 +26,7 @@
                 </li>
                 <li data-item-name="manage-admin" class="nav-list__item">
                     <a href="admin-account.jsp"><i class="fas fa-user-tie nav-list__icon"></i><span class="nav-list__text">
-                            &nbsp;Xin chào <span class="session__username">người dùng</span></span></a>
+                            &nbsp;Xin chào <span class="session__username">${sessionScope.currentAdmin.getUsername()}</span></span></a>
                 </li>
             </ul>
         </div>

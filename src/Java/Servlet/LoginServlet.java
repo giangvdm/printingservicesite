@@ -5,10 +5,9 @@
  */
 package Servlet;
 
+import DAO.AdminDAO;
 import DAO.UserDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,16 +37,32 @@ public class LoginServlet extends HttpServlet {
                 
         String username = request.getParameter("username").trim();
         String password = request.getParameter("password").trim(); 
-             
-        if(UserDAO.validate(username, password)){
-            HttpSession session = request.getSession();
-            session.setAttribute("currentUser", UserDAO.getUserByName(username));
-            session.setAttribute("loggedIn", true);
-            response.sendRedirect(request.getContextPath() + "/account.jsp");
+        String userType = request.getParameter("user-type").trim();
+        
+        if (userType.equals("customer")) { // customer login
+            if(UserDAO.validate(username, password)){
+                HttpSession session = request.getSession();
+                session.setAttribute("currentUser", UserDAO.getUserByName(username));
+                session.setAttribute("loggedIn", true);
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
+            }
+            else {
+                request.setAttribute("action", "login");
+                request.setAttribute("status", "error");
+                request.getRequestDispatcher("/login.jsp").forward(request, response);               
+            }
         }
-        else {
-            request.setAttribute("error", "true");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);               
+        else { // admin login
+            if(AdminDAO.verify(username, password)){
+                HttpSession session = request.getSession();
+                session.setAttribute("currentAdmin", AdminDAO.getAdminByUsername(username));
+                session.setAttribute("loggedIn", true);
+                response.sendRedirect(request.getContextPath() + "/admin.jsp");
+            }
+            else {
+                request.setAttribute("status", "error");
+                request.getRequestDispatcher("/admin.jsp").forward(request, response);
+            }
         }
     }
     

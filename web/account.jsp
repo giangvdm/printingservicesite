@@ -16,11 +16,11 @@
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
 </head>
 
-    <%
-        if (session.getAttribute("loggedIn") == null) {
-            response.sendRedirect("login.jsp");
-        }
-    %>
+<%
+    if (session.getAttribute("loggedIn") == null) {
+        response.sendRedirect("login.jsp");
+    }
+%>
 <body data-page-name="account">
     <!-- HEADER -->
     <%@ include file="includes/customer-header.jsp" %>
@@ -30,7 +30,6 @@
 
     <main class="main-content container" id="main-content">
         <h2 class="main-content__title">Tài khoản</h2>
-
 
         <section class="section" id="order-history">
             <h3 class="main-content__sub-title">Đơn hàng đã đặt</h3>
@@ -69,7 +68,27 @@
         <section class="section" id="profile">
             <h3 class="main-content__sub-title">Chỉnh sửa thông tin cá nhân</h3>
 
-            <form class="form" action="" method="POST" id="change-profile-form">
+            <div class="row">
+                <%
+                    if ("edit-profile".equalsIgnoreCase((String)request.getAttribute("action")) && "success".equalsIgnoreCase((String)request.getAttribute("status"))) {
+                %>
+                <div class="message_div">
+                    <div class="dialog__container dialog__container--success">
+                        <div class="dialog__dismiss-button dialog__dismiss-button--success js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Cập nhật thông tin cá nhân thành công!</p>
+                        </div>
+                    </div>
+                </div>
+                <%  
+                    }    
+                %>
+            </div>
+
+            <form class="form" action="EditProfile" method="POST" id="edit-profile-form">
+                <input type="hidden" name="id" value="${sessionScope.currentUser.getId()}">
                 <fieldset id="customer-info">
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
@@ -107,8 +126,7 @@
                             <label class="form__label" for="customer-address">Địa chỉ</label>
                         </div>
                         <div class="seven columns">
-                            <textarea name="customer-address" id="customer-address" value="${sessionScope.currentUser.getAddress()}"
-                                cols="30" rows="10"></textarea>
+                            <textarea name="customer-address" id="customer-address" cols="30" rows="10">${sessionScope.currentUser.getAddress()}</textarea>
                         </div>
                     </div>
                 </fieldset>
@@ -126,7 +144,43 @@
         <section class="section" id="change-password">
             <h3 class="main-content__sub-title">Đổi mật khẩu</h3>
 
-            <form class="form" action="" method="POST" id="change-password-form">
+            <div class="row">
+                <%
+                    if ("change-password".equalsIgnoreCase((String)request.getAttribute("action")) && "success".equalsIgnoreCase((String)request.getAttribute("status"))) {
+                %>
+                <div class="message_div">
+                    <div class="dialog__container dialog__container--success">
+                        <div class="dialog__dismiss-button dialog__dismiss-button--success js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Đổi mật khẩu thành công!</p>
+                        </div>
+                    </div>
+                </div>
+                <%  
+                    }  
+                %>
+                <%
+                    if ("change-password".equalsIgnoreCase((String)request.getAttribute("action")) && "error".equalsIgnoreCase((String)request.getAttribute("status"))) {
+                %>
+                <div class="message_div">
+                    <div class="dialog__container dialog__container--error">
+                        <div class="dialog__dismiss-button dialog__dismiss-button--error js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Mật khẩu cũ không đúng! Đổi mật khẩu thất bại!</p>
+                        </div>
+                    </div>
+                </div>
+                <%  
+                    }  
+                %>
+            </div>
+
+            <form class="form" action="ChangePassword" method="POST" id="change-password-form">
+                <input type="hidden" name="id" value="${sessionScope.currentUser.getId()}">
                 <fieldset>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
@@ -166,7 +220,10 @@
         </section>
 
         <section class="section">
-            <button class="button" id="logout-button">Đăng xuất</button>
+            <form action="LogoutServlet" method="POST" id="logout-form">
+                <input type="hidden" name="user-type" value="customer">
+                <button type="submit" class="button" id="logout-button">Đăng xuất</button>
+            </form>
         </section>
     </main>
 

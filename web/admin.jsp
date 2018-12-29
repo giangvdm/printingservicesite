@@ -25,18 +25,37 @@
         }
     %>
 <body data-page-name="home">
-    <%-- HEADER --%>
-    <%@ include file="includes/admin-header.jsp" %>
-
-    <%-- NAVIGATION --%>
-    <jsp:include page="/includes/admin-nav.jsp" />
-    <jsp:include page="/UserServlet" />
-    <%-- LOGIN FORM --%>
+    <!-- Not logged in -->
+    <%
+        if(session.getAttribute("loggedIn") == null) {
+    %>
     <main class="main-content container">
+        <%-- LOGIN FORM --%>
         <section class="section">
             <h1 class="main-content__title">Đăng nhập Quản trị viên</h1>
 
-            <form action="" method="POST" class="form" id="login-form">
+            <div class="row">
+                <%
+                    if("error".equalsIgnoreCase((String)request.getAttribute("status"))){
+                %>
+                <div class="message_div">
+                    <div class="dialog__container dialog__container--error">
+                        <div class="dialog__dismiss-button dialog__dismiss-button-error js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Tên đăng nhập hoặc mật khẩu không chính xác</p>
+                        </div>
+                    </div>
+                </div>
+                <%  
+                    }    
+                %>
+
+            </div>
+
+            <form action="LoginServlet" method="POST" class="form" id="login-form">
+                <input type="hidden" name="user-type" value="admin">
                 <fieldset>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
@@ -73,53 +92,156 @@
                 </div>
             </form>
         </section>
-    </main>
 
+    </main>
+    <%
+        }
+    %>
+
+    <!-- User logged in -->
+    <%
+        if(session.getAttribute("loggedIn") != null) {
+    %>
 
 
     <%-- CONTENT --%>
     <main class="main-content container" id="main-content">
-        <h2 class="main-content__title">Trang chủ</h2>
+        <h2 class="main-content__title">Bảng điều khiển</h2>
+
+        <section class="section">
+            <h3 class="main-content__sub-title">Thống kê tài khoản khách hàng</h3>
+          
             <%
                 ArrayList<User> userList = (ArrayList<User>)request.getAttribute("userList");
             %>
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Họ tên</th>
-                    <th>Tên đăng nhập</th>
-                    <th>Số điện thoại</th>
-                    <th>Email</th>
-                    <th>Địa chỉ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for(int i = 0; i < userList.size(); i++) {
-                    User customer = new User();
-                    customer = userList.get(i);
-                %>
+          
+            <table class="crud-table" id="all-customers">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ và tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                    <% 
+                        for(int i = 0; i < userList.size(); i++) {
+                        User customer = new User();
+                        customer = userList.get(i);
+                    %>
+                  
+                    <tr>
+                        <td><%=customer.getId()%></td>
+                        <td><%=customer.getFullname()%></td>
+                        <td><%=customer.getUserName()%></td>
+                        <td><%=customer.getPhoneNumber()%></td>
+                        <td><%=customer.getEmail()%></td>
+                        <td><%=customer.getAddress()%></td>
+                        <td>
+                            <button class="action__button action__button--view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action__button action__button--edit" onclick="location.href='edit-customer.jsp'">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action__button action__button--delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                  <%
+                      };
+                  %>
+                </tbody>
+            </table>
+        </section>
 
+        <section class="section">
+            <h3 class="main-content__sub-title">Đơn hàng đang chờ</h3>
+            <table class="crud-table" id="all-customers">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Ngày đặt</th>
+                        <th>Tên khách hàng</th>
+                        <th>Mô tả</th>
+                        <th>Thành tiền</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="action__button action__button--view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action__button action__button--accept">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="action__button action__button--reject">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-                <tr>
-                    <td><%=customer.getId()%></td>
-                    <td><%=customer.getFullname()%></td>
-                    <td><%=customer.getUserName()%></td>
-                    <td><%=customer.getPhoneNumber()%></td>
-                    <td><%=customer.getEmail()%></td>
-                    <td><%=customer.getAddress()%></td>
-                   </tr>
-                <%
-                };
-                %>
-            </tbody>
-        </table>
-
+        <section class="section">
+            <h3 class="main-content__sub-title">Yêu cầu liên hệ đang chờ</h3>
+            <table class="crud-table" id="all-customers">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Ngày gửi</th>
+                        <th>Tên khách hàng</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Nội dung</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="action__button action__button--view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action__button action__button--done">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
-
 
     <!-- FOOTER -->
     <%@ include file="includes/admin-footer.jsp" %>
+    <%
+        }
+    %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>

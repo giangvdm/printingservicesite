@@ -51,11 +51,17 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
     
-    public User(String fullname, String userName, String userPassword, String email) {
+    public User(int id, String fullname, String email, String phoneNumber, String address) {
+        this.id = id;
         this.fullname = fullname;
-        this.userName = userName;
-        this.userPassword = userPassword;
         this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+    
+    public User(int id, String password) {
+        this.id = id;
+        this.userPassword = password;
     }
 
     public int getId() {

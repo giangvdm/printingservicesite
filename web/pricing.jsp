@@ -28,27 +28,115 @@
     <main class="main-content container" id="main-content">
         <h2 class="main-content__title">Báo giá</h2>
 
-        <table id="pricing-table">
+        <table class="pricing-table" id="pricing-table">
             <thead>
                 <tr>
                     <th>Danh mục</th>
-                    <th>Tên</th>
+                    <th>Nội dung</th>
                     <th>Đơn vị</th>
                     <th>Giá</th>
                     <th>Ghi chú</th>
                 </tr>
             </thead>
             <tbody>
+                <!-- Paper size -->
                 <tr>
-                    <td rowspan="4">Khổ giấy</td>
-                    <td>A4</td>
-                    <td rowspan="4">Tờ</td>
+                    <td rowspan="6" class="pricing-table__label">Khổ giấy</td>
+                    <td>A5</td>
+                    <td rowspan="6" class="pricing-table__unit">Tờ</td>
+                    <td>x1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">A4</td>
+                    <td>x1.5</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">A3</td>
+                    <td>x2</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">A2</td>
+                    <td>x3</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">A1</td>
+                    <td>x4</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">A0</td>
+                    <td>x5</td>
+                    <td></td>
+                </tr>
+
+                <!-- Paper quality -->
+                <tr>
+                    <td rowspan="4" class="pricing-table__label">Chất liệu ruột</td>
+                    <td>Bãi bằng 60</td>
+                    <td rowspan="4" class="pricing-table__unit">Tờ</td>
                     <td>1000đ</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>A3</td>
+                    <td class="theme__not-first--cell">Bãi bằng 70</td>
                     <td>2000đ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">Offset 60</td>
+                    <td>3000đ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">Offset 70</td>
+                    <td>4000đ</td>
+                    <td></td>
+                </tr>
+
+                <!-- Bookbinding method -->
+                <tr>
+                    <td rowspan="3" class="pricing-table__label">Quy cách đóng quyển</td>
+                    <td>Gáy xoắn</td>
+                    <td rowspan="3" class="pricing-table__unit">Quyển</td>
+                    <td>5000đ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">Gáy khâu</td>
+                    <td>3000đ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">Phay keo</td>
+                    <td>2000đ</td>
+                    <td></td>
+                </tr>
+
+                <!-- Cover quality -->
+                <tr>
+                    <td rowspan="4" class="pricing-table__label">Chất liệu bìa</td>
+                    <td>Couches 150</td>
+                    <td rowspan="4" class="pricing-table__unit">Tờ</td>
+                    <td>1000đ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">Couches 200</td>
+                    <td>2000đ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">Couches 250</td>
+                    <td>3000đ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="theme__not-first--cell">Couches 300</td>
+                    <td>4000đ</td>
                     <td></td>
                 </tr>
             </tbody>

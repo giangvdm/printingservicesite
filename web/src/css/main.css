@@ -450,7 +450,6 @@ Google Map
 
 .dialog__container {
   width: 100%;
-  background-color: #ff9999;
   border-right: 1px solid #C0C0C0;
   border-bottom: 1px solid #C0C0C0;
   box-sizing: border-box;
@@ -466,14 +465,25 @@ Google Map
     width: 50%;
   }
 }
+.dialog__container--error {
+  background-color: #ff9999;
+}
+.dialog__container--success {
+  background-color: #ccffcc;
+}
 .dialog__dismiss-button {
   display: inline-block;
   padding: 10px calc((44px - 10.3167px) / 2);
-  color: #fff;
-  background-color: #ff3333;
 }
 .dialog__dismiss-button:hover {
   cursor: pointer;
+}
+.dialog__dismiss-button--error {
+  color: #fff;
+  background-color: #ff3333;
+}
+.dialog__dismiss-button--success {
+  background-color: #00CC00;
 }
 .dialog__content {
   display: inline-block;
@@ -504,115 +514,19 @@ Google Map
   color: #ff9999;
 }
 
-/*
- * State rules
-*/
-.nav-list__item:hover, .nav-list__item.isActive {
-  background-color: #555;
+.pricing-table {
+  margin: 0 auto;
 }
-.nav-list__item:hover a, .nav-list__item.isActive a {
-  color: #fff;
+.pricing-table th {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
-
-/*
- * Theme rules
-*/
-* {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+.pricing-table th, .pricing-table td {
+  text-align: center;
 }
-
-a {
-  color: #222;
-}
-a:hover, a:visited {
-  color: #222;
-}
-
-input[type=submit], input[type=reset] {
-  min-width: 120px;
-}
-
-input:disabled, select:disabled {
-  color: #555;
-  text-decoration: line-through;
-}
-
-.theme__input__validity {
-  display: inline-block;
-  text-align: right;
-}
-.theme__tooltip-icon {
-  display: none;
-}
-.theme__tooltip-icon:hover {
-  cursor: pointer;
-}
-@media (min-width: 550px) {
-  .theme__tooltip-icon {
-    display: inline-block;
-  }
-}
-.theme__text--strong {
+.pricing-table__label {
   font-weight: bold;
-  font-size: 1.75rem;
 }
-.theme__text--italic {
-  font-weight: 500;
-  font-size: 1.75rem;
+.pricing-table__unit {
   font-style: italic;
 }
-.theme__text--info {
-  font-weight: bold;
-  color: #1EAEDB !important;
-}
-.theme__text--success {
-  font-weight: bold;
-  color: #00CC00 !important;
-}
-
-#logout-button {
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-  color: #fff;
-  background-color: #ff3333;
-}
-
-#order-form {
-  box-shadow: 2px 10px 20px 5px #555;
-}
-
-#css-extraRequirementTooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip__text {
-  font-style: italic;
-  display: block;
-  font-weight: 400;
-  color: #1EAEDB;
-}
-@media (min-width: 550px) {
-  .tooltip__text {
-    visibility: hidden;
-    color: #fff;
-    background-color: #222;
-    width: 200px;
-    text-align: center;
-    border-radius: 4px;
-    padding: 1rem;
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    top: -5px;
-    right: 105%;
-  }
-}
-
-@media (min-width: 550px) {
-  #css-extraRequirementTooltip:hover .tooltip__text {
-    visibility: visible;
-  }
-}
-
-/*# sourceMappingURL=main.css.map */

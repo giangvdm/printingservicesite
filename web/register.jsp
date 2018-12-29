@@ -33,6 +33,7 @@
         </div>
 
         <form action="RegisterServlet" method="POST" class="form" id="register-form">
+            <input type="hidden" id="user-type" name="user-type" value="customer">
             <fieldset id="account-info">
                 <legend>Thông tin tài khoản</legend>
                 <div class="row form__line-wrapper">

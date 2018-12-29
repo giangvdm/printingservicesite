@@ -16,6 +16,25 @@
     <link rel="stylesheet" href="src/lib/fontawesome/all.css">
     <!-- Load custom css -->
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
+    <script>
+        function previewDoc() {
+            var file = document.getElementById("file-upload").files[0];
+            url = URL.createObjectURL(file);
+            var previewFrame = document.getElementById("preview-frame");
+
+            if (previewFrame === null) {
+                var iframe = document.createElement("IFRAME");
+                iframe.id = "preview-frame";
+                iframe.setAttribute("src", url);
+                iframe.setAttribute("width", "100%");
+                iframe.setAttribute("height", "300px");
+                document.getElementById("preview-area").appendChild(iframe);
+            }
+            else {
+                previewFrame.setAttribute("src", url);
+            }
+        }
+    </script>
 </head>
 
 <body data-page-name="order">
@@ -38,9 +57,12 @@
                     </div>
                     <div class="seven columns">
                         <input type="file" accept=".txt,.doc,.docx,.odt,.pdf" multiple="true" id="file-upload" name="file-upload"
-                            required>
+                        required>
+                        <button class="button" id="preview-button" type="button" onclick="previewDoc();" disabled>Xem trước</button>
                     </div>
                 </div>
+                <div class="row form__line-wrapper" id="preview-area"></div>
+
                 <div class="row form__line-wrapper">
                     <div class="five columns form__label-container">
                         <label class="form__label required" for="number-of-pages">Tổng số trang</label>
@@ -183,8 +205,7 @@
                         <label class="form__label" for="customer-address">Địa chỉ</label>
                     </div>
                     <div class="seven columns">
-                        <textarea name="customer-address" id="customer-address" value="${sessionScope.currentUser.getAddress()}"
-                            cols="30" rows="10"></textarea>
+                        <textarea name="customer-address" id="customer-address" cols="30" rows="10">${sessionScope.currentUser.getAddress()}</textarea>
                     </div>
                 </div>
             </fieldset>
@@ -204,6 +225,7 @@
     <%@ include file="/includes/customer-footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
+    <script src="src/lib/jquery.validate.min.js"></script>
     <script src="src/js/main.js"></script>
     <script src="src/js/order-form.js"></script>
 </body>

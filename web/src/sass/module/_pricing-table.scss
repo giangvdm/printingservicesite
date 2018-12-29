@@ -1,0 +1,20 @@
+.pricing-table {
+    margin: 0 auto; // centralize
+
+    th {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    th, td {
+        text-align: center;
+    }
+
+    &__label {
+        font-weight: bold;
+    }
+
+    &__unit {
+        font-style: italic;
+    }
+}

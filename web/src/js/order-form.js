@@ -8,6 +8,8 @@ var OrderFormController = {
     numberOfSideInput: $('#number-of-side'),
     numberOfCopiesInput: $('#number-of-copies'),
     pricingData: {},
+    fileUploadInput: $('#file-upload'),
+    previewButton: $('#preview-button'),
 
     bookBindingToggleInput() {
         if (!this.bookBindingCheckbox.prop('checked')) {
@@ -21,12 +23,18 @@ var OrderFormController = {
     },
 
     initForm() {
-        this.bookBindingToggleInput();
-        this.bookBindingCheckbox.on("change", function () {
-            orderFormController.bookBindingToggleInput();
+        var _self = this;
+
+        this.fileUploadInput.on("change", function() {
+            if (_self.fileUploadInput.valid()) {
+                _self.previewButton.prop('disabled', false);
+            }
         });
 
-        var _self = this;
+        this.bookBindingToggleInput();
+        this.bookBindingCheckbox.on("change", function () {
+            OrderFormController.bookBindingToggleInput();
+        });
 
         $.getJSON("./data/pricing.json", function (data) {
             _self.pricingData = data;

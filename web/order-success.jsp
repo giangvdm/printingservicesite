@@ -33,7 +33,7 @@
 
         <br />
 
-        <button class="">Bấm vào đây để quay về ...</button>
+        <button class="button" onclick="location.href='index.jsp';">Bấm vào đây để quay về ...</button>
     </main>
 
     <!-- FOOTER -->

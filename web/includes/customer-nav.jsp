@@ -30,7 +30,7 @@
                 </li>
 
                 <%
-                    if(session.getAttribute("loggedIn") == null){
+                    if(session.getAttribute("loggedIn") == null) {
                 %>
                 <li data-item-name="account" class="nav-list__item">
                     <a href="login.jsp"><i class="fas fa-user nav-list__icon"></i><span class="nav-list__text">&nbsp;Tài
@@ -44,7 +44,9 @@
                     if(session.getAttribute("loggedIn") != null){
                 %>
                 <li data-item-name="account" class="nav-list__item">
-                    <a href="account.jsp"><i class="fas fa-user nav-list__icon"></i><span class="nav-list__text">${sessionScope.currentUser.getUserName()}</span></a>
+                    <a href="account.jsp"><i class="fas fa-user nav-list__icon"></i><span class="nav-list__text">
+                        &nbsp;Xin chào <span class="session__username">${sessionScope.currentUser.getFullname()}</span>
+                    </span></a>
                 </li>
                 <%  
                    }    

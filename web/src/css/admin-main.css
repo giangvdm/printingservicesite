@@ -282,7 +282,6 @@ p {
 
 .dialog__container {
   width: 100%;
-  background-color: #ff9999;
   border-right: 1px solid #C0C0C0;
   border-bottom: 1px solid #C0C0C0;
   box-sizing: border-box;
@@ -298,14 +297,25 @@ p {
     width: 50%;
   }
 }
+.dialog__container--error {
+  background-color: #ff9999;
+}
+.dialog__container--success {
+  background-color: #ccffcc;
+}
 .dialog__dismiss-button {
   display: inline-block;
   padding: 10px calc((44px - 10.3167px) / 2);
-  color: #fff;
-  background-color: #ff3333;
 }
 .dialog__dismiss-button:hover {
   cursor: pointer;
+}
+.dialog__dismiss-button--error {
+  color: #fff;
+  background-color: #ff3333;
+}
+.dialog__dismiss-button--success {
+  background-color: #00CC00;
 }
 .dialog__content {
   display: inline-block;
@@ -414,6 +424,9 @@ input:disabled, select:disabled {
 .theme__text--success {
   font-weight: bold;
   color: #00CC00 !important;
+}
+.theme__not-first--cell {
+  padding-left: 15px !important;
 }
 
 #logout-button {
