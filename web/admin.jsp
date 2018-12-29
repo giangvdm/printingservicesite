@@ -1,3 +1,5 @@
+<%@page import="Model.User"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -17,7 +19,18 @@
     <link rel="stylesheet" type="text/css" href="src/css/admin-main.css">
 </head>
 
+    <%
+        if (session.getAttribute("loggedIn") == null) {
+            response.sendRedirect("login.jsp");
+        }
+    %>
 <body data-page-name="home">
+    <%-- HEADER --%>
+    <%@ include file="includes/admin-header.jsp" %>
+
+    <%-- NAVIGATION --%>
+    <jsp:include page="/includes/admin-nav.jsp" />
+    <jsp:include page="/UserServlet" />
     <%-- LOGIN FORM --%>
     <main class="main-content container">
         <section class="section">
@@ -63,25 +76,54 @@
     </main>
 
 
-    <%-- HEADER --%>
-    <%@ include file="includes/admin-header.jsp" %>
-
-    <%-- NAVIGATION --%>
-    <jsp:include page="/includes/admin-nav.jsp" />
 
     <%-- CONTENT --%>
+    <main class="main-content container" id="main-content">
+        <h2 class="main-content__title">Trang chủ</h2>
+            <%
+                ArrayList<User> userList = (ArrayList<User>)request.getAttribute("userList");
+            %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Họ tên</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                    <th>Địa chỉ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(int i = 0; i < userList.size(); i++) {
+                    User customer = new User();
+                    customer = userList.get(i);
+                %>
 
-    <!-- <main class="main-content container" id="main-content">
-        <h2 class="main-content__title">Bảng điều khiển</h2>
 
-        
-    </main> -->
+                <tr>
+                    <td><%=customer.getId()%></td>
+                    <td><%=customer.getFullname()%></td>
+                    <td><%=customer.getUserName()%></td>
+                    <td><%=customer.getPhoneNumber()%></td>
+                    <td><%=customer.getEmail()%></td>
+                    <td><%=customer.getAddress()%></td>
+                   </tr>
+                <%
+                };
+                %>
+            </tbody>
+        </table>
+
+    </main>
+
 
     <!-- FOOTER -->
     <%@ include file="includes/admin-footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
+
 
 </body>
 

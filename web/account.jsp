@@ -16,11 +16,11 @@
     <link rel="stylesheet" type="text/css" href="src/css/main.css">
 </head>
 
-  <%
-    if (session.getAttribute("loggedIn") == null) {
-        response.sendRedirect("login.jsp");
-    }
- %>
+    <%
+        if (session.getAttribute("loggedIn") == null) {
+            response.sendRedirect("login.jsp");
+        }
+    %>
 <body data-page-name="account">
     <!-- HEADER -->
     <%@ include file="includes/customer-header.jsp" %>
@@ -83,6 +83,13 @@
                         <div class="five columns form__label-container">
                             <label class="form__label required" for="customer-tel">Số điện thoại</label>
                         </div>
+                        <div class="row form__line-wrapper">
+                            <div class="five columns form__label-container">
+                                <label class="form__label" for="customer-address">Địa chỉ</label>
+                            </div>
+                            <div class="seven columns">
+                                <textarea name="customer-address" id="customer-address" cols="30" rows="10">${sessionScope.currentUser.getAddress()}</textarea>
+                            </div>
                         <div class="seven columns">
                             <input type="tel" id="customer-tel" name="customer-tel" required value="${sessionScope.currentUser.getPhoneNumber()}">
                         </div>

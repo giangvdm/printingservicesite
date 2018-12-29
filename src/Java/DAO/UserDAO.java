@@ -102,6 +102,10 @@ public class UserDAO {
         }
     }
     
+    public static void changePassword(String password, User user){
+        
+    }
+    
     public static User getUserByName(String username){
         User user = new User();
 
