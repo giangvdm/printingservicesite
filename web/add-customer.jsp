@@ -29,7 +29,8 @@
         <section class="section">
             <h2 class="main-content__title">Thêm tài khoản khách hàng</h2>
 
-            <form action="" method="POST" class="form" id="add-new-customer-form">
+            <form action="AddCustomer" method="POST" class="form" id="add-new-customer-form">
+                <input type="hidden" id="user-type" name="user-type" value="customer">
                 <fieldset id="account-info">
                     <legend>Thông tin tài khoản</legend>
                     <div class="row form__line-wrapper">
@@ -113,6 +114,7 @@
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
     <script src="src/js/universal-form.js"></script>
+    <script src="src/js/register.js"></script>
 
 </body>
 

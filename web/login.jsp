@@ -32,7 +32,7 @@
 
         <div class="row">           
             <%
-                if("true".equalsIgnoreCase((String)request.getAttribute("error"))){
+                if("login".equalsIgnoreCase((String)request.getAttribute("action")) && "error".equalsIgnoreCase((String)request.getAttribute("status"))){
             %>
                 <div class="dialog">
                     <div class="dialog__container dialog__container--error">
@@ -45,8 +45,24 @@
                     </div>  
                </div>
             <%  
-               }    
-            %> 
+               }
+            %>
+            <%
+                if("register".equalsIgnoreCase((String)request.getAttribute("action")) && "success".equalsIgnoreCase((String)request.getAttribute("status"))){
+            %>
+                <div class="dialog">
+                    <div class="dialog__container dialog__container--success">
+                        <div class="dialog__dismiss-button dialog__dismiss-button--success js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Đăng ký tài khoản thành công! Bây giờ bạn có thể đăng nhập!</p>
+                        </div>
+                    </div>  
+               </div>
+            <%  
+               }
+            %>
         
         </div>
 

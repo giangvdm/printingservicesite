@@ -33,9 +33,65 @@
             <button class="action__button action__button--add" onclick="location.href='add-customer.jsp'">
                 <i class="fas fa-plus"></i>&nbsp;Thêm tài khoản khách hàng mới
             </button>
+
+            <div class="row">
+                <%
+                    if ("add-customer".equalsIgnoreCase((String)request.getAttribute("action")) && "success".equalsIgnoreCase((String)request.getAttribute("status"))) {
+                %>
+                <div class="message_div">
+                    <div class="dialog__container dialog__container--success">
+                        <div class="dialog__dismiss-button dialog__dismiss-button--success js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Thêm tài khoản khách hàng mới thành công!</p>
+                        </div>
+                    </div>
+                </div>
+                <%  
+                    }    
+                %>
+            </div>
         </section>
 
         <section class="section">
+            <h3 class="main-content__sub-title">Thống kê tài khoản khách hàng</h3>
+            
+            <div class="row">
+                <%
+                    if ("edit-customer".equalsIgnoreCase((String)request.getAttribute("action")) && "success".equalsIgnoreCase((String)request.getAttribute("status"))) {
+                %>
+                <div class="message_div">
+                    <div class="dialog__container dialog__container--success">
+                        <div class="dialog__dismiss-button dialog__dismiss-button--success js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Cập nhật tài khoản khách hàng thành công!</p>
+                        </div>
+                    </div>
+                </div>
+                <%  
+                    }
+                %>
+                <%
+                    if ("delete-customer".equalsIgnoreCase((String)request.getAttribute("action")) && "success".equalsIgnoreCase((String)request.getAttribute("status"))) {
+                %>
+                <div class="message_div">
+                    <div class="dialog__container dialog__container--success">
+                        <div class="dialog__dismiss-button dialog__dismiss-button--success js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Xóa tài khoản khách hàng thành công!</p>
+                        </div>
+                    </div>
+                </div>
+                <%  
+                    }
+                %>
+            </div>
+
             <table class="crud-table" id="all-customers">
                 <thead>
                     <tr>

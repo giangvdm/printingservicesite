@@ -29,7 +29,7 @@
 
             <div class="row">
                 <%
-                    if("true".equalsIgnoreCase((String)request.getAttribute("error"))){
+                    if("error".equalsIgnoreCase((String)request.getAttribute("status"))){
                 %>
                 <div class="message_div">
                     <div class="dialog__container dialog__container--error">
@@ -106,7 +106,118 @@
     <main class="main-content container" id="main-content">
         <h2 class="main-content__title">Bảng điều khiển</h2>
 
-        
+        <section class="section">
+            <h3 class="main-content__sub-title">Thống kê tài khoản khách hàng</h3>
+            <table class="crud-table" id="all-customers">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ và tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="action__button action__button--view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action__button action__button--edit" onclick="location.href='edit-customer.jsp'">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action__button action__button--delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h3 class="main-content__sub-title">Đơn hàng đang chờ</h3>
+            <table class="crud-table" id="all-customers">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Ngày đặt</th>
+                        <th>Tên khách hàng</th>
+                        <th>Mô tả</th>
+                        <th>Thành tiền</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="action__button action__button--view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action__button action__button--accept">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="action__button action__button--reject">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h3 class="main-content__sub-title">Yêu cầu liên hệ đang chờ</h3>
+            <table class="crud-table" id="all-customers">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Ngày gửi</th>
+                        <th>Tên khách hàng</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Nội dung</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="action__button action__button--view">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action__button action__button--done">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
 
     <!-- FOOTER -->

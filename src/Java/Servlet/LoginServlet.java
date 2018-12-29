@@ -47,7 +47,8 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
             }
             else {
-                request.setAttribute("error", "true");
+                request.setAttribute("action", "login");
+                request.setAttribute("status", "error");
                 request.getRequestDispatcher("/login.jsp").forward(request, response);               
             }
         }
@@ -59,7 +60,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/admin.jsp");
             }
             else {
-                request.setAttribute("error", "true");
+                request.setAttribute("status", "error");
                 request.getRequestDispatcher("/admin.jsp").forward(request, response);
             }
         }

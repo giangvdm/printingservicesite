@@ -51,8 +51,10 @@ public class RegisterServlet extends HttpServlet {
         User tempUser = new User(fullname, username, password, email, address, phoneNumber);
         
         UserDAO.addUser(tempUser);
-                
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+        request.setAttribute("action", "register");
+        request.setAttribute("status", "success");
         dispatcher.forward(request, response);
     }
 

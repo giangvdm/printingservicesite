@@ -7,7 +7,7 @@ var RegisterController = {
         var _self = this;
 
         $(document).ready(function () {
-            _self.usernameInput.change(function () {
+            _self.usernameInput.keyup(function () {
                 var username = $(this).val();
                 if (username.length > 3) {
                     // console.log("Preparing...");
