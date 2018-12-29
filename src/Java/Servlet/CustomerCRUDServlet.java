@@ -7,20 +7,27 @@ package Servlet;
 
 import DAO.UserDAO;
 import Model.User;
+import com.google.gson.Gson;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author vumin
+ * @author Khanh
  */
-public class EditProfile extends HttpServlet {
+public class CustomerCRUDServlet extends HttpServlet {
 
+    public String getJSONList(){
+        ArrayList<User> userList = UserDAO.getAllUser();
+        return new Gson().toJson(userList);
+    }
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,28 +39,18 @@ public class EditProfile extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        
-        int id = Integer.parseInt(request.getParameter("id"));
-        String fullname = request.getParameter("customer-name");
-        String email = request.getParameter("customer-email");
-        String phoneNumber = request.getParameter("customer-tel");
-        String address = request.getParameter("customer-address");
-        
-        User tmpUser = new User(id, fullname, email, phoneNumber, address);
-        UserDAO.updateUserInfo(tmpUser);
+        try {
+            String action = request.getParameter("action");
+            if (action.equals("edit")) {
+                User tmpUser = UserDAO.adminGetUserById(Integer.parseInt(request.getParameter("id")));
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/edit-customer.jsp");
+                request.setAttribute("customer", tmpUser);
+                dispatcher.forward(request, response);
+            }
+        }
+        catch (IOException ex) {}
 
-        // update session
-        HttpSession session = request.getSession();
-        session.setAttribute("currentUser", UserDAO.getUserById(id));
-        session.setAttribute("loggedIn", true);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("account.jsp");
-        request.setAttribute("action", "edit-profile");
-        request.setAttribute("status", "success");
-        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,3 +1,6 @@
+<%@page import="Model.User"%>
+<%@page import="DAO.UserDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -16,6 +19,10 @@
     <!-- Load custom css -->
     <link rel="stylesheet" type="text/css" href="src/css/admin-main.css">
 </head>
+
+<%
+    ArrayList<User> userList = UserDAO.getAllUser();
+%>
 
 <body data-page-name="manage-customer">
     <%-- HEADER --%>
@@ -93,39 +100,69 @@
             </div>
 
             <table class="crud-table" id="all-customers">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Họ và tên</th>
-                        <th>Email</th>
-                        <th>Số điện thoại</th>
-                        <th>Địa chỉ</th>
-                        <th>Trạng thái</th>
-                        <th>Hành động</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <button class="action__button action__button--view">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="action__button action__button--edit" onclick="location.href='edit-customer.jsp'">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button class="action__button action__button--delete">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ và tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+                        <% 
+                            for (int i = 0; i < userList.size(); i++) {
+                            User customer = new User();
+                            customer = userList.get(i);
+                        %>
+    
+                        <tr>
+                            <td>
+                                <%=customer.getId()%>
+                            </td>
+                            <td>
+                                <%=customer.getFullname()%>
+                            </td>
+                            <td>
+                                <%=customer.getEmail()%>
+                            </td>
+                            <td>
+                                <%=customer.getPhoneNumber()%>
+                            </td>
+                            <td>
+                                <%=customer.getAddress()%>
+                            </td>
+                            <td>
+                                <form class="action-form" action="CustomerCRUDServlet" method="GET">
+                                    <input type="hidden" name="action" value="view">
+                                    <input type="hidden" name="id" value="<%=customer.getId()%>">
+                                    <button type="submit" class="action__button action__button--view">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </form>
+                                <form class="action-form" action="CustomerCRUDServlet" method="GET">
+                                    <input type="hidden" name="action" value="edit">
+                                    <input type="hidden" name="id" value="<%=customer.getId()%>">
+                                    <button type="submit" class="action__button action__button--edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </form>
+                                <form class="action-form" action="CustomerCRUDServlet" method="GET">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="id" value="<%=customer.getId()%>">
+                                    <button type="submit" class="action__button action__button--delete">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <%
+                          };
+                      %>
+                    </tbody>
+                </table>
         </section>
     </main>
 

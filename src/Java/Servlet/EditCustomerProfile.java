@@ -8,6 +8,7 @@ package Servlet;
 import DAO.UserDAO;
 import Model.User;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author vumin
  */
-public class EditProfile extends HttpServlet {
+public class EditCustomerProfile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,21 +38,18 @@ public class EditProfile extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         int id = Integer.parseInt(request.getParameter("id"));
+        String username = request.getParameter("customer-username");
+        String password = request.getParameter("customer-password");
         String fullname = request.getParameter("customer-name");
         String email = request.getParameter("customer-email");
         String phoneNumber = request.getParameter("customer-tel");
         String address = request.getParameter("customer-address");
         
-        User tmpUser = new User(id, fullname, email, phoneNumber, address);
-        UserDAO.updateUserInfo(tmpUser);
-
-        // update session
-        HttpSession session = request.getSession();
-        session.setAttribute("currentUser", UserDAO.getUserById(id));
-        session.setAttribute("loggedIn", true);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("account.jsp");
-        request.setAttribute("action", "edit-profile");
+        User tmpUser = new User(id, username, password, fullname, email, phoneNumber, address);
+        UserDAO.adminUpdateUserInfo(tmpUser);
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("manage-customer.jsp");
+        request.setAttribute("action", "edit-customer");
         request.setAttribute("status", "success");
         dispatcher.forward(request, response);
     }

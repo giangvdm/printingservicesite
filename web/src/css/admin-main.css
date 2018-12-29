@@ -345,6 +345,9 @@ p {
 .action__button--not-done {
   color: #ff9999;
 }
+.action-form {
+  display: inline-block;
+}
 
 .info-card {
   padding: 2rem;

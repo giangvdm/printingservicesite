@@ -7,7 +7,10 @@ package Servlet;
 
 import DAO.AdminDAO;
 import DAO.UserDAO;
+import Model.User;
 import java.io.IOException;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,7 +60,13 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("currentAdmin", AdminDAO.getAdminByUsername(username));
                 session.setAttribute("loggedIn", true);
-                response.sendRedirect(request.getContextPath() + "/admin.jsp");
+                
+                ArrayList<User> userList = UserDAO.getAllUser();
+//                HttpSession session = request.getSession();
+                session.setAttribute("userList", userList);
+//                response.sendRedirect(request.getContextPath() + "/admin.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/admin.jsp");
+                dispatcher.forward(request, response);
             }
             else {
                 request.setAttribute("status", "error");

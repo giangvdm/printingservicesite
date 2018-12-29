@@ -11,17 +11,17 @@ package Model;
  */
 public class User {
     int id;
-    String fullname;
     String userName;
     String userPassword;
+    String fullname;
     String email;
-    String address;
     String phoneNumber;
+    String address;
     String userType;
 
     public boolean isValid;
 
-    public User(int id, String username, String fullname, String email, String address, String phoneNumber) {
+    public User(int id, String username, String fullname, String email, String phoneNumber, String address) {
         this.id = id;
         this.userName = username;
         this.fullname = fullname;
@@ -32,6 +32,16 @@ public class User {
 
     public User() {
         
+    }
+
+    public User(int id, String userName, String userPassword, String fullname, String email, String phoneNumber, String address) {
+        this.id = id;
+        this.fullname = fullname;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getAddress() {

@@ -63,6 +63,14 @@
         <servlet-name>AddCustomer</servlet-name>
         <servlet-class>Servlet.AddCustomer</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustomerCRUDServlet</servlet-name>
+        <servlet-class>Servlet.CustomerCRUDServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditCustomerProfile</servlet-name>
+        <servlet-class>Servlet.EditCustomerProfile</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -112,6 +120,14 @@
     <servlet-mapping>
         <servlet-name>AddCustomer</servlet-name>
         <url-pattern>/AddCustomer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerCRUDServlet</servlet-name>
+        <url-pattern>/CustomerCRUDServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditCustomerProfile</servlet-name>
+        <url-pattern>/EditCustomerProfile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

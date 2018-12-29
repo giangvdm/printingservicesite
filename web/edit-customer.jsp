@@ -29,61 +29,51 @@
         <section class="section">
             <h2 class="main-content__title">Chỉnh sửa tài khoản khách hàng</h2>
 
-            <form action="" method="POST" class="form" id="add-new-customer-form">
-                <fieldset id="account-info">
+            <form action="EditCustomerProfile" method="POST" class="form" id="edit-customer-form">
+                <input type="hidden" name="id" value="${requestScope.customer.getId()}">
+                <fieldset>
                     <legend>Thông tin tài khoản</legend>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label required" for="username">Tên tài khoản</label>
+                            <label class="form__label required" for="customer-username">Tên tài khoản</label>
                         </div>
                         <div class="seven columns">
-                            <input type="text" id="username" name="username" required>
-                            <div class="theme__input__validity" id="js-usernameValidityDisplay"></div>
+                            <input type="text" id="customer-username" name="customer-username" required value="${requestScope.customer.getUserName()}">
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label required" for="password">Mật khẩu</label>
+                            <label class="form__label required" for="customer-password">Mật khẩu</label>
                         </div>
                         <div class="seven columns">
-                            <input type="password" id="password" name="password" required>
-                        </div>
-                    </div>
-                    <div class="row form__line-wrapper">
-                        <div class="five columns form__label-container">
-                            <label class="form__label required" for="password-repeat">Nhập lại mật khẩu</label>
-                        </div>
-                        <div class="seven columns">
-                            <input type="password" id="password-repeat" name="password-repeat" required>
-                            <div class="theme__input__validity" id="js-passwordRepeatValidityDisplay"></div>
+                            <input type="password" id="customer-password" name="customer-password" required value="${requestScope.customer.getUserPassword()}">
                         </div>
                     </div>
                 </fieldset>
-                <fieldset id="personal-info">
+                <fieldset>
                     <legend>Thông tin cá nhân</legend>
-
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label required" for="fullname">Họ và tên</label>
+                            <label class="form__label required" for="customer-name">Họ và tên</label>
                         </div>
                         <div class="seven columns">
-                            <input type="text" id="fullname" name="fullname" required>
+                            <input type="text" id="customer-name" name="customer-name" required value="${requestScope.customer.getFullname()}">
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label required" for="email">Email</label>
+                            <label class="form__label required" for="customer-email">Email</label>
                         </div>
                         <div class="seven columns">
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="customer-email" name="customer-email" required value="${requestScope.customer.getEmail()}">
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
                         <div class="five columns form__label-container">
-                            <label class="form__label required" for="phonenumber">Số điện thoại</label>
+                            <label class="form__label required" for="customer-tel">Số điện thoại</label>
                         </div>
                         <div class="seven columns">
-                            <input type="text" id="phonenumber" name="phonenumber" required>
+                            <input type="text" id="customer-tel" name="customer-tel" required value="${requestScope.customer.getPhoneNumber()}">
                         </div>
                     </div>
                     <div class="row form__line-wrapper">
@@ -91,18 +81,18 @@
                             <label class="form__label" for="customer-address">Địa chỉ</label>
                         </div>
                         <div class="seven columns">
-                            <textarea name="customer-address" id="customer-address" rows="10"></textarea>
+                            <textarea name="customer-address" id="customer-address" rows="10">${requestScope.customer.getAddress()}</textarea>
+                        </div>
+                    </div>
+                    <div class="row form__line-wrapper">
+                        <div class="six columns form__button-container">
+                            <input class="form__button form__button--submit" type="submit" value="Cập nhật" id="submit-button">
+                        </div>
+                        <div class="six columns form__button-container">
+                            <input class="form__button form__button--reset" type="reset" value="Điền lại" id="reset-button">
                         </div>
                     </div>
                 </fieldset>
-                <div class="row form__line-wrapper">
-                    <div class="six columns form__button-container">
-                        <input class="form__button form__button--submit" type="submit" value="Cập nhật" id="submit-button">
-                    </div>
-                    <div class="six columns form__button-container">
-                        <input class="form__button form__button--reset" type="reset" value="Điền lại" id="reset-button">
-                    </div>
-                </div>
             </form>
         </section>
     </main>

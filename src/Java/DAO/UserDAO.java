@@ -102,6 +102,26 @@ public class UserDAO {
         }
     }
     
+    public static void adminUpdateUserInfo(User user){
+        
+        String query = "UPDATE [dbo].[User] SET userName=?, userPassword=?, fullname=?, email=?, phoneNumber=?, address=? WHERE id=?";
+        try {
+            conn = ConnectionManager.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, user.getUserName());
+            ps.setString(2, user.getUserPassword());
+            ps.setString(3, user.getFullname());
+            ps.setString(4, user.getEmail());
+            ps.setString(5, user.getPhoneNumber());
+            ps.setString(6, user.getAddress());
+            ps.setInt(7, user.getId());
+            
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public static void changePassword(User user) {
         String query = "UPDATE [dbo].[User] SET userPassword=? WHERE id=?";
         
@@ -151,6 +171,32 @@ public class UserDAO {
             
             while(result.next()){
                 user.setId(result.getInt("id"));
+                user.setUserName(result.getString("userName"));
+                user.setFullname(result.getString("fullname"));
+                user.setEmail(result.getString("email"));
+                user.setAddress(result.getString("address"));
+                user.setPhoneNumber(result.getString("phoneNumber"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return user;
+    }
+    
+    public static User adminGetUserById(int id){
+        User user = new User();
+
+        try {
+            conn = ConnectionManager.getConnection();  
+            PreparedStatement ps = conn.prepareStatement("select * from [dbo].[User] where id=?");
+            ps.setInt(1, id);
+            ResultSet result = ps.executeQuery();
+            
+            while(result.next()){
+                user.setId(result.getInt("id"));
+                user.setUserName(result.getString("userName"));
+                user.setUserPassword(result.getString("userPassword"));
                 user.setFullname(result.getString("fullname"));
                 user.setEmail(result.getString("email"));
                 user.setAddress(result.getString("address"));
@@ -197,7 +243,7 @@ public class UserDAO {
                 String address = result.getString("address");
                 String phoneNumber = result.getString("phoneNumber");
                 
-                User user = new User(id, username, fullname, email, address, phoneNumber);
+                User user = new User(id, username, fullname, email, phoneNumber, address);
                 userList.add(user);
             }
         } catch (SQLException ex) {

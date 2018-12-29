@@ -5,15 +5,39 @@
  */
 package Model;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author Khanh
  */
 public class Request {
     int id;
-    User client;
-    String content;
-    String filePath;
+    String customerName;
+    String email;
+    String phoneNumber;
+    String message;
+    Timestamp date;
+
+    public Request(int id, String customerName, String email, String phoneNumber, String message, Timestamp date) {
+        this.id = id;
+        this.customerName = customerName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.message = message;
+        this.date = date;
+    }
+
+    public Request() {
+    }
+
+    public Request(String customerName, String email, String phoneNumber, String message, Timestamp date) {
+        this.customerName = customerName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.message = message;
+        this.date = date;
+    }
 
     public int getId() {
         return id;
@@ -23,34 +47,45 @@ public class Request {
         this.id = id;
     }
 
-    public User getClient() {
-        return client;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setClient(User client) {
-        this.client = client;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public String getContent() {
-        return content;
+    public String getEmail() {
+        return email;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getFilePath() {
-        return filePath;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public Request(int id, User client, String content, String filePath) {
-        this.id = id;
-        this.client = client;
-        this.content = content;
-        this.filePath = filePath;
+    public String getMessage() {
+        return message;
     }
+
+    public void getMessage(String message) {
+        this.message = message;
+    }
+
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
+
+    
 }
