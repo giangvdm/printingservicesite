@@ -8,8 +8,6 @@ package Console;
 import DAO.UserDAO;
 import Model.User;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
 
 /**
  *

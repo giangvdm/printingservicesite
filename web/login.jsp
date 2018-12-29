@@ -18,10 +18,10 @@
 
 <body data-page-name="account">
     <!-- HEADER -->
-    <%@ include file="includes/header.jsp" %>
+    <%@ include file="includes/customer-header.jsp" %>
 
     <!-- NAVIGATION -->
-    <jsp:include page="/includes/nav.jsp" />
+    <jsp:include page="/includes/customer-nav.jsp" />
 
     <main class="main-content container" id="main-content">
         <h2 class="main-content__title">Đăng nhập</h2>
@@ -89,7 +89,7 @@
     </main>
 
     <!-- FOOTER -->
-    <%@ include file="includes/footer.jsp" %>
+    <%@ include file="includes/customer-footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>

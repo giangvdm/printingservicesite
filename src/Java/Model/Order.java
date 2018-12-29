@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author Khanh
@@ -15,13 +17,15 @@ public class Order {
     String username;
     String description;
     String status;
+    Timestamp date;
 
-    public Order(int id, String filename, String username, String description, String status) {
+    public Order(int id, String filename, String username, String description, String status, Timestamp date) {
         this.id = id;
         this.filename = filename;
         this.username = username;
         this.description = description;
         this.status = status;
+        this.date = date;
     }
 
     public int getId() {
@@ -63,4 +67,13 @@ public class Order {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
+    
 }

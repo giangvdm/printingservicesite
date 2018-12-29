@@ -16,7 +16,7 @@
     <!-- Load fontawesome -->
     <link rel="stylesheet" href="src/lib/fontawesome/all.css">
     <!-- Load custom css -->
-    <link rel="stylesheet" type="text/css" href="src/css/main.css">
+    <link rel="stylesheet" type="text/css" href="src/css/admin-main.css">
 </head>
 
     <%
@@ -26,11 +26,57 @@
     %>
 <body data-page-name="home">
     <%-- HEADER --%>
-    <%@ include file="includes/header.jsp" %>
+    <%@ include file="includes/admin-header.jsp" %>
 
     <%-- NAVIGATION --%>
-    <jsp:include page="/includes/nav.jsp" />
+    <jsp:include page="/includes/admin-nav.jsp" />
     <jsp:include page="/UserServlet" />
+    <%-- LOGIN FORM --%>
+    <main class="main-content container">
+        <section class="section">
+            <h1 class="main-content__title">Đăng nhập Quản trị viên</h1>
+
+            <form action="" method="POST" class="form" id="login-form">
+                <fieldset>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label" for="username">Tên tài khoản</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                    </div>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label" for="password">Mật khẩu</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                    </div>
+                    <div class="row form__line-wrapper">
+                        <div class="five columns form__label-container">
+                            <label class="form__label" for="remember-login">Ghi nhớ đăng nhập</label>
+                        </div>
+                        <div class="seven columns">
+                            <input type="checkbox" id="remember-login">
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row form__line-wrapper">
+                    <div class="six columns form__button-container">
+                        <input class="form__button form__button--submit" type="submit" value="Đăng nhập" id="submit-button">
+                    </div>
+                    <div class="six columns form__button-container">
+                        <input class="form__button form__button--reset" type="reset" value="Điền lại" id="reset-button">
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+
+
     <%-- CONTENT --%>
     <main class="main-content container" id="main-content">
         <h2 class="main-content__title">Trang chủ</h2>
@@ -71,34 +117,13 @@
 
     </main>
 
+
     <!-- FOOTER -->
-    <%@ include file="includes/footer.jsp" %>
+    <%@ include file="includes/admin-footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
-    <script>
-            $(document).ready(function () {
-            _self.usernameInput.change(function () {
-                    // console.log("Preparing...");
-                    $.ajax({
-                        method: "POST",
-                        url: "UserServlet",
-                        data: "username=" + username,
-                        success: function (msg) {
-                            $(document).ajaxComplete(function (event, request, settings) {
-                                if (msg == "invalid") {
-                                    _self.usernameValidityDisplay.html("Tên đăng nhập đã tồn tại!");
-                                    _self.usernameInput.get(0).setCustomValidity("Hãy chọn một tên đăng nhập khác."); // call get(0) to cast jQuery object to JavaScript in order to use JS setCustomValidity method
-                                }
-                                else {
-                                    _self.usernameValidityDisplay.html("Tên đăng nhập khả dụng!");
-                                    _self.usernameInput.get(0).setCustomValidity('');
-                                }
-                                // console.log(msg);
-                            });
-                        }
-                    });
-        });
-    </script>
+    <script src="src/js/main.js"></script>
+
 
 </body>
 
