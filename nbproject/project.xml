@@ -11,7 +11,7 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${libs.javaee-endorsed-api-6.0.classpath}</file>
+                    <file>${file.reference.gson-2.8.5.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
@@ -24,7 +24,7 @@
             </test-roots>
         </data>
         <libraries xmlns="http://www.netbeans.org/ns/ant-project-libraries/1">
-            <definitions>.\lib\nblibraries.properties</definitions>
+            <definitions>lib\nblibraries.properties</definitions>
         </libraries>
     </configuration>
 </project>

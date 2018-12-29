@@ -70,7 +70,7 @@ public class UploadServlet extends HttpServlet {
     
     private void writeToDB(Connection conn, String fileName, InputStream is, String description, String username, String userPhone, String userMail) throws SQLException{
  
-        String sql = "INSERT INTO [dbo].[Order](filename,filedata,description,date,cus_name,cus_tel,cus_mail) " + " VALUES (?,?,?,?,?,?,?) ";
+        String sql = "INSERT INTO [dbo].[Order](filename,filedata,description,date,cus_name,cus_tel,cus_mail,status) " + " VALUES (?,?,?,?,?,?,?,?) ";
         PreparedStatement pstm = conn.prepareStatement(sql);
         
         Calendar cal = Calendar.getInstance();
@@ -86,6 +86,7 @@ public class UploadServlet extends HttpServlet {
         pstm.setString(5, username);
         pstm.setString(6, userPhone);
         pstm.setString(7, userMail);
+        pstm.setString(8, "pending");
         pstm.executeUpdate();
     }
 

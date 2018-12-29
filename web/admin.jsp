@@ -1,3 +1,5 @@
+<%@page import="Model.User"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -17,6 +19,11 @@
     <link rel="stylesheet" type="text/css" href="src/css/admin-main.css">
 </head>
 
+    <%
+        if (session.getAttribute("loggedIn") == null) {
+            response.sendRedirect("login.jsp");
+        }
+    %>
 <body data-page-name="home">
     <!-- Not logged in -->
     <%
@@ -96,11 +103,6 @@
         if(session.getAttribute("loggedIn") != null) {
     %>
 
-    <%-- HEADER --%>
-    <%@ include file="includes/admin-header.jsp" %>
-
-    <%-- NAVIGATION --%>
-    <jsp:include page="/includes/admin-nav.jsp" />
 
     <%-- CONTENT --%>
     <main class="main-content container" id="main-content">
@@ -108,6 +110,11 @@
 
         <section class="section">
             <h3 class="main-content__sub-title">Thống kê tài khoản khách hàng</h3>
+          
+            <%
+                ArrayList<User> userList = (ArrayList<User>)request.getAttribute("userList");
+            %>
+          
             <table class="crud-table" id="all-customers">
                 <thead>
                     <tr>
@@ -121,13 +128,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                  
+                    <% 
+                        for(int i = 0; i < userList.size(); i++) {
+                        User customer = new User();
+                        customer = userList.get(i);
+                    %>
+                  
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><%=customer.getId()%></td>
+                        <td><%=customer.getFullname()%></td>
+                        <td><%=customer.getUserName()%></td>
+                        <td><%=customer.getPhoneNumber()%></td>
+                        <td><%=customer.getEmail()%></td>
+                        <td><%=customer.getAddress()%></td>
                         <td>
                             <button class="action__button action__button--view">
                                 <i class="fas fa-eye"></i>
@@ -140,6 +154,9 @@
                             </button>
                         </td>
                     </tr>
+                  <%
+                      };
+                  %>
                 </tbody>
             </table>
         </section>
@@ -228,6 +245,7 @@
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
+
 
 </body>
 
