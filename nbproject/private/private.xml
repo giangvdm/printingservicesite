@@ -3,18 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/admin.jsp</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Model/Request.java</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/login.jsp</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/order.jsp</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Model/Order.java</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/account.jsp</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/DAO/UserDAO.java</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/DAO/OrderDAO.java</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Servlet/UploadServlet.java</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/src/Java/Servlet/CheckUser.java</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/admin-account.jsp</file>
-            <file>file:/E:/Study%20material/Web&amp;Network%20programming/WebProject/PrintingServiceSite/web/contact.jsp</file>
+            <file>file:/D:/NetBeans/printingservicesite/src/Java/Model/User.java</file>
+            <file>file:/D:/NetBeans/printingservicesite/src/Java/Servlet/RegisterServlet.java</file>
+            <file>file:/D:/NetBeans/printingservicesite/test/Console/RegisterTest.java</file>
+            <file>file:/D:/NetBeans/printingservicesite/src/Java/Servlet/CheckUser.java</file>
+            <file>file:/D:/NetBeans/printingservicesite/web/register.jsp</file>
+            <file>file:/D:/NetBeans/printingservicesite/web/WEB-INF/web.xml</file>
+            <file>file:/D:/NetBeans/printingservicesite/src/Java/DAO/UserDAO.java</file>
         </group>
     </open-files>
 </project-private>

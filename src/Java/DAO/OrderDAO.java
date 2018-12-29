@@ -29,6 +29,7 @@ public class OrderDAO {
         conn = ConnectionManager.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, clientName);
             ResultSet result = ps.executeQuery();  
             while(result.next()){
                 int id = result.getInt("id");              
@@ -40,7 +41,7 @@ public class OrderDAO {
                 Timestamp date = result.getTimestamp("date");
                 String status = result.getString("status");
                 
-                Order temp = new Order( id,  filename,  cus_name,  description,  status,  date);
+                Order temp = new Order(id, filename, cus_name, description, status, date);
                 orders.add(temp);
             }            
         } catch (SQLException ex) {
