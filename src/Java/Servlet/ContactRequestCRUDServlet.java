@@ -5,12 +5,9 @@
  */
 package Servlet;
 
-import DAO.UserDAO;
-import Model.User;
-import com.google.gson.Gson;
+import DAO.RequestDAO;
+import Model.Request;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,15 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Khanh
+ * @author vumin
  */
-public class CustomerCRUDServlet extends HttpServlet {
+public class ContactRequestCRUDServlet extends HttpServlet {
 
-    public String getJSONList(){
-        ArrayList<User> userList = UserDAO.getAllUser();
-        return new Gson().toJson(userList);
-    }
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,23 +34,31 @@ public class CustomerCRUDServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try {
             String action = request.getParameter("action");
-            if (action.equals("edit")) {
-                User tmpUser = UserDAO.adminGetUserById(Integer.parseInt(request.getParameter("id")));
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/edit-customer.jsp");
-                request.setAttribute("customer", tmpUser);
+            if (action.equals("view")) {
+                Request tmpContactRequest = RequestDAO.getContactRequestById(Integer.parseInt(request.getParameter("id")));
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/view-contact-request.jsp");
+                request.setAttribute("contactRequest", tmpContactRequest);
+                dispatcher.forward(request, response);
+            }
+            else if (action.equals("change-status")) {
+                Request tmpContactRequest = RequestDAO.getContactRequestById(Integer.parseInt(request.getParameter("id")));
+                String newStatus = request.getParameter("to");
+                RequestDAO.changeStatus(tmpContactRequest, newStatus);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/manage-contact-request.jsp");
+                request.setAttribute("action", "change-status");
+                request.setAttribute("status", "success");
                 dispatcher.forward(request, response);
             }
             else if (action.equals("delete")) {
-                User tmpUser = UserDAO.adminGetUserById(Integer.parseInt(request.getParameter("id")));
-                UserDAO.deleteUser(tmpUser);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/manage-customer.jsp");
-                request.setAttribute("action", "delete-customer");
+                Request tmpContactRequest = RequestDAO.getContactRequestById(Integer.parseInt(request.getParameter("id")));
+                RequestDAO.deleteContactRequest(tmpContactRequest);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/manage-contact-request.jsp");
+                request.setAttribute("action", "delete-request");
                 request.setAttribute("status", "success");
                 dispatcher.forward(request, response);
             }
         }
         catch (IOException ex) {}
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

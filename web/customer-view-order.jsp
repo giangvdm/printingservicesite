@@ -6,7 +6,7 @@
 <html>
 
 <head>
-    <title>Thông tin đơn hàng - Công ty In ấn Ao Sen đệ nhất photo</title>
+    <title>Chi tiết đơn hàng - Công ty In ấn Ao Sen đệ nhất photo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Load normalize.css -->
@@ -16,15 +16,15 @@
     <!-- Load fontawesome -->
     <link rel="stylesheet" href="src/lib/fontawesome/all.css">
     <!-- Load custom css -->
-    <link rel="stylesheet" type="text/css" href="src/css/admin-main.css">
+    <link rel="stylesheet" type="text/css" href="src/css/main.css">
 </head>
 
 <body data-page-name="manage-order">
     <%-- HEADER --%>
-    <%@ include file="includes/admin-header.jsp" %>
+    <%@ include file="includes/customer-header.jsp" %>
 
     <%-- NAVIGATION --%>
-    <jsp:include page="/includes/admin-nav.jsp" />
+    <jsp:include page="/includes/customer-nav.jsp" />
 
     <%-- CONTENT --%>
     <%
@@ -237,6 +237,9 @@
                     </div>
                 </div>
 
+                <%
+                    if (order.getStatus().trim().equals("pending")) {
+                %>
                 <hr>
 
                 <div class="row info-card__line-wrapper">
@@ -244,93 +247,22 @@
                         <div class="info-card__label theme__text--bold">Hành động</div>
                     </div>
                     <div class="eight columns">
-                        <form class="action-form" action="DownloadServlet" method="GET">
+                        <form class="action-form" action="CustomerCancelOrder" method="GET">
                             <input type="hidden" name="id" value="<%=order.getId()%>">
-                            <button type="submit" class="action__button action__button--download">
-                                <i class="fas fa-file-download"></i>
-                            </button>
-                        </form>
-                        <%
-                            if (order.getStatus().trim().equals("pending")) { 
-                        %>
-                        <form class="action-form" action="OrderCRUDServlet" method="GET">
-                            <input type="hidden" name="action" value="change-status">
-                            <input type="hidden" name="id" value="<%=order.getId()%>">
-                            <input type="hidden" name="to" value="inprogress">
-                            <button type="submit" class="action__button action__button--in-progress" onclick="return confirm('Duyệt và thực hiện đơn hàng?');">
-                                <i class="fas fa-clock"></i>
-                            </button>
-                        </form>
-                        <form class="action-form" action="OrderCRUDServlet" method="GET">
-                            <input type="hidden" name="action" value="change-status">
-                            <input type="hidden" name="id" value="<%=order.getId()%>">
-                            <input type="hidden" name="to" value="cancelled">
                             <button type="submit" class="action__button action__button--cancel" onclick="return confirm('Hủy đơn hàng?');">
                                 <i class="fas fa-times"></i>
-                            </button>
-                        </form>
-                        <form class="action-form" action="OrderCRUDServlet" method="GET">
-                            <input type="hidden" name="action" value="edit">
-                            <input type="hidden" name="id" value="<%=order.getId()%>">
-                            <button type="submit" class="action__button action__button--edit">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </form>
-                        <% 
-                            }
-                            else if (order.getStatus().trim().equals("inprogress")) {
-                        %>
-                        <form class="action-form" action="OrderCRUDServlet" method="GET">
-                            <input type="hidden" name="action" value="change-status">
-                            <input type="hidden" name="id" value="<%=order.getId()%>">
-                            <input type="hidden" name="to" value="completed">
-                            <button type="submit" class="action__button action__button--done" onclick="return confirm('Hoàn thành đơn hàng?');">
-                                <i class="fas fa-check"></i>
-                            </button>
-                        </form>
-                        <form class="action-form" action="OrderCRUDServlet" method="GET">
-                            <input type="hidden" name="action" value="change-status">
-                            <input type="hidden" name="id" value="<%=order.getId()%>">
-                            <input type="hidden" name="to" value="cancelled">
-                            <button type="submit" class="action__button action__button--cancel" onclick="return confirm('Hủy đơn hàng?');">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </form>
-                        <form class="action-form" action="OrderCRUDServlet" method="GET">
-                            <input type="hidden" name="action" value="edit">
-                            <input type="hidden" name="id" value="<%=order.getId()%>">
-                            <button type="submit" class="action__button action__button--edit">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </form>
-                        <%
-                            }
-                            else if (order.getStatus().trim().equals("completed")) {
-                        %>
-                        <form class="action-form" action="OrderCRUDServlet" method="GET">
-                            <input type="hidden" name="action" value="edit">
-                            <input type="hidden" name="id" value="<%=order.getId()%>">
-                            <button type="submit" class="action__button action__button--edit">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </form>
-                        <%
-                            }
-                        %>
-                        <form class="action-form" action="OrderCRUDServlet" method="GET">
-                            <input type="hidden" name="action" value="delete">
-                            <input type="hidden" name="id" value="<%=order.getId()%>">
-                            <button type="submit" class="action__button action__button--delete" onclick="return confirm('Xóa đơn hàng?');">
-                                <i class="fas fa-trash-alt"></i>
                             </button>
                         </form>
                     </div>
                 </div>
+                <%
+                    }
+                %>
         </section>
     </main>
 
     <!-- FOOTER -->
-    <%@ include file="includes/admin-footer.jsp" %>
+    <%@ include file="includes/customer-footer.jsp" %>
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>

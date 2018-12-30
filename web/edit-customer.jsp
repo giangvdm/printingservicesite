@@ -102,7 +102,7 @@
 
     <script src="src/lib/jquery-3.3.1.min.js"></script>
     <script src="src/js/main.js"></script>
-    <script src="src/js/universal-form.js"></script>
+    <script src="src/js/register.js"></script>
 
 </body>
 

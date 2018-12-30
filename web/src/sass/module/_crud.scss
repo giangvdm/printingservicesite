@@ -10,13 +10,13 @@
         padding: 0 15px;
 
         // variations
-        &--view {
+        &--view, &--download {
             color: $color-gray;
         }
         &--accept, &--done {
             color: $color-green;
         }
-        &--add, &--edit, &--pending {
+        &--add, &--edit, &--in-progress {
             color: $color-blue;
         }
         &--delete, &--reject, &--cancel {
@@ -29,5 +29,6 @@
 
     &-form {
         display: inline-block;
+        vertical-align: middle;
     }
 }

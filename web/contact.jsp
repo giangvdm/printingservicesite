@@ -35,22 +35,22 @@
             <div class="six columns layout__left-col">
                 <section class="section">
                     <h4>Hãy để lại thông tin, chúng tôi sẽ tư vấn cho bạn những dịch vụ tốt nhất</h4>
-                    <form action="#" method="POST" id="contact-form">
+                    <form action="SendContactRequest" method="POST" id="contact-form">
                         <fieldset>
                             <div class="row form__line-wrapper">
                                 <div class="four columns form__label-container">
                                     <label class="form__label required" for="customer-name">Họ và tên</label>
                                 </div>
                                 <div class="eight columns">
-                                    <input type="text" id="customer-name" name="customer-name" required>
+                                    <input type="text" id="customer-name" name="customer-name" value="${sessionScope.currentUser.getFullname()}" required>
                                 </div>
                             </div>
                             <div class="row form__line-wrapper">
                                 <div class="four columns form__label-container">
-                                    <label class="form__label required" for="customer-tel">Số điện thoại</label>
+                                    <label class="form__label required" for="customer-phone">Số điện thoại</label>
                                 </div>
                                 <div class="eight columns">
-                                    <input type="tel" id="customer-tel" name="customer-tel" required>
+                                    <input type="tel" id="customer-phone" name="customer-phone" value="${sessionScope.currentUser.getPhoneNumber()}" required>
                                 </div>
                             </div>
                             <div class="row form__line-wrapper">
@@ -58,15 +58,15 @@
                                     <label class="form__label required" for="customer-email">Email</label>
                                 </div>
                                 <div class="eight columns">
-                                    <input type="email" id="customer-email" name="customer-email" required>
+                                    <input type="email" id="customer-email" name="customer-email" value="${sessionScope.currentUser.getEmail()}" required>
                                 </div>
                             </div>
                             <div class="row form__line-wrapper">
                                 <div class="four columns form__label-container">
-                                    <label class="form__label" for="customer-inform">Nội dung liên hệ</label>
+                                    <label class="form__label" for="message">Nội dung liên hệ</label>
                                 </div>
                                 <div class="eight columns">
-                                    <textarea name="customer-inform" id="customer-inform" cols="18" rows="15"></textarea>
+                                    <textarea name="message" id="message" cols="18" rows="15"></textarea>
                                 </div>
                             </div>
                             <div class="row form__line-wrapper">

@@ -85,14 +85,14 @@
                         <input type="password" id="password" name="password" required>
                     </div>
                 </div>
-                <div class="row form__line-wrapper">
+                <!-- <div class="row form__line-wrapper">
                     <div class="five columns form__label-container">
                         <label class="form__label" for="remember-login">Ghi nhớ đăng nhập</label>
                     </div>
                     <div class="seven columns">
-                        <input type="checkbox" id="remember-login">
+                        <input type="checkbox" name="remember-login" id="remember-login">
                     </div>
-                </div>
+                </div> -->
             </fieldset>
             <div class="row form__line-wrapper">
                 <div class="six columns form__button-container">

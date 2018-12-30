@@ -1,3 +1,6 @@
+<%@page import="Model.Admin"%>
+<%@page import="DAO.AdminDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +19,10 @@
     <link rel="stylesheet" type="text/css" href="src/css/admin-main.css">
 </head>
 
+<%
+    ArrayList<Admin> adminList = AdminDAO.getAllAdmin();
+%>
+
 <body data-page-name="manage-admin">
     <!-- HEADER -->
     <%@ include file="includes/admin-header.jsp" %>
@@ -24,14 +31,14 @@
     <jsp:include page="/includes/admin-nav.jsp" />
 
     <main class="main-content container" id="main-content">
-        <h2 class="main-content__title">Tài khoản Quản trị viên</h2>
+        <h2 class="main-content__title">Quản lý Tài khoản Quản trị viên</h2>
 
         <section class="section" id="change-password">
             <h3 class="main-content__sub-title">Tổng hợp Tài khoản Quản trị viên</h3>
 
             <div class="row">
                 <%
-                    if ("success".equalsIgnoreCase((String)request.getAttribute("status"))){
+                    if ("edit-admin".equalsIgnoreCase((String)request.getAttribute("action")) && "success".equalsIgnoreCase((String)request.getAttribute("status"))){
                 %>
                 <div class="message_div">
                     <div class="dialog__container dialog__container--success">
@@ -39,12 +46,28 @@
                             <i class="fas fa-times"></i>
                         </div>
                         <div class="dialog__content">
-                            <p>Cập nhật thông tin cá nhân thành công!</p>
+                            <p>Cập nhật thông tin tài khoản quản trị viên thành công!</p>
                         </div>
                     </div>
                 </div>
                 <%  
-                    }    
+                    }
+                %>
+                <%
+                    if ("delete-admin".equalsIgnoreCase((String)request.getAttribute("action")) && "success".equalsIgnoreCase((String)request.getAttribute("status"))){
+                %>
+                <div class="message_div">
+                    <div class="dialog__container dialog__container--success">
+                        <div class="dialog__dismiss-button dialog__dismiss-button--success js-dialogDismissButton">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="dialog__content">
+                            <p>Xóa tài khoản quản trị viên thành công!</p>
+                        </div>
+                    </div>
+                </div>
+                <%  
+                    }
                 %>
             </div>
 
@@ -58,19 +81,41 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <% 
+                        for (int i = 0; i < adminList.size(); i++) {
+                        Admin admin = new Admin();
+                        admin = adminList.get(i);
+                    %>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
                         <td>
-                            <button class="action__button action__button--edit">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button class="action__button action__button--delete">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
+                            <%=admin.getId()%>
+                        </td>
+                        <td>
+                            <%=admin.getUsername()%>
+                        </td>
+                        <td>
+                            <%=admin.getPassword()%>
+                        </td>
+                        <td>
+                            <form class="action-form" action="AdminCRUDServlet" method="GET">
+                                <input type="hidden" name="action" value="edit">
+                                <input type="hidden" name="id" value="<%=admin.getId()%>">
+                                <button type="submit" class="action__button action__button--edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </form>
+                            <form class="action-form" action="AdminCRUDServlet" method="GET">
+                                <input type="hidden" name="action" value="delete">
+                                <input type="hidden" name="id" value="<%=admin.getId()%>">
+                                <button type="submit" class="action__button action__button--delete" onclick="return confirm('Bạn có chắc muốn xóa bản ghi này?')">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
+                    <%  
+                        } // end for
+                    %>
                 </tbody>
             </table>
         </section>

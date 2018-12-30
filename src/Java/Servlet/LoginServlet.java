@@ -7,9 +7,7 @@ package Servlet;
 
 import DAO.AdminDAO;
 import DAO.UserDAO;
-import Model.User;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,7 +37,7 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
                 
         String username = request.getParameter("username").trim();
-        String password = request.getParameter("password").trim(); 
+        String password = request.getParameter("password").trim();
         String userType = request.getParameter("user-type").trim();
         
         if (userType.equals("customer")) { // customer login
@@ -47,7 +45,7 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("currentUser", UserDAO.getUserByName(username));
                 session.setAttribute("loggedIn", true);
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+                response.sendRedirect(request.getContextPath() + "/index.jsp");     
             }
             else {
                 request.setAttribute("action", "login");
@@ -61,10 +59,6 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("currentAdmin", AdminDAO.getAdminByUsername(username));
                 session.setAttribute("loggedIn", true);
                 
-                ArrayList<User> userList = UserDAO.getAllUser();
-//                HttpSession session = request.getSession();
-                session.setAttribute("userList", userList);
-//                response.sendRedirect(request.getContextPath() + "/admin.jsp");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/admin.jsp");
                 dispatcher.forward(request, response);
             }

@@ -5,12 +5,9 @@
  */
 package Servlet;
 
-import DAO.UserDAO;
-import Model.User;
-import com.google.gson.Gson;
+import DAO.OrderDAO;
+import Model.Order;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,15 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Khanh
+ * @author vumin
  */
-public class CustomerCRUDServlet extends HttpServlet {
+public class EditOrder extends HttpServlet {
 
-    public String getJSONList(){
-        ArrayList<User> userList = UserDAO.getAllUser();
-        return new Gson().toJson(userList);
-    }
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,26 +31,34 @@ public class CustomerCRUDServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        try {
-            String action = request.getParameter("action");
-            if (action.equals("edit")) {
-                User tmpUser = UserDAO.adminGetUserById(Integer.parseInt(request.getParameter("id")));
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/edit-customer.jsp");
-                request.setAttribute("customer", tmpUser);
-                dispatcher.forward(request, response);
-            }
-            else if (action.equals("delete")) {
-                User tmpUser = UserDAO.adminGetUserById(Integer.parseInt(request.getParameter("id")));
-                UserDAO.deleteUser(tmpUser);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/manage-customer.jsp");
-                request.setAttribute("action", "delete-customer");
-                request.setAttribute("status", "success");
-                dispatcher.forward(request, response);
-            }
-        }
-        catch (IOException ex) {}
-
+        //
+        int id = Integer.parseInt(request.getParameter("id"));
+        int total = Integer.parseInt(request.getParameter("total"));
+        String description = "number-of-pages:" + request.getParameter("number-of-pages") + 
+        ";number-of-copies:" + request.getParameter("number-of-copies") +
+        ";number-of-side:" + request.getParameter("number-of-side") +
+        ";paper-size:" + request.getParameter("paper-size") +
+        ";paper-quality:" + request.getParameter("paper-quality") +
+        ";bookbinding:" + request.getParameter("bookbinding") +
+        ";bookbinding-method:" + request.getParameter("bookbinding-method") +
+        ";cover-quality:" + request.getParameter("cover-quality") +
+        ";extra-requirement:" + request.getParameter("extra-requirement");
+        //
+        String customerName = request.getParameter("customer-name");
+        String customerEmail = request.getParameter("customer-email");
+        String customerPhone = request.getParameter("customer-tel");
+        String customerAddress = request.getParameter("customer-address");
+        
+        Order tmpOrder = new Order(id, description, total, customerName, customerEmail, customerPhone, customerAddress);
+        OrderDAO.updateOrderInfo(tmpOrder);
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("manage-order.jsp");
+        request.setAttribute("action", "edit-order");
+        request.setAttribute("status", "success");
+        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

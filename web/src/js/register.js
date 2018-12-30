@@ -13,6 +13,7 @@ var RegisterController = {
                     // console.log("Preparing...");
                     $.post('CheckUser', {"username" : username, "user-type": _self.userType.val()},
                         function(msg) {
+                            console.log(msg);
                             if (msg.trim() == 'invalid') {
                                 _self.usernameValidityDisplay.html("Tên đăng nhập đã tồn tại!");
                                 _self.usernameInput.get(0).setCustomValidity("Hãy chọn một tên đăng nhập khác."); // call get(0) to cast jQuery object to JavaScript in order to use JS setCustomValidity method

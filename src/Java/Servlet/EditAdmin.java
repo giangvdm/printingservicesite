@@ -6,7 +6,6 @@
 package Servlet;
 
 import DAO.AdminDAO;
-import DAO.UserDAO;
 import Model.Admin;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -41,6 +40,7 @@ public class EditAdmin extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
+        // no password provided => get current password
         if (password.equals("")) password = AdminDAO.getAdminById(id).getPassword();
         
         Admin tmpAdmin = new Admin(id, username, password);
@@ -52,6 +52,7 @@ public class EditAdmin extends HttpServlet {
         session.setAttribute("loggedIn", true);
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin-account.jsp");
+        request.setAttribute("action", "edit-admin");
         request.setAttribute("status", "success");
         dispatcher.forward(request, response);
     }

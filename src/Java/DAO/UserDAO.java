@@ -40,7 +40,7 @@ public class UserDAO {
             PreparedStatement ps = conn.prepareStatement("select * from [dbo].[User] where userName=?");  
             ps.setString(1,username);  
 
-            ResultSet result = ps.executeQuery();  
+            ResultSet result = ps.executeQuery();
             status = result.next();
 
         }catch(SQLException e){
@@ -250,5 +250,43 @@ public class UserDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return userList;
+    }
+    
+    public static ArrayList<User> getUser(int limit){
+        ArrayList<User> userList = new ArrayList<>();
+        String query = "SELECT TOP(?) * FROM [dbo].[User]";
+        conn = ConnectionManager.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, limit);
+            ResultSet result = ps.executeQuery();  
+            while(result.next()){
+                int id = result.getInt("id");              
+                String username = result.getString("userName");
+                String fullname = result.getString("fullname");
+                String email = result.getString("email");
+                String address = result.getString("address");
+                String phoneNumber = result.getString("phoneNumber");
+                
+                User user = new User(id, username, fullname, email, phoneNumber, address);
+                userList.add(user);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return userList;
+    }
+    
+    public static void deleteUser(User user){
+        String query = "DELETE FROM [dbo].[User] WHERE id=?";
+        try {         
+            conn = ConnectionManager.getConnection();
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, user.getId());
+            
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

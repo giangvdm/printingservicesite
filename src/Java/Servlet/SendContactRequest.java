@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlet;
 
-import DAO.UserDAO;
-import Model.User;
-import com.google.gson.Gson;
+import DAO.RequestDAO;
+import Model.Request;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.sql.Timestamp;
+import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,15 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Khanh
+ * @author vumin
  */
-public class CustomerCRUDServlet extends HttpServlet {
+public class SendContactRequest extends HttpServlet {
 
-    public String getJSONList(){
-        ArrayList<User> userList = UserDAO.getAllUser();
-        return new Gson().toJson(userList);
-    }
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,26 +28,22 @@ public class CustomerCRUDServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        try {
-            String action = request.getParameter("action");
-            if (action.equals("edit")) {
-                User tmpUser = UserDAO.adminGetUserById(Integer.parseInt(request.getParameter("id")));
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/edit-customer.jsp");
-                request.setAttribute("customer", tmpUser);
-                dispatcher.forward(request, response);
-            }
-            else if (action.equals("delete")) {
-                User tmpUser = UserDAO.adminGetUserById(Integer.parseInt(request.getParameter("id")));
-                UserDAO.deleteUser(tmpUser);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/manage-customer.jsp");
-                request.setAttribute("action", "delete-customer");
-                request.setAttribute("status", "success");
-                dispatcher.forward(request, response);
-            }
-        }
-        catch (IOException ex) {}
-
+        
+        String customerName = request.getParameter("customer-name");
+        String email = request.getParameter("customer-email");
+        String phoneNumber = request.getParameter("customer-phone");
+        String message = request.getParameter("message");
+        Date date = new Date();
+        Timestamp sendDate = new Timestamp(date.getTime());
+        
+        Request tmpRequest = new Request(customerName, email, phoneNumber, message, sendDate);
+        
+        RequestDAO.addRequest(tmpRequest);
+        
+        response.sendRedirect(request.getContextPath() + "/contact-success.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
