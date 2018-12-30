@@ -52,6 +52,10 @@ p {
   margin: 0;
 }
 
+td {
+  text-align: center;
+}
+
 /*
  * Layout rules
 */
@@ -330,13 +334,13 @@ p {
   font-size: 1.5rem;
   padding: 0 15px;
 }
-.action__button--view {
+.action__button--view, .action__button--download {
   color: #555;
 }
 .action__button--accept, .action__button--done {
   color: #00CC00;
 }
-.action__button--add, .action__button--edit, .action__button--pending {
+.action__button--add, .action__button--edit, .action__button--in-progress {
   color: #1EAEDB;
 }
 .action__button--delete, .action__button--reject, .action__button--cancel {

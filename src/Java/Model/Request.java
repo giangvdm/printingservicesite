@@ -17,7 +17,8 @@ public class Request {
     String email;
     String phoneNumber;
     String message;
-    Timestamp date;
+    Timestamp sendDate;
+    String status;
 
     public Request(int id, String customerName, String email, String phoneNumber, String message, Timestamp date) {
         this.id = id;
@@ -25,7 +26,7 @@ public class Request {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.message = message;
-        this.date = date;
+        this.sendDate = date;
     }
 
     public Request() {
@@ -36,7 +37,17 @@ public class Request {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.message = message;
-        this.date = date;
+        this.sendDate = date;
+    }
+
+    public Request(int id, String customerName, String email, String phoneNumber, String message, Timestamp sendDate, String status) {
+        this.id = id;
+        this.customerName = customerName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.message = message;
+        this.sendDate = sendDate;
+        this.status = status;
     }
 
     public int getId() {
@@ -75,17 +86,23 @@ public class Request {
         return message;
     }
 
-    public void getMessage(String message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getSendDate() {
+        return sendDate;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setSendDate(Timestamp date) {
+        this.sendDate = date;
     }
 
+    public String getStatus() {
+        return status;
+    }
     
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

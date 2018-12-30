@@ -8,18 +8,12 @@ package Servlet;
 import DAO.ConnectionManager;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -68,9 +62,9 @@ public class UploadServlet extends HttpServlet {
         return null;
     }
     
-    private void writeToDB(Connection conn, String fileName, InputStream is, String description, String username, String userPhone, String userMail) throws SQLException{
+    private void writeToDB(Connection conn, String fileName, InputStream is, String description, int id, String username, String userPhone, String userMail, String userAddress, int price) throws SQLException{
  
-        String sql = "INSERT INTO [dbo].[Order](filename,filedata,description,date,cus_name,cus_tel,cus_mail,status) " + " VALUES (?,?,?,?,?,?,?,?) ";
+        String sql = "INSERT INTO [dbo].[Order](filename,filedata,description,date,cus_id,cus_name,cus_email,cus_tel,cus_address,status,total) " + " VALUES (?,?,?,?,?,?,?,?,?,?,?) ";
         PreparedStatement pstm = conn.prepareStatement(sql);
         
         Calendar cal = Calendar.getInstance();
@@ -83,10 +77,13 @@ public class UploadServlet extends HttpServlet {
         pstm.setBlob(2, is);
         pstm.setString(3, description);
         pstm.setTimestamp(4, timestamp);
-        pstm.setString(5, username);
-        pstm.setString(6, userPhone);
+        pstm.setInt(5, id);
+        pstm.setString(6, username);
         pstm.setString(7, userMail);
-        pstm.setString(8, "pending");
+        pstm.setString(8, userPhone);
+        pstm.setString(9, userAddress);
+        pstm.setString(10, "pending");
+        pstm.setInt(11, price);
         pstm.executeUpdate();
     }
 
@@ -100,11 +97,24 @@ public class UploadServlet extends HttpServlet {
             conn = ConnectionManager.getConnection();     
             conn.setAutoCommit(false);
             
+            int cus_id = Integer.parseInt(request.getParameter("cus_id").trim());
             String name = request.getParameter("customer-name");
             String phone = request.getParameter("customer-tel");
             String mail = request.getParameter("customer-email");
+            String address = request.getParameter("customer-address");
             
-            String description = request.getParameter("extra-requirement");
+            int price = Integer.parseInt(request.getParameter("total").trim());
+            
+            String description = "number-of-pages:" + request.getParameter("number-of-pages") + 
+                    ";number-of-copies:" + request.getParameter("number-of-copies") +
+                    ";number-of-side:" + request.getParameter("number-of-side") +
+                    ";paper-size:" + request.getParameter("paper-size") +
+                    ";paper-quality:" + request.getParameter("paper-quality") +
+                    ";bookbinding:" + request.getParameter("bookbinding") +
+                    ";bookbinding-method:" + request.getParameter("bookbinding-method") +
+                    ";cover-quality:" + request.getParameter("cover-quality") +
+                    ";extra-requirement:" + request.getParameter("extra-requirement");
+            
  
             // Part list (multi files).
             for (Part part : request.getParts()) {
@@ -113,7 +123,7 @@ public class UploadServlet extends HttpServlet {
                     // File data
                     InputStream is = part.getInputStream();
                     // Write to file
-                    this.writeToDB(conn, fileName, is, description, name, phone, mail);
+                    this.writeToDB(conn, fileName, is, description, cus_id, name, phone, mail, address, price);
                 }
             }
             conn.commit();

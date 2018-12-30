@@ -76,7 +76,7 @@
                         <label class="form__label required" for="number-of-copies">Số bản</label>
                     </div>
                     <div class="seven columns">
-                        <input type="number" min="1" value="1" id="number-of-copies" required>
+                        <input type="number" min="1" value="1" name="number-of-copies" id="number-of-copies" required>
                     </div>
                 </div>
                 <div class="row form__line-wrapper">
@@ -110,7 +110,7 @@
                         <label class="form__label required" for="paper-quality">Chất liệu giấy ruột</label>
                     </div>
                     <div class="seven columns">
-                        <select name="paper" id="paper-quality" required>
+                        <select name="paper-quality" id="paper-quality" required>
                             <option value="bb60">Bãi bằng 60</option>
                             <option value="bb70">Bãi bằng 70</option>
                             <option value="offset60">Offset 60</option>
@@ -123,7 +123,7 @@
                         <label class="form__label" for="bookbinding">Đóng quyển</label>
                     </div>
                     <div class="seven columns">
-                        <input type="checkbox" value="no" id="bookbinding">
+                        <input type="checkbox" name="bookbinding" id="bookbinding">
                     </div>
                 </div>
                 <div class="row form__line-wrapper">
@@ -143,7 +143,7 @@
                         <label class="form__label" for="cover-quality">Chất liệu bìa</label>
                     </div>
                     <div class="seven columns">
-                        <select name="cover" id="cover-quality" required>
+                        <select name="cover-quality" id="cover-quality" required>
                             <option value="couches150">Couches 150</option>
                             <option value="couches200">Couches 200</option>
                             <option value="couches250">Couches 250</option>
@@ -155,7 +155,7 @@
                     <div class="five columns form__label-container">
                         <label class="form__label" for="extra-requirement" id="css-extraRequirementTooltip"><i class="far fa-question-circle theme__tooltip-icon"></i>
                             &nbsp;Yêu cầu khác
-                            <span class="tooltip__text">Some tooltipSome tooltipSome tooltipSome tooltipSome tooltip</span>
+                            <span class="tooltip__text">Các yêu cầu nằm ngoài đơn hàng sẽ được chúng tôi liên hệ tới quý khách hàng để trao đổi và tính giá theo thỏa thuận.</span>
                         </label>
                     </div>
                     <div class="seven columns">
@@ -175,6 +175,7 @@
             <!--Customer's info goes here-->
 
             <fieldset id="customer-info">
+                <input type="hidden" name="cus_id" value="${sessionScope.currentUser.getId()}">
                 <legend>Thông tin khách hàng</legend>
                 <div class="row form__line-wrapper">
                     <div class="five columns form__label-container">

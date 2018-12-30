@@ -1,3 +1,7 @@
+<%@page import="Model.Order"%>
+<%@page import="DAO.OrderDAO"%>
+<%@page import="Model.User"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +25,7 @@
         response.sendRedirect("login.jsp");
     }
 %>
+
 <body data-page-name="account">
     <!-- HEADER -->
     <%@ include file="includes/customer-header.jsp" %>
@@ -31,13 +36,37 @@
     <main class="main-content container" id="main-content">
         <h2 class="main-content__title">Tài khoản</h2>
 
-        <section class="section" id="order-history">
-            <h3 class="main-content__sub-title">Đơn hàng đã đặt</h3>
+        <div class="row">
+            <%
+                    if ("cancel-order".equalsIgnoreCase((String)request.getAttribute("action")) && "success".equalsIgnoreCase((String)request.getAttribute("status"))) {
+                %>
+            <div class="message_div">
+                <div class="dialog__container dialog__container--success">
+                    <div class="dialog__dismiss-button dialog__dismiss-button--success js-dialogDismissButton">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="dialog__content">
+                        <p>Hủy đơn hàng thành công!</p>
+                    </div>
+                </div>
+            </div>
+            <%  
+                    }
+                %>
+        </div>
 
-            <table id="order-list-table">
+        <section class="section">
+            <h3 class="main-content__sub-title">Đơn hàng đang chờ</h3>
+            <%
+                User customer = (User)session.getAttribute("currentUser");
+                int customerId = customer.getId();
+                ArrayList<Order> orderList = OrderDAO.selectOrderByCustomerId(customerId);
+            %>
+
+            <table class="crud-table" id="all-customers">
                 <thead>
                     <tr>
-                        <th>STT</th>
+                        <th>Mã số</th>
                         <th>Ngày đặt</th>
                         <th>Mô tả</th>
                         <th>Thành tiền</th>
@@ -46,23 +75,79 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    <% 
+                            for (int i = 0; i < orderList.size(); i++) {
+                                Order order = new Order();
+                                order = orderList.get(i);
+                        %>
+
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
                         <td>
-                            <button class="action__button action__button--view">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                            <button class="action__button action__button--cancel">
-                                <i class="fas fa-times"></i>
-                            </button>
+                            <%=order.getId()%>
+                        </td>
+                        <td>
+                            <%=order.getDate()%>
+                        </td>
+                        <td>
+                            <%
+                                    String[] orderRequirement = order.getDescription().split(";");
+                                    String[] fullRequirement = new String[orderRequirement.length];
+                                    for(int j = 0 ; j < 9; j++){
+                                        if(orderRequirement[j].split(":").length == 2){
+                                            fullRequirement[j] = orderRequirement[j].split(":")[1];
+                                        }
+                                        else {
+                                            fullRequirement[j] = "";
+                                        }
+                                        if (fullRequirement[j].equals("null") || fullRequirement[j].equals("")) fullRequirement[j] = "Không";
+                                    }
+                                    String stdDescription = "";
+                                    stdDescription += "Tổng số trang: " + fullRequirement[0] + ", ";
+                                    stdDescription += "Số bản: " + fullRequirement[1] + ", ";
+                                    stdDescription += "Số mặt in: " + fullRequirement[2] + ", ";
+                                    stdDescription += "Khổ giấy: " + fullRequirement[3] + ", ";
+                                    stdDescription += "Chất liệu giấy ruột: " + fullRequirement[4] + ", ";
+                                    stdDescription += "Đóng quyển: " + fullRequirement[5] + ", ";
+                                    stdDescription += "Quy cách: " + fullRequirement[6] + ", ";
+                                    stdDescription += "Chất liệu bìa: " + fullRequirement[7] + ", ";
+                                    stdDescription += "Yêu cầu khác: " + fullRequirement[8];
+                                %>
+                            <%= stdDescription %>
+                        </td>
+                        <td>
+                            <%=order.getTotal()%>
+                        </td>
+                        <td>
+                            <%=order.getStatus()%>
+                        </td>
+                        <td>
+                            <form class="action-form" action="CustomerViewOrder" method="GET">
+                                <input type="hidden" name="id" value="<%=order.getId()%>">
+                                <button type="submit" class="action__button action__button--view">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </form>
+                            <%
+                                if (order.getStatus().trim().equals("pending")) {
+                            %>
+                            <form class="action-form" action="CustomerCancelOrder" method="GET">
+                                <input type="hidden" name="id" value="<%=order.getId()%>">
+                                <button type="submit" class="action__button action__button--cancel" onclick="return confirm('Hủy đơn hàng?');">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </form>
+                            <%
+                                }
+                            %>
                         </td>
                     </tr>
+                    <%
+                            };
+                        %>
                 </tbody>
             </table>
+
         </section>
 
         <section class="section" id="profile">

@@ -102,7 +102,7 @@
             <table class="crud-table" id="all-customers">
                 <thead>
                     <tr>
-                        <th>STT</th>
+                        <th>ID</th>
                         <th>Tên đăng nhập</th>
                         <th>Họ và tên</th>
                         <th>Email</th>
@@ -115,8 +115,8 @@
 
                     <% 
                             for (int i = 0; i < userList.size(); i++) {
-                            User customer = new User();
-                            customer = userList.get(i);
+                                User customer = new User();
+                                customer = userList.get(i);
                         %>
 
                     <tr>
